@@ -1,0 +1,68 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/white_buttonstyle"
+    android:padding="6dp">
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/deal_one" />
+
+    <TextView
+        android:id="@+id/laundry_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/imageView1"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_toRightOf="@+id/imageView1"
+        android:maxLines="1"
+        android:text="Laundry Name"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/text_color"
+        android:textSize="19sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/laundry_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/laundry_name"
+        android:layout_alignRight="@+id/laundry_name"
+        android:layout_below="@+id/laundry_name"
+        android:maxLines="1"
+        android:text="Laundry Address"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/text_color"
+        android:textSize="17dp" />
+
+    <TextView
+        android:id="@+id/laundry_offer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/laundry_address"
+        android:layout_alignRight="@+id/laundry_address"
+        android:layout_below="@+id/laundry_address"
+        android:maxLines="2"
+        android:text="Laundry Offer"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/text_color"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/laundry_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/laundry_offer"
+        android:layout_alignRight="@+id/laundry_address"
+        android:layout_marginRight="20dp"
+        android:text="Medium Text"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:visibility="gone" />
+
+</RelativeLayout>

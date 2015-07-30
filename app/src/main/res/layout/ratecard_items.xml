@@ -1,0 +1,42 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/white_buttonstyle"
+    android:paddingBottom="2dp">
+
+    <TextView
+        android:id="@+id/textView_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/bgcolor_heading"
+        android:padding="5dp"
+        android:text="Item Name"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/textView_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView_item"
+        android:layout_toLeftOf="@+id/textView_amnt"
+        android:paddingLeft="5dp"
+        android:text="Medium Text"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/textView_amnt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView_item"
+        android:gravity="right"
+        android:paddingRight="5dp"
+        android:text="Medium Text\nhello"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+</RelativeLayout>

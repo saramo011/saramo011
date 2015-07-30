@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="EntryPointsManager">
+    <entry_points version="2.0" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectPlainTextFileTypeManager">
+    <file url="file://$PROJECT_DIR$/app/src/main/res/Removed/activity_comment.xml" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/Removed/activity_favourit.xml" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/Removed/activity_login_old.xml" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/Removed/activity_offline.xml" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/Removed/activity_register_old.xml" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/Removed/address.xml" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/Removed/deal.xml" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/Removed/drawable/back_but.xml" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/Removed/drawable/border_bottom.xml" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/Removed/drawable/border_top.xml" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/Removed/drawable/borderless.xml" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/Removed/drawable/custom_tab_indicator_mymusic.xml" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/Removed/drawable/customshape_but.xml" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/Removed/drawable/new_button_shape.xml" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/Removed/drawable/round_cor.xml" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/Removed/drawable/transperent_btn_with_border.xml" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/Removed/home_fragment.xml" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/Removed/invoice_items.xml" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/Removed/my_choice_row.xml" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/Removed/new_home_list_widgets.xml" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/Removed/new_home_offertype.xml" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/Removed/new_search.xml" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/Removed/pick_up.xml" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/Removed/ratecard_new.xml" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/Removed/ratecart_row.xml" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/Removed/ratecart_row_new.xml" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/Removed/raw_file.xml" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/Removed/search_laundry_fragment.xml" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/Removed/select_address.xml" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/Removed/splash.xml" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/Removed/tabs_viewpager_layout.xml" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" default="true" assert-keyword="true" jdk-15="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
