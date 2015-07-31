@@ -26,4 +26,11 @@
     <color name="text_medium_blue">#ff208da9</color>
     <color name="topbar_back">#2196f3</color>
     <color name="drawer_backblue">#004765</color>
+
+<!--30th july 2015 Sandeep Rana-->
+    <!-- color is used when not pressed -->
+    <color name="btn_bgcolor_dark">#004765</color>
+    <!-- color is used for button face-->
+    <color name="btn_bgcolor_light">#2196f3</color>
+
 </resources>

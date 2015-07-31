@@ -17,12 +17,6 @@
 package com.app.laundry.tabs.lib;
 
 
-
-import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
-import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
-
-import com.app.laundry.R;
-
 import android.content.Context;
 import android.graphics.Color;
 import android.support.v4.view.PagerAdapter;
@@ -35,46 +29,46 @@ import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.app.laundry.R;
+
+import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
+import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
+
 /**
  * This widget implements the dynamic action bar tab behavior that can change
  * across different configurations or circumstances.
  */
 public class TabPageIndicator2 extends HorizontalScrollView implements PageIndicator2 {
-    /** Title text used when no title is provided by the adapter. */
-    private static final CharSequence EMPTY_TITLE = "";
-
     /**
-     * Interface for a callback when the selected tab has been reselected.
+     * Title text used when no title is provided by the adapter.
      */
-    public interface OnTabReselectedListener {
-        /**
-         * Callback when the selected tab has been reselected.
-         *
-         * @param position Position of the current center item.
-         */
-        void onTabReselected(int position);
-    }
-
+    private static final CharSequence EMPTY_TITLE = "";
+    private final IcsLinearLayout2 mTabLayout;
     private Runnable mTabSelector;
-
+    private ViewPager mViewPager;
+    private OnPageChangeListener mListener;
+    private int mMaxTabWidth;
+    private int mSelectedTabIndex;
+    private TabView old_tab;
+    private OnTabReselectedListener mTabReselectedListener;
     private final OnClickListener mTabClickListener = new OnClickListener() {
         public void onClick(View view) {
-            TabView tabView = (TabView)view;
+            TabView tabView = (TabView) view;
             final int oldSelected = mViewPager.getCurrentItem();
             final int newSelected = tabView.getIndex();
-            
+
             old_tab.setBackgroundResource(R.drawable.tab_unselected);
             tabView.setBackgroundResource(R.drawable.tab_selected);
-            
-            old_tab=tabView;
-            
+
+            old_tab = tabView;
+
            /* if(oldSelected==0)
             {
             	old_tab.setBackgroundResource(R.drawable.unselected_search);
             	//old_tab=tabView;
             }
             else
-            	
+
             if(oldSelected==1)
             {
             	old_tab.setBackgroundResource(R.drawable.unselected_nearby);
@@ -100,20 +94,20 @@ public class TabPageIndicator2 extends HorizontalScrollView implements PageIndic
             	tabView.setBackgroundResource(R.drawable.selected_search);
             	//old_tab=tabView;
             }
-            
-            	
+
+
             if(newSelected==1)
             {
             	tabView.setBackgroundResource(R.drawable.selected_nearby);
             	//old_tab=tabView;
-            }else 
-            
+            }else
+
              if(newSelected==2)
             {
             	tabView.setBackgroundResource(R.drawable.selected_toprated);
             	//old_tab=tabView;
-            } 
-             
+            }
+
              if(newSelected==3)
             {
             	tabView.setBackgroundResource(R.drawable.selected_favourite);
@@ -124,25 +118,14 @@ public class TabPageIndicator2 extends HorizontalScrollView implements PageIndic
             	tabView.setBackgroundResource(R.drawable.selected_undeals);
             	//old_tab=tabView;
             }*/
-            
-          //  old_tab=tabView;
+
+            //  old_tab=tabView;
             mViewPager.setCurrentItem(newSelected);
             if (oldSelected == newSelected && mTabReselectedListener != null) {
                 mTabReselectedListener.onTabReselected(newSelected);
             }
         }
     };
-
-    private final IcsLinearLayout2 mTabLayout;
-
-    private ViewPager mViewPager;
-    private OnPageChangeListener mListener;
-
-    private int mMaxTabWidth;
-    private int mSelectedTabIndex;
-    private TabView old_tab;
-    private OnTabReselectedListener mTabReselectedListener;
-
     public TabPageIndicator2(Context context) {
         this(context, null);
     }
@@ -168,7 +151,7 @@ public class TabPageIndicator2 extends HorizontalScrollView implements PageIndic
         final int childCount = mTabLayout.getChildCount();
         if (childCount > 1 && (widthMode == MeasureSpec.EXACTLY || widthMode == MeasureSpec.AT_MOST)) {
             if (childCount > 2) {
-                mMaxTabWidth = (int)(MeasureSpec.getSize(widthMeasureSpec) * 0.4f);
+                mMaxTabWidth = (int) (MeasureSpec.getSize(widthMeasureSpec) * 0.4f);
             } else {
                 mMaxTabWidth = MeasureSpec.getSize(widthMeasureSpec) / 2;
             }
@@ -188,12 +171,12 @@ public class TabPageIndicator2 extends HorizontalScrollView implements PageIndic
 
     private void animateToTab(final int position) {
         final View tabView = mTabLayout.getChildAt(position);
-        TabView new_tabView = (TabView)tabView;
-       
-       old_tab.setBackgroundResource(R.drawable.tab_unselected);
+        TabView new_tabView = (TabView) tabView;
+
+        old_tab.setBackgroundResource(R.drawable.tab_unselected);
         new_tabView.setBackgroundResource(R.drawable.tab_selected);
-        old_tab=new_tabView;
-     
+        old_tab = new_tabView;
+
         if (mTabSelector != null) {
             removeCallbacks(mTabSelector);
         }
@@ -228,28 +211,26 @@ public class TabPageIndicator2 extends HorizontalScrollView implements PageIndic
         final TabView tabView = new TabView(getContext());
         tabView.mIndex = index;
         tabView.setFocusable(true);
-        
-        if(index==0)
-        {
-        	 tabView.setBackgroundResource(R.drawable.tab_selected);
-        	old_tab=tabView;
-        }
-        else   tabView.setBackgroundResource(R.drawable.tab_unselected);
-      
+
+        if (index == 0) {
+            tabView.setBackgroundResource(R.drawable.tab_selected);
+            old_tab = tabView;
+        } else tabView.setBackgroundResource(R.drawable.tab_unselected);
+
         /*{
-        	tabView.setBackgroundResource(R.drawable.unselected_search);
+            tabView.setBackgroundResource(R.drawable.unselected_search);
         	tabView.setBackgroundResource(R.drawable.unselected_nearby);
         	tabView.setBackgroundResource(R.drawable.unselected_toprated);
         	tabView.setBackgroundResource(R.drawable.unselected_favourite);
         	tabView.setBackgroundResource(R.drawable.unselected_deals);
         }
-        	
+
         if(index==1)
         {
         	tabView.setBackgroundResource(R.drawable.selected_nearby);
         	old_tab=tabView;
         }
-        else  
+        else
         {
         	tabView.setBackgroundResource(R.drawable.unselected_search);
         	tabView.setBackgroundResource(R.drawable.unselected_nearby);
@@ -257,13 +238,13 @@ public class TabPageIndicator2 extends HorizontalScrollView implements PageIndic
         	tabView.setBackgroundResource(R.drawable.unselected_favourite);
         	tabView.setBackgroundResource(R.drawable.unselected_deals);
         }
-        
+
         if(index==2)
         {
         	tabView.setBackgroundResource(R.drawable.selected_toprated);
         	old_tab=tabView;
         }
-        else  
+        else
         {
         	tabView.setBackgroundResource(R.drawable.unselected_search);
         	tabView.setBackgroundResource(R.drawable.unselected_nearby);
@@ -271,14 +252,14 @@ public class TabPageIndicator2 extends HorizontalScrollView implements PageIndic
         	tabView.setBackgroundResource(R.drawable.unselected_favourite);
         	tabView.setBackgroundResource(R.drawable.unselected_deals);
         }
-        
-        
+
+
         if(index==3)
         {
         	tabView.setBackgroundResource(R.drawable.selected_favourite);
         	old_tab=tabView;
         }
-        else  
+        else
         {
         	tabView.setBackgroundResource(R.drawable.unselected_search);
         	tabView.setBackgroundResource(R.drawable.unselected_nearby);
@@ -291,7 +272,7 @@ public class TabPageIndicator2 extends HorizontalScrollView implements PageIndic
         	tabView.setBackgroundResource(R.drawable.selected_undeals);
         	old_tab=tabView;
         }
-        else  
+        else
         {
         	tabView.setBackgroundResource(R.drawable.unselected_search);
         	tabView.setBackgroundResource(R.drawable.unselected_nearby);
@@ -355,7 +336,7 @@ public class TabPageIndicator2 extends HorizontalScrollView implements PageIndic
         PagerAdapter adapter = mViewPager.getAdapter();
         IconPagerAdapter2 iconAdapter = null;
         if (adapter instanceof IconPagerAdapter2) {
-            iconAdapter = (IconPagerAdapter2)adapter;
+            iconAdapter = (IconPagerAdapter2) adapter;
         }
         final int count = adapter.getCount();
         for (int i = 0; i < count; i++) {
@@ -404,6 +385,18 @@ public class TabPageIndicator2 extends HorizontalScrollView implements PageIndic
     @Override
     public void setOnPageChangeListener(OnPageChangeListener listener) {
         mListener = listener;
+    }
+
+    /**
+     * Interface for a callback when the selected tab has been reselected.
+     */
+    public interface OnTabReselectedListener {
+        /**
+         * Callback when the selected tab has been reselected.
+         *
+         * @param position Position of the current center item.
+         */
+        void onTabReselected(int position);
     }
 
     private class TabView extends TextView {

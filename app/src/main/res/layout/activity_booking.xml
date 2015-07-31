@@ -18,18 +18,13 @@
         android:textColor="@color/text_view"
         android:textSize="16sp" />
 
-    <RelativeLayout
-        android:id="@+id/relativeLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView_laundry_name"
-        android:layout_centerHorizontal="true">
-
         <LinearLayout
-            android:id="@+id/relativeLayout1"
+            android:id="@+id/relativeLayout2"
+            android:layout_below="@+id/textView_laundry_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:layout_centerHorizontal="true"
             android:orientation="vertical">
 
@@ -37,8 +32,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textView_laundry_name"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:layout_marginTop="7dp">
 
                 <TextView
@@ -73,8 +66,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textView_laundry_name"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+
                 android:layout_marginTop="7dp">
 
                 <TextView
@@ -108,8 +100,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textView_laundry_name"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:layout_marginTop="7dp">
 
                 <TextView
@@ -117,7 +107,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:text="QUANTITY"
+                    android:text="@string/quality"
                     android:textColor="@color/text_color"
                     android:textSize="14sp" />
 
@@ -157,13 +147,11 @@
                 android:layout_width="100dp"
                 android:layout_height="30dp"
                 android:layout_gravity="right"
-                android:layout_marginRight="10dp"
                 android:layout_marginTop="7dp"
-                android:background="@color/bgcolor_heading"
+                android:background="@drawable/button_selector"
                 android:text="ADD"
                 android:textColor="@color/button_title_color" />
         </LinearLayout>
-    </RelativeLayout>
 
 
     <RelativeLayout
@@ -279,7 +267,7 @@
         android:layout_below="@+id/listView1"
         android:layout_marginBottom="4dp"
         android:layout_marginTop="5dp"
-        android:background="@color/bgcolor_heading"
+        android:background="@drawable/button_selector"
         android:text="SUBMIT"
         android:textColor="@color/button_title_color" />
 

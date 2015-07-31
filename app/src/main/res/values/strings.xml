@@ -64,5 +64,6 @@
 
  <string name="network_title">""</string>
     <string name="network_message">"Unable to connect, Please check your network connection."</string>
+    <string name="quality">QUANTITY</string>
 
 </resources>

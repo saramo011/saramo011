@@ -16,9 +16,6 @@
 package com.app.laundry.tabs.lib;
 
 
-
-import com.app.laundry.R;
-
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
@@ -35,6 +32,8 @@ import android.util.FloatMath;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
+
+import com.app.laundry.R;
 
 /**
  * Draws a line for each page. The current page line is colored differently
@@ -92,7 +91,7 @@ public class LinePageIndicator2 extends View implements PageIndicator2 {
 
         Drawable background = a.getDrawable(R.styleable.LinePageIndicator2_android_background);
         if (background != null) {
-          setBackgroundDrawable(background);
+            setBackgroundDrawable(background);
         }
 
         a.recycle();
@@ -101,18 +100,12 @@ public class LinePageIndicator2 extends View implements PageIndicator2 {
         mTouchSlop = ViewConfigurationCompat.getScaledPagingTouchSlop(configuration);
     }
 
-
-    public void setCentered(boolean centered) {
-        mCentered = centered;
-        invalidate();
-    }
-
     public boolean isCentered() {
         return mCentered;
     }
 
-    public void setUnselectedColor(int unselectedColor) {
-        mPaintUnselected.setColor(unselectedColor);
+    public void setCentered(boolean centered) {
+        mCentered = centered;
         invalidate();
     }
 
@@ -120,8 +113,8 @@ public class LinePageIndicator2 extends View implements PageIndicator2 {
         return mPaintUnselected.getColor();
     }
 
-    public void setSelectedColor(int selectedColor) {
-        mPaintSelected.setColor(selectedColor);
+    public void setUnselectedColor(int unselectedColor) {
+        mPaintUnselected.setColor(unselectedColor);
         invalidate();
     }
 
@@ -129,13 +122,22 @@ public class LinePageIndicator2 extends View implements PageIndicator2 {
         return mPaintSelected.getColor();
     }
 
-    public void setLineWidth(float lineWidth) {
-        mLineWidth = lineWidth;
+    public void setSelectedColor(int selectedColor) {
+        mPaintSelected.setColor(selectedColor);
         invalidate();
     }
 
     public float getLineWidth() {
         return mLineWidth;
+    }
+
+    public void setLineWidth(float lineWidth) {
+        mLineWidth = lineWidth;
+        invalidate();
+    }
+
+    public float getStrokeWidth() {
+        return mPaintSelected.getStrokeWidth();
     }
 
     public void setStrokeWidth(float lineHeight) {
@@ -144,17 +146,13 @@ public class LinePageIndicator2 extends View implements PageIndicator2 {
         invalidate();
     }
 
-    public float getStrokeWidth() {
-        return mPaintSelected.getStrokeWidth();
+    public float getGapWidth() {
+        return mGapWidth;
     }
 
     public void setGapWidth(float gapWidth) {
         mGapWidth = gapWidth;
         invalidate();
-    }
-
-    public float getGapWidth() {
-        return mGapWidth;
     }
 
     @Override
@@ -352,8 +350,7 @@ public class LinePageIndicator2 extends View implements PageIndicator2 {
     /**
      * Determines the width of this view
      *
-     * @param measureSpec
-     *            A measureSpec packed into an int
+     * @param measureSpec A measureSpec packed into an int
      * @return The width of the view, honoring constraints from measureSpec
      */
     private int measureWidth(int measureSpec) {
@@ -373,14 +370,13 @@ public class LinePageIndicator2 extends View implements PageIndicator2 {
                 result = Math.min(result, specSize);
             }
         }
-        return (int)FloatMath.ceil(result);
+        return (int) FloatMath.ceil(result);
     }
 
     /**
      * Determines the height of this view
      *
-     * @param measureSpec
-     *            A measureSpec packed into an int
+     * @param measureSpec A measureSpec packed into an int
      * @return The height of the view, honoring constraints from measureSpec
      */
     private int measureHeight(int measureSpec) {
@@ -399,12 +395,12 @@ public class LinePageIndicator2 extends View implements PageIndicator2 {
                 result = Math.min(result, specSize);
             }
         }
-        return (int)FloatMath.ceil(result);
+        return (int) FloatMath.ceil(result);
     }
 
     @Override
     public void onRestoreInstanceState(Parcelable state) {
-        SavedState savedState = (SavedState)state;
+        SavedState savedState = (SavedState) state;
         super.onRestoreInstanceState(savedState.getSuperState());
         mCurrentPage = savedState.currentPage;
         requestLayout();
@@ -419,6 +415,18 @@ public class LinePageIndicator2 extends View implements PageIndicator2 {
     }
 
     static class SavedState extends BaseSavedState {
+        @SuppressWarnings("UnusedDeclaration")
+        public static final Creator<SavedState> CREATOR = new Creator<SavedState>() {
+            @Override
+            public SavedState createFromParcel(Parcel in) {
+                return new SavedState(in);
+            }
+
+            @Override
+            public SavedState[] newArray(int size) {
+                return new SavedState[size];
+            }
+        };
         int currentPage;
 
         public SavedState(Parcelable superState) {
@@ -435,18 +443,5 @@ public class LinePageIndicator2 extends View implements PageIndicator2 {
             super.writeToParcel(dest, flags);
             dest.writeInt(currentPage);
         }
-
-        @SuppressWarnings("UnusedDeclaration")
-        public static final Creator<SavedState> CREATOR = new Creator<SavedState>() {
-            @Override
-            public SavedState createFromParcel(Parcel in) {
-                return new SavedState(in);
-            }
-
-            @Override
-            public SavedState[] newArray(int size) {
-                return new SavedState[size];
-            }
-        };
     }
 }
