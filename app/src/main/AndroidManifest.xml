@@ -156,6 +156,7 @@
             android:screenOrientation="portrait" >
         </activity>
 
+        <!-- Sandeep Rana-->
     </application>
 
 </manifest>

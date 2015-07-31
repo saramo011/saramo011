@@ -72,7 +72,7 @@
                 android:layout_height="20dp"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="10dp"
-                android:background="@color/btn_bgcolor"
+                android:background="@drawable/button_selector"
                 android:padding="2dp"
                 android:text=""
                 android:textColor="@color/white"
@@ -123,7 +123,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="CALL"
+                    android:text="@string/call"
                     android:textColor="@color/white"
                     android:textSize="15sp" />
             </LinearLayout>
@@ -147,7 +147,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="FAVOURITE"
+                    android:text="@string/service"
                     android:textColor="@color/white"
                     android:textSize="15sp" />
             </LinearLayout>
@@ -171,7 +171,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="RATE"
+                    android:text="@string/rate"
                     android:textColor="@color/white"
                     android:textSize="15sp" />
             </LinearLayout>
@@ -231,9 +231,9 @@
         android:layout_below="@+id/map"
         android:layout_marginRight="5dp"
         android:layout_marginTop="10dp"
-        android:background="@color/btn_bgcolor"
+        android:background="@drawable/button_selector"
         android:padding="5dp"
-        android:text="PICK UP REQUEST"
+        android:text="@string/pickuprequest"
         android:textColor="#ffffff"
         android:textSize="15sp" />
 
@@ -244,9 +244,9 @@
         android:layout_alignParentLeft="true"
         android:layout_alignTop="@+id/button_pick_up_request"
         android:layout_marginLeft="5dp"
-        android:background="@color/btn_bgcolor"
+        android:background="@drawable/button_selector"
         android:padding="5dp"
-        android:text="RATE CARD"
+        android:text="@string/ratecard"
         android:textColor="#ffffff"
         android:textSize="15sp" />
 

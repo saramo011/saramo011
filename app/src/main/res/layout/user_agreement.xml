@@ -2,10 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bgcolor"
     android:layout_gravity="center"
-    android:padding="15dp"
-    android:orientation="vertical">
+    android:background="@color/bgcolor"
+    android:orientation="vertical"
+    android:padding="15dp">
 
     <TextView
         android:id="@+id/title"
@@ -20,11 +20,11 @@
 
     <TextView
 
-        android:gravity="center_horizontal"
         android:id="@+id/message"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:autoLink="all"
+        android:gravity="center_horizontal"
         android:text="Medium Text"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@color/text_color" />

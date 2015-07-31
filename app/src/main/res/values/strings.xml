@@ -64,6 +64,32 @@
 
  <string name="network_title">""</string>
     <string name="network_message">"Unable to connect, Please check your network connection."</string>
+<!--30th july 2015 Sandeep Rana-->
     <string name="quality">QUANTITY</string>
-
+    <string name="spot_mylaundry">SPOT MY LAUNDRY</string>
+    <string name="version">Version 1.0</string>
+    <string name="privacy_policy">PRIVACY POLICY</string>
+    <string name="terms_ofuse">TERMS OF USE</string>
+    <string name="item">ITEM</string>
+    <string name="service">SERVICE</string>
+    <string name="add">ADD</string>
+    <string name="item_tab">Item</string>
+    <string name="rate">RATE</string>
+    <string name="amt">AMT</string>
+    <string name="qty">QTY</string>
+    <string name="submit">SUBMIT</string>
+    <string name="call">CALL</string>
+    <string name="pickuprequest">PICK UP REQUEST</string>
+    <string name="ratecard">RATE CARD</string>
+    <string name="emailaddress">Email Address</string>
+    <string name="password">Password</string>
+    <string name="signin">SIGN IN</string>
+    <string name="rememberme">Remember Me</string>
+    <string name="newuser">NEW USER</string>
+    <string name="name">Name</string>
+    <string name="email">Email Address</string>
+    <string name="confirmemailaddress">Confirm Email Address</string>
+    <string name="mobile">Mobile</string>
+    <string name="phone">Phone</string>
+    <string name="address_small">Address</string>
 </resources>

@@ -4,39 +4,42 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_gravity="center"
         android:id="@+id/linearLayout1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_gravity="center"
         android:orientation="vertical"
         android:padding="10dp">
 
         <TextView
-            android:textStyle="bold"
-            android:text="SPOT MY LAUNDRY"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:gravity="center"
-            android:textColor="@color/text_dark_blue"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/spot_mylaundry"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/text_dark_blue"
+            android:textStyle="bold" />
+
         <TextView
 
-            android:typeface="monospace"
             android:id="@+id/textView_version"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
-            android:text="Version 1.0"
+            android:text="@string/version"
             android:textColor="@color/text_medium_blue"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:typeface="monospace" />
+
         <ImageView
-            android:layout_margin="10dp"
-            android:layout_gravity="center"
-            android:src="@drawable/icon"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:src="@drawable/icon" />
+
         <TextView
             android:id="@+id/textView_about"
             android:layout_width="wrap_content"
@@ -54,7 +57,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="15dp"
-            android:text="TERMS OF USE"
+            android:text="@string/terms_ofuse"
             android:textColor="@color/bgcolor_heading"
             android:textSize="@dimen/text_medium"
             android:textStyle="normal" />
@@ -66,7 +69,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
             android:clickable="true"
-            android:text="PRIVACY POLICY"
+            android:text="@string/privacy_policy"
             android:textColor="@color/bgcolor_heading"
             android:textSize="@dimen/text_large"
             android:textStyle="normal" />
