@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -39,33 +38,18 @@ public class LaundryFragment extends Fragment {
 
     Context mContext = null;
     String tabStr;
-    ArrayList<JSONObject> bannerArray = new ArrayList<JSONObject>();
 
-//	@Override
-//	public void onResume() {
-//		// TODO Auto-generated method stub
-//		super.onResume();
-//		if (tabStr.equals("favorite")){
-//			if(array_list.size()!=0)
-//			if(Network.HaveNetworkConnection(getActivity())){
-//				getAllOrders(tabStr);
-//				}
-//		}
-//	}
     Handler mHandler = new Handler();
     ListView listView_laundry;
     ProgressBar progressBar1;
     ImageView imageView_banner;
     ImageLoader imageLoader;
-    // Spinner spinner_city;
-    int oldSelectePos = 0;
-    boolean isLocationSelected = false;
+
     String str = "";
     JSONObject json;
     ArrayList<HashMap<String, String>> array_list = new ArrayList<HashMap<String, String>>();
     boolean loading_flag;
-    // private GoogleMap mMap;
-    View view;
+
     private EfficientAdapter list_ed;
 
     public static LaundryFragment newInstance() {
@@ -92,13 +76,8 @@ public class LaundryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_laundry, container,
-                false);
+        View view = inflater.inflate(R.layout.fragment_laundry, container, false);
 
-        //spinner_city = (Spinner) view.findViewById(R.id.spinner_city);
-        //spinner_city.setAdapter(new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_dropdown_item,Config.cityArray));
-
-        final TextView TextView_city = (TextView) view.findViewById(R.id.TextView_city);
         progressBar1 = (ProgressBar) view.findViewById(R.id.progressBar1);
         listView_laundry = (ListView) view.findViewById(R.id.listView_laundry);
 
@@ -112,12 +91,6 @@ public class LaundryFragment extends Fragment {
             mContext = getActivity();
 
         imageLoader = new ImageLoader(getActivity().getApplicationContext());
-
-        if (Network.HaveNetworkConnection(getActivity())) {
-            float ppi = getResources().getDisplayMetrics().density;
-            int height = (int) (90 * ppi);
-            imageView_banner.getLayoutParams().height = height;
-        }
 
         listView_laundry.setOnItemClickListener(new OnItemClickListener() {
             @Override
@@ -173,16 +146,10 @@ public class LaundryFragment extends Fragment {
                 }
                 JGetParsor j = new JGetParsor();
 
-
                 if (tabId.equals("nearby") && Config.nearby_json != null) {
                     json = Config.nearby_json;
 
-                }
-//				else if (tabId.equals("favorite") && Config.fav_json !=null){
-//					json=Config.fav_json;
-//					
-//				}
-                else if (tabId.equals("suggest") && Config.leading_json != null) {
+                } else if (tabId.equals("suggest") && Config.leading_json != null) {
                     json = Config.leading_json;
 
                 } else {
@@ -276,40 +243,6 @@ public class LaundryFragment extends Fragment {
         display.start();
     }
 
-    //
-//	public  void writeToFile(String fileName, String body)
-//    {
-//        FileOutputStream fos = null;
-//
-//        try {
-//            final File dir = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Error/" );
-//
-//            if (!dir.exists())
-//            {
-//                dir.mkdirs(); 
-//            }
-//
-//            final File myFile = new File(dir, fileName + ".txt");
-//
-//            if (!myFile.exists()) 
-//            {    
-//                myFile.createNewFile();
-//            }else{
-//            	myFile.delete();
-//            	myFile.createNewFile();
-//            }
-//
-//            fos = new FileOutputStream(myFile);
-//
-//            fos.write(body.getBytes());
-//            fos.close();
-//        } catch (IOException e) {
-//            // TODO Auto-generated catch block
-//            e.printStackTrace();
-//        }
-//    }
-//	//
-
     private void getBanner() {
         imageLoader = new ImageLoader(mContext);
         json = null;
@@ -366,13 +299,9 @@ public class LaundryFragment extends Fragment {
     }
 
     static class ViewHolder {
-        TextView textView_laundry_name, test;
+        TextView textView_laundry_name;
         TextView textView_description;
-        Button imageView_num;
-        ImageView background_imageView;
-        ImageView imageView_star1, imageView_star2, imageView_star3,
-                imageView_star4, imageView_star5;
-
+        ImageView imageView_star1, imageView_star2, imageView_star3, imageView_star4, imageView_star5;
     }
 
     private class EfficientAdapter extends BaseAdapter {
@@ -405,33 +334,20 @@ public class LaundryFragment extends Fragment {
             if (convertView == null || convertView.getTag() == null) {
                 convertView = mInflater.inflate(R.layout.laundary_row, null);
                 holder = new ViewHolder();
-                holder.test = (TextView) convertView
-                        .findViewById(R.id.test);
-                holder.textView_laundry_name = (TextView) convertView
-                        .findViewById(R.id.textView_laundry_name);
-                holder.textView_description = (TextView) convertView
-                        .findViewById(R.id.textView_description);
-                holder.imageView_num = (Button) convertView
-                        .findViewById(R.id.imageView_num);
-                holder.imageView_star1 = (ImageView) convertView
-                        .findViewById(R.id.imageView_star1);
-                holder.imageView_star2 = (ImageView) convertView
-                        .findViewById(R.id.imageView_star2);
-                holder.imageView_star3 = (ImageView) convertView
-                        .findViewById(R.id.imageView_star3);
-                holder.imageView_star4 = (ImageView) convertView
-                        .findViewById(R.id.imageView_star4);
-                holder.imageView_star5 = (ImageView) convertView
-                        .findViewById(R.id.imageView_star5);
-                holder.background_imageView = (ImageView) convertView
-                        .findViewById(R.id.imageView);
+
+                holder.textView_laundry_name = (TextView) convertView.findViewById(R.id.textView_laundry_name);
+                holder.textView_description = (TextView) convertView.findViewById(R.id.textView_description);
+
+                holder.imageView_star1 = (ImageView) convertView.findViewById(R.id.imageView_star1);
+                holder.imageView_star2 = (ImageView) convertView.findViewById(R.id.imageView_star2);
+                holder.imageView_star3 = (ImageView) convertView.findViewById(R.id.imageView_star3);
+                holder.imageView_star4 = (ImageView) convertView.findViewById(R.id.imageView_star4);
+                holder.imageView_star5 = (ImageView) convertView.findViewById(R.id.imageView_star5);
 
                 convertView.setTag(holder);
             } else {
                 holder = (ViewHolder) convertView.getTag();
             }
-
-            String str = "";
 
             holder.textView_laundry_name.setText(array_list.get(position).get("LaundryName"));
             holder.textView_description.setText(array_list.get(position).get("LaundryAddress"));
@@ -454,16 +370,10 @@ public class LaundryFragment extends Fragment {
 
                     if (rateHalf > 0)
                         second = rateHalf;
-
-
-                    str = "rf:" + rate + " ri:" + rateInt + " rh:" + rateHalf;
-                    holder.test.setText(str);
                 }
             } catch (NumberFormatException e) {
                 // TODO: handle exception
             }
-
-            //holder.imageView_num.setText((position + 1) + "");
 
             holder.imageView_star5.setImageResource(R.drawable.rating_before);
             holder.imageView_star4.setImageResource(R.drawable.rating_before);

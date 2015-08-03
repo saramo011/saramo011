@@ -495,7 +495,7 @@ public class RegisterActivity extends ActionBarActivity {
         // AlertDialog.Builder dialog = new AlertDialog.Builder(this);
 
 		/*
-		 * final Dialog dialog = new Dialog(NearByMetroActivity.this);
+         * final Dialog dialog = new Dialog(NearByMetroActivity.this);
 		 * dialog.setContentView(R.layout.activity_gps_popup);
 		 * dialog.getWindow().setBackgroundDrawable(new
 		 * ColorDrawable(android.graphics.Color.TRANSPARENT)); // set the custom

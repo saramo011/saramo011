@@ -19,11 +19,11 @@ public class TermsActivity extends ActionBarActivity {
         setContentView(R.layout.activity_terms);
 
         ActionBar bar = getSupportActionBar();
-        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#2196f3")));
+        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor(getResources().getString(R.string.action_bar_color))));
         bar.setDisplayShowHomeEnabled(true);
         bar.setDisplayHomeAsUpEnabled(true);
         bar.setHomeButtonEnabled(true);
-        bar.setTitle("Terms Of Use");
+        bar.setTitle(getResources().getString(R.string.terms_of_use));
 
         WebView webView1 = (WebView) findViewById(R.id.webView1);
         webView1.loadUrl("file:///android_asset/termsofuse.html");

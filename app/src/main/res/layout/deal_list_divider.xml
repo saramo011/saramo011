@@ -2,7 +2,7 @@
     android:id="@+id/ll"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:background="#2196f3"
+    android:background="@color/background_deal_list"
     android:orientation="vertical"
     android:padding="8dp">
 
@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Deals From Laundry"
+        android:text="@string/dealsfromlaunddry"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@color/white" />
 

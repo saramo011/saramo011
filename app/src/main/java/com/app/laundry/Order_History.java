@@ -282,7 +282,8 @@ public class Order_History extends Fragment {
             if (position % 2 == 0) {
                 holder.main.setBackgroundColor(Color.WHITE);
             } else {
-                holder.main.setBackgroundColor(Color.LTGRAY);
+                holder.main.setBackgroundColor(Color.parseColor(getResources().getString(R.string.light_grey)));
+                //this color can be edited from the string.xml file
             }
 
             String date = array_list.get(position).get("LaundryOrderDate");

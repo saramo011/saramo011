@@ -4,12 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
-import android.view.View;
-import android.widget.MediaController;
-import android.widget.VideoView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,10 +15,10 @@ public class SplashActivity extends Activity {
 
 
     protected boolean _active = true;
-    protected int _splashTime = 5000;
+    //    protected int _splashTime = 5000;
     SharedPreferences prefs;
     ArrayList<HashMap<String, String>> countResult = new ArrayList<HashMap<String, String>>();
-    Handler mHandler = new Handler();
+//    Handler mHandler = new Handler();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -31,15 +27,15 @@ public class SplashActivity extends Activity {
         setContentView(R.layout.activity_splash);
 
 
-        MediaController controller = new MediaController(SplashActivity.this);
-        controller.hide();
-        controller.setVisibility(View.GONE);
-        //Uri video = Uri.parse("android.resource://" + getPackageName() + "/"
-        //	+ R.raw.your_raw_file);
-        VideoView videoView = (VideoView) findViewById(R.id.videoView1);
-        videoView.setMediaController(controller);
-        videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.splash_video));
-        videoView.start();
+//        MediaController controller = new MediaController(SplashActivity.this);
+//        controller.hide();
+//        controller.setVisibility(View.GONE);
+//        //Uri video = Uri.parse("android.resource://" + getPackageName() + "/"
+//        //	+ R.raw.your_raw_file);
+//        VideoView videoView = (VideoView) findViewById(R.id.videoView1);
+//        videoView.setMediaController(controller);
+//        videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.splash_video));
+//        videoView.start();
 
 
         //ImageView img = (ImageView)findViewById(R.id.imageView1);
@@ -51,7 +47,7 @@ public class SplashActivity extends Activity {
         // Start the animation (looped playback by default).
         //frameAnimation.start();
     /*	String encodeName="Atal Buy�r";
-		try {
+        try {
 			encodeName = URLEncoder.encode("Atal Buy�r", "UTF-8").replace("+", " ");
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
@@ -95,51 +91,87 @@ public class SplashActivity extends Activity {
         Config.userid = prefs.getString("userid", "0");
         Config.latitude = prefs.getString("Latitude", "78");
         Config.longitude = prefs.getString("Longitude", "28");
-		
 
-		/*DatabaseHelper db = new DatabaseHelper(SplashActivity.this);
-		try {
-			db.createDataBase();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-*/
-        Thread splashTread = new Thread() {
+
+/**
+ * Async task anonymous class invocation for better handelation
+ * @author Sandeep Rana
+ * @date 1 Aug 2015
+ */
+        new AsyncTask<Void, Void, Void>() {
+
             @Override
-            public void run() {
+            protected Void doInBackground(Void... params) {
+                Thread.currentThread();  // to use async thread
                 try {
-                    int waited = 0;
-                    while (_active && (waited < _splashTime)) {
-                        sleep(100);
-                        if (_active) {
-                            waited += 100;
-                        }
-                    }
+                    Thread.sleep(500);
                 } catch (InterruptedException e) {
-                    // do nothing
-                } finally {
+                    e.printStackTrace();
+                }
+                return null;
+            }
 
-                    //if (Config.email.equals("")) {
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                super.onPostExecute(aVoid);
+                Intent intent = new Intent(SplashActivity.this, BaseFragmentActivity.class);
+//                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);//To clear up the Back stack
+
+//                startActivity(intent);
+                if (Config.email.equals("")) {
+
                     startActivity(new Intent(SplashActivity.this,
                             LoginActivity.class));
                     overridePendingTransition(R.anim.right_in, R.anim.left_out);
-                    //} else {
 
-                    //	Intent intent = new Intent(SplashActivity.this,
-                    //		BaseFragmentActivity.class);
+                } else {
 
-                    //	startActivity(intent);
+                    Intent intenti = new Intent(SplashActivity.this,
+                            BaseFragmentActivity.class);
 
-                    //}
+                    startActivity(intenti);
 
-                    finish();
                 }
+
             }
-        };
-        splashTread.start();
+        }.execute();
+
+        // finish();  //Activity no more required. It would be better to deallocate reference
+
+//        Thread splashTread = new Thread() {
+//            @Override
+//            public void run() {
+//                try {
+//                    int waited = 0;
+//                    while (_active && (waited < _splashTime)) {
+//                        sleep(10);
+//                        if (_active) {
+//                            waited += 10;
+//                        }
+//                    }
+//                } catch (InterruptedException e) {
+//                    // do nothing
+//                } finally {
+//
+//                    //if (Config.email.equals("")) {
+//                    startActivity(new Intent(SplashActivity.this,
+//                            LoginActivity.class));
+//                    overridePendingTransition(R.anim.right_in, R.anim.left_out);
+//                    //} else {
+//
+//                    //	Intent intent = new Intent(SplashActivity.this,
+//                    //		BaseFragmentActivity.class);
+//
+//                    //	startActivity(intent);
+//
+//                    //}
+//
+//                    finish();
+//                }
+//            }
+//        };
+//        splashTread.start();
 
     }
-
 
 }

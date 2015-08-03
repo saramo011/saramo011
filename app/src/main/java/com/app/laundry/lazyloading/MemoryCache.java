@@ -1,7 +1,6 @@
 package com.app.laundry.lazyloading;
 
 import android.graphics.Bitmap;
-import android.util.Log;
 
 import java.util.Collections;
 import java.util.Iterator;
@@ -24,7 +23,7 @@ public class MemoryCache {
 
     public void setLimit(long new_limit) {
         limit = new_limit;
-        Log.i(TAG, "MemoryCache will use up to " + limit / 1024. / 1024. + "MB");
+        // Log.i(TAG, "MemoryCache will use up to " + limit / 1024. / 1024. + "MB");
     }
 
     public Bitmap get(String id) {
@@ -35,7 +34,7 @@ public class MemoryCache {
             //NullPointerException sometimes happen here http://code.google.com/p/osmdroid/issues/detail?id=78 
             return cache.get(id);
         } catch (NullPointerException ex) {
-            ex.printStackTrace();
+            // ex.printStackTrace();
             return null;
         }
     }
@@ -48,7 +47,7 @@ public class MemoryCache {
 
 
         } catch (NullPointerException ex) {
-            ex.printStackTrace();
+            // ex.printStackTrace();
         }
     }
 
@@ -60,12 +59,12 @@ public class MemoryCache {
             size += getSizeInBytes(bitmap);
             checkSize();
         } catch (Throwable th) {
-            th.printStackTrace();
+            // th.printStackTrace();
         }
     }
 
     private void checkSize() {
-        Log.i(TAG, "cache size=" + size + " length=" + cache.size());
+        //Log.i(TAG, "cache size=" + size + " length=" + cache.size());
         if (size > limit) {
             Iterator<Entry<String, Bitmap>> iter = cache.entrySet().iterator();//least recently accessed item will be the first one iterated
             while (iter.hasNext()) {
@@ -75,7 +74,7 @@ public class MemoryCache {
                 if (size <= limit)
                     break;
             }
-            Log.i(TAG, "Clean cache. New size " + cache.size());
+            // Log.i(TAG, "Clean cache. New size " + cache.size());
         }
     }
 
@@ -85,7 +84,7 @@ public class MemoryCache {
             cache.clear();
             size = 0;
         } catch (NullPointerException ex) {
-            ex.printStackTrace();
+            // ex.printStackTrace();
         }
     }
 

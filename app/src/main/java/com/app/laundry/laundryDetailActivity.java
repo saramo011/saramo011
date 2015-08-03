@@ -390,7 +390,7 @@ public class laundryDetailActivity extends ActionBarActivity {
                                     textView_detail.setText(address);
                                     //
                                     /* double lat=Double.parseDouble(searchResult.getJSONObject(0).getString("LaundryLat"));
-									 double lon=Double.parseDouble(searchResult.getJSONObject(0).getString("LaundryLong"));
+                                     double lon=Double.parseDouble(searchResult.getJSONObject(0).getString("LaundryLong"));
 									 LatLng  latlong=new LatLng(lat, lon);
 									 mMap.addMarker(new MarkerOptions()
 							            .position(latlong));

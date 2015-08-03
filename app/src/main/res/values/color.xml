@@ -24,7 +24,7 @@
     <color name="text_dark_blue">#004765</color>
     <color name="brandColor">#f1c40f</color>
     <color name="text_medium_blue">#ff208da9</color>
-    <color name="topbar_back">#2196f3</color>
+    <color name="topbar_back">#004765</color>
     <color name="drawer_backblue">#004765</color>
 
 <!--30th july 2015 Sandeep Rana-->
@@ -32,5 +32,19 @@
     <color name="btn_bgcolor_dark">#004765</color>
     <!-- color is used for button face-->
     <color name="btn_bgcolor_light">#2196f3</color>
+    <color name="background_deal_list">#2196f3</color>
+    <color name="actionbarcolor">#ffffffff</color> // actionbarcolor is hardcode in file BaseFragmentActivity.java Line no 183
+    <color name="order_listitem_back">#e3e3e3</color>
+
+    <!-- Some light collors as utils-->
+    <color name="light_1">#00ffffff</color>
+    <color name="light_2">#57dde8f4</color>
+    <color name="light_3">#250add84</color>
+    <color name="light_4">#4bfffb5e</color>
+    <color name="light_5">#25ef08ff</color>
+    <color name="light_6">#11aaff00</color>
+    <color name="light_grey">#f6f6f6</color>
+    <color name="order_history_back_grey">#ffffff</color><!-- Please go to file strings.java (variable light_grey line no. 102) Order_history.java to edit the background color of the order history-->
+
 
 </resources>

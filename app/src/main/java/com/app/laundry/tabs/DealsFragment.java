@@ -12,7 +12,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.View.MeasureSpec;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -52,8 +51,6 @@ public class DealsFragment extends Fragment implements OnItemClickListener {
     ArrayList<HashMap<String, String>> all_list1;
     ArrayList<HashMap<String, String>> all_list2;
     JSONObject json;
-
-    ArrayList<JSONObject> bannerArray = new ArrayList<JSONObject>();
 
     Context mContext = null;
 
@@ -121,49 +118,19 @@ public class DealsFragment extends Fragment implements OnItemClickListener {
         imageView_banner = (ImageView) view.findViewById(R.id.imageView_banner);
         imageView_banner.setVisibility(View.GONE);
 
-
-        imageView_banner.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                // TODO Auto-generated method stub
-
-            }
-        });
-
-        imageLoader = new ImageLoader(getActivity()
-                .getApplicationContext());
+        imageLoader = new ImageLoader(getActivity().getApplicationContext());
         if (Network.HaveNetworkConnection(getActivity())) {
-            float ppi = getResources().getDisplayMetrics().density;
-            int height = (int) (90 * ppi);
-            imageView_banner.getLayoutParams().height = height;
             getBanner();
         }
 
         if (Network.HaveNetworkConnection(getActivity())) {
-            //getDeals();
             new loginAccess().execute();
         } else {
             AlertUtil alert = new AlertUtil();
-            alert.messageAlert(getActivity(),
-                    getResources()
-                            .getString(R.string.network_title),
-                    getResources().getString(
-                            R.string.network_message));
+            alert.messageAlert(getActivity(), getResources()
+                    .getString(R.string.network_title), getResources().getString(R.string.network_message));
         }
 
-	/*	webView = (WebView) view.findViewById(R.id.webView1);
-
-
-		final MyJavaScriptInterface myJavaScriptInterface
-    	= new MyJavaScriptInterface(getActivity());
-    webView.addJavascriptInterface(myJavaScriptInterface, "AndroidFunction");
-
-    webView.getSettings().setJavaScriptEnabled(true);
-    //webView.loadUrl("http://laundry.znsoftech.com/deals.php");
-   // webView.loadUrl("file:///android_asset/mypage.html");
-        startWebView(Config.Deals_Url);
-        */
         return view;
 
     }
@@ -176,13 +143,8 @@ public class DealsFragment extends Fragment implements OnItemClickListener {
         String laundry_name = ((TextView) view.findViewById(R.id.laundry_name)).getText().toString();
 
         if (laundry_id.contains("http:")) {
-            try {
-                //laundry_id.replaceAll("\\", "");
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(laundry_id));
-                startActivity(intent);
-            } catch (Exception e) {
-                //Toast.makeText(getActivity(), "Error: "+e, Toast.LENGTH_LONG).show();
-            }
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(laundry_id));
+            startActivity(intent);
         } else {
             Intent intent = new Intent(getActivity(), laundryDetailActivity.class);
             intent.putExtra("LaundryID", laundry_id);
@@ -190,7 +152,6 @@ public class DealsFragment extends Fragment implements OnItemClickListener {
             startActivity(intent);
             getActivity().overridePendingTransition(R.anim.right_in, R.anim.left_out);
         }
-        //overridePendingTransition(R.anim.right_in, R.anim.left_out);
     }
 
     private void getBanner() {
@@ -230,13 +191,9 @@ public class DealsFragment extends Fragment implements OnItemClickListener {
                             try {
                                 if (json.getInt("status") == 200) {
                                     JSONArray j_arr = json.getJSONArray("data");
-
                                     JSONObject j_obj = j_arr.getJSONObject(0);
                                     imageLoader.DisplayImage(j_obj.getString("BannerURL"), imageView_banner, false);
-
                                     Config.banner_json = json;
-                                    //JSONObject j_obj1=j_arr.getJSONObject(1);
-                                    //imageLoader.DisplayImage(j_obj1.getString("BannerURL"), imageView_small_banner, false);
                                 }
                             } catch (JSONException e) {
                                 // TODO Auto-generated catch block
@@ -259,74 +216,6 @@ public class DealsFragment extends Fragment implements OnItemClickListener {
             for (int i = 0; i < city_array_size; i++)
                 menu.findItem(i).setVisible(false);
     }
-	/*
-	private void startWebView(String url) {
-        
-        //Create new webview Client to show progress dialog
-        //When opening a url or click on link
-         
-        webView.setWebViewClient(new WebViewClient() {     
-            
-          
-            //If you will not use this method url links are opeen in new brower not in webview
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {             
-                view.loadUrl(url);
-                return true;
-            }
-        
-            //Show loader on url load
-            public void onLoadResource (WebView view, String url) {
-            	progressBar1.setVisibility(View.VISIBLE);
-            }
-            public void onPageFinished(WebView view, String url) {
-                	progressBar1.setVisibility(View.GONE);
-                
-                
-            }
-             
-        });
-          
-         // Javascript inabled on webview 
-      //  webView.getSettings().setJavaScriptEnabled(true);
-         
-        // Other webview options
-        /*
-        webView.getSettings().setLoadWithOverviewMode(true);
-        webView.getSettings().setUseWideViewPort(true);
-        webView.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
-        webView.setScrollbarFadingEnabled(false);
-        webView.getSettings().setBuiltInZoomControls(true);
-        */
-
-
-         
-        /*
-         String summary = "<html><body>You scored <b>192</b> points.</body></html>";
-         webview.loadData(summary, "text/html", null);
-         */
-
-    //Load url in webview
-    //  webView.loadUrl(url);
-
-
-    // }
-	
-	/*
-	public class MyJavaScriptInterface {
-		Context mContext;
-
-    MyJavaScriptInterface(Context c) {
-        mContext = c;
-    }
-    
-    public void openWebBrowser(String url){
-    	
-    	
-    	Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-    	startActivity(browserIntent);
-    }
- }
- */
 
     class loginAccess extends AsyncTask<String, String, String> {
 
@@ -369,7 +258,6 @@ public class DealsFragment extends Fragment implements OnItemClickListener {
                         all_list1.add(map1);
                     }
                     Config.deals_json = json;
-                    //check=Config.Item_Array.get(0)+Config.Service_Array.get(0)+Config.Amount_Array.get(0);
                 }
             } catch (JSONException e) {
                 //e.printStackTrace();
@@ -406,7 +294,6 @@ public class DealsFragment extends Fragment implements OnItemClickListener {
                         all_list2.add(map2);
                     }
                     Config.other_deals_json = json1;
-                    //check=Config.Item_Array.get(0)+Config.Service_Array.get(0)+Config.Amount_Array.get(0);
                 }
             } catch (JSONException e) {
                 //e.printStackTrace();
@@ -417,7 +304,6 @@ public class DealsFragment extends Fragment implements OnItemClickListener {
         }
 
         protected void onPostExecute(String file_url) {
-            //Toast.makeText(getApplicationContext(), file_url, Toast.LENGTH_SHORT).show();
             if (all_list1.size() > 0)
                 ll.setVisibility(View.VISIBLE);
             if (mContext == null)

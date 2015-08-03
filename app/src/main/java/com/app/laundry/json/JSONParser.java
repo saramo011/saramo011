@@ -1,7 +1,6 @@
 package com.app.laundry.json;
 
 import android.net.ParseException;
-import android.util.Log;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -26,7 +25,6 @@ public class JSONParser {
     static JSONArray jArray = null;
     static String json = "";
 
-    // constructor
     public JSONParser() {
 
     }
@@ -47,13 +45,13 @@ public class JSONParser {
             try {
                 response = client.execute(request);
             } catch (HttpHostConnectException e2) {
-                e2.printStackTrace();
+                // e2.printStackTrace();
             } catch (ClientProtocolException e1) {
                 // TODO Auto-generated catch block
-                e1.printStackTrace();
+                //  e1.printStackTrace();
             } catch (IOException e1) {
                 // TODO Auto-generated catch block
-                e1.printStackTrace();
+                //  e1.printStackTrace();
             }
             if (response != null) {
                 HttpEntity entity = response.getEntity();
@@ -62,19 +60,19 @@ public class JSONParser {
                     json = EntityUtils.toString(entity);
                 } catch (ParseException e1) {
                     // TODO Auto-generated catch block
-                    e1.printStackTrace();
+                    //  e1.printStackTrace();
                 } catch (IOException e1) {
                     // TODO Auto-generated catch block
-                    e1.printStackTrace();
+                    // e1.printStackTrace();
                 }
 
 
                 try {
                     jObj = new JSONObject(json);
-                    Log.v("jObj success---------------", "" + jObj);
+                    // Log.v("jObj success---------------", "" + jObj);
                 } catch (JSONException e) {
-                    Log.v("jObj---------------", "" + jObj);
-                    Log.v("JSON Parser", "Error parsing data " + e.toString());
+                    //  Log.v("jObj---------------", "" + jObj);
+                    // Log.v("JSON Parser", "Error parsing data " + e.toString());
                 }
             }
         }
@@ -83,99 +81,4 @@ public class JSONParser {
 
     }
 
-
-    public JSONArray getJSONArrayFromUrl(String url) {
-
-        json = null;
-        jObj = null;
-        jArray = null;
-        if (url != null) {
-            HttpClient client = new DefaultHttpClient();
-            // Perform a GET request for a JSON list
-
-            HttpUriRequest request = new HttpGet(url);
-
-            // Get the response that sends back
-            HttpResponse response = null;
-            try {
-                response = client.execute(request);
-            } catch (HttpHostConnectException e2) {
-                e2.printStackTrace();
-            } catch (ClientProtocolException e1) {
-                // TODO Auto-generated catch block
-                e1.printStackTrace();
-            } catch (IOException e1) {
-                // TODO Auto-generated catch block
-                e1.printStackTrace();
-            }
-            if (response != null) {
-                HttpEntity entity = response.getEntity();
-
-                try {
-                    json = EntityUtils.toString(entity);
-                } catch (ParseException e1) {
-                    // TODO Auto-generated catch block
-                    e1.printStackTrace();
-                } catch (IOException e1) {
-                    // TODO Auto-generated catch block
-                    e1.printStackTrace();
-                }
-
-
-                try {
-                    jArray = new JSONArray(json);
-                    Log.v("jObj success---------------", "" + jArray);
-                } catch (JSONException e) {
-                    Log.v("jObj---------------", "" + jArray);
-                    Log.v("JSON Parser", "Error parsing data " + e.toString());
-                }
-            }
-        }
-        // return JSON String
-        return jArray;
-
-    }
-
-    public String getBooleanResponceFromUrl(String url) {
-
-        json = "false";
-        jObj = null;
-        jArray = null;
-        if (url != null) {
-            HttpClient client = new DefaultHttpClient();
-            // Perform a GET request for a JSON list
-
-            HttpUriRequest request = new HttpGet(url);
-
-            // Get the response that sends back
-            HttpResponse response = null;
-            try {
-                response = client.execute(request);
-            } catch (HttpHostConnectException e2) {
-                e2.printStackTrace();
-            } catch (ClientProtocolException e1) {
-                // TODO Auto-generated catch block
-                e1.printStackTrace();
-            } catch (IOException e1) {
-                // TODO Auto-generated catch block
-                e1.printStackTrace();
-            }
-            if (response != null) {
-                HttpEntity entity = response.getEntity();
-
-                try {
-                    json = EntityUtils.toString(entity);
-                } catch (ParseException e1) {
-                    // TODO Auto-generated catch block
-                    e1.printStackTrace();
-                } catch (IOException e1) {
-                    // TODO Auto-generated catch block
-                    e1.printStackTrace();
-                }
-
-            }
-        }
-        return json;
-
-    }
 }

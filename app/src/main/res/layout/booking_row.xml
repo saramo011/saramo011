@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Item"
+            android:text="@string/item"
             android:textColor="@color/white"
             android:textSize="12dp" />
 
@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="DHS"
+            android:text="@string/dhs"
             android:textColor="@color/white"
             android:textSize="12dp" />
 
@@ -60,7 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Qnt"
+            android:text="@string/qty"
             android:textColor="@color/white"
             android:textSize="12dp" />
 

@@ -116,7 +116,7 @@ public class AlertUtil {
                 // if button is clicked, close the custom dialog
                 dialogButtonCancle.setOnClickListener(posCallback1);
                 /*dialogButtonCancle.setOnClickListener(new OnClickListener() {
-        			@Override
+                    @Override
         			public void onClick(View v) {
         				dialog.dismiss();
         			}

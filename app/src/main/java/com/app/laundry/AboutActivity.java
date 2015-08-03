@@ -1,57 +1,46 @@
 package com.app.laundry;
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuItem;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class AboutActivity extends ActionBarActivity {
+public class AboutActivity extends Fragment {
 
+    TextView title, message;
 
     @Override
-    public void onBackPressed() {
+    public void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
-        super.onBackPressed();
-        overridePendingTransition(R.anim.left_in, R.anim.right_out);
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
     }
 
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
 
+        View view = inflater.inflate(R.layout.activity_about, container, false);
 
-        ActionBar bar = getSupportActionBar();
-        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#2196f3")));
-        bar.setDisplayShowHomeEnabled(true);
-        bar.setDisplayHomeAsUpEnabled(true);
-        bar.setHomeButtonEnabled(true);
-        bar.setTitle("About Us");
-
-        TextView textView_about = (TextView) findViewById(R.id.textView_about);
-
-
-        //textView_about.setText(Html.fromHtml(getString(R.string.formatted))); This is for normal formatting like bold italic
+        TextView textView_about = (TextView) view.findViewById(R.id.textView_about);
         //TextViewJustify.justifyText(textView_about, 340f);
 
-        TextView textView_terms = (TextView) findViewById(R.id.textView_terms);
-        TextView textView_privacy = (TextView) findViewById(R.id.textView_privacy);
+        TextView textView_terms = (TextView) view.findViewById(R.id.textView_terms);
+        TextView textView_privacy = (TextView) view.findViewById(R.id.textView_privacy);
 
         textView_privacy.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
-                startActivity(new Intent(AboutActivity.this, PolicyActivity.class));
-                overridePendingTransition(R.anim.right_in, R.anim.left_out);
+                startActivity(new Intent(getActivity(), PolicyActivity.class));
+                getActivity().overridePendingTransition(R.anim.right_in, R.anim.left_out);
             }
         });
 
@@ -60,42 +49,21 @@ public class AboutActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
-                startActivity(new Intent(AboutActivity.this, TermsActivity.class));
-                overridePendingTransition(R.anim.right_in, R.anim.left_out);
+                startActivity(new Intent(getActivity(), TermsActivity.class));
+                getActivity().overridePendingTransition(R.anim.right_in, R.anim.left_out);
             }
         });
 
-
+        return view;
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.home_menu, menu);
-        return true;
-    }
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        if (id == android.R.id.home) {
-            onBackPressed();
-            return true;
-
-        } else if (id == R.id.direct_to_home) {
-            startActivity(new Intent(AboutActivity.this,
-                    BaseFragmentActivity.class));
-            overridePendingTransition(R.anim.right_in, R.anim.left_out);
-        }
-
-        return super.onOptionsItemSelected(item);
+        int city_array_size = Config.cityArray.size();
+        if (city_array_size > 0)
+            for (int i = 0; i < city_array_size; i++)
+                menu.findItem(i).setVisible(false);
     }
 }
-
-	
-
-

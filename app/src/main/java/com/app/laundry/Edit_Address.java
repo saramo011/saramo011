@@ -47,6 +47,7 @@ public class Edit_Address extends Fragment {
     ImageView imageView_banner, imageView_small_banner;
     ImageLoader imageLoader;
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub

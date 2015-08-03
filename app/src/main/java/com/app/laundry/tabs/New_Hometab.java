@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -48,7 +47,7 @@ public class New_Hometab extends Fragment {
     ArrayList<HashMap<String, String>> array_list = new ArrayList<HashMap<String, String>>();
     ArrayList<HashMap<String, String>> array_list1 = new ArrayList<HashMap<String, String>>();
     Context mContext = null;
-    String str = "";
+
     boolean loading_flag;
     private Addadapter list_adapter;
 
@@ -109,6 +108,7 @@ public class New_Hometab extends Fragment {
                     getResources()
                             .getString(R.string.network_title),
                     getResources().getString(
+
                             R.string.network_message));
         }
 
@@ -143,9 +143,6 @@ public class New_Hometab extends Fragment {
 
                 if (json_latest_offer != null) {
                     try {
-                        Log.w("json_latest_offer", json_latest_offer.toString());
-                        //tv1.setText(json.toString());
-                        str += "json_latest_offer: " + json_latest_offer.toString();
                         if (json_latest_offer.getInt("status") == 200) {
                             JSONArray json_array = json_latest_offer.getJSONArray("data");
                             for (int i = 0; i < json_array.length(); i++) {
@@ -167,16 +164,12 @@ public class New_Hometab extends Fragment {
                         // TODO Auto-generated catch block
                         getAllAddresses();
                         loading_flag = true;
-                        Log.w("json_latest_offer e", e.toString());
                         return;
                     }
                 }
 
                 if (json_new_laundry != null) {
                     try {
-                        Log.w("json_new_laundry", json_new_laundry.toString());
-                        //tv2.setText(json1.toString());
-                        str += "\n\n\n\njson_new_laundry: " + json_new_laundry.toString();
                         if (json_new_laundry.getInt("status") == 200) {
                             JSONArray json_array = json_new_laundry.getJSONArray("data");
                             for (int i = 0; i < json_array.length(); i++) {
@@ -196,10 +189,8 @@ public class New_Hometab extends Fragment {
                         }
                     } catch (JSONException e) {
                         // TODO Auto-generated catch block
-
                         getAllAddresses();
                         loading_flag = true;
-                        Log.w("json_new_laundry e", e.toString());
                         return;
 
                     }
@@ -249,40 +240,6 @@ public class New_Hometab extends Fragment {
         display.start();
     }
 
-//	//
-//	public  void writeToFile(String fileName, String body)
-//    {
-//        FileOutputStream fos = null;
-//
-//        try {
-//            final File dir = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Error/" );
-//
-//            if (!dir.exists())
-//            {
-//                dir.mkdirs(); 
-//            }
-//
-//            final File myFile = new File(dir, fileName + ".txt");
-//
-//            if (!myFile.exists()) 
-//            {    
-//                myFile.createNewFile();
-//            }else{
-//            	myFile.delete();
-//            	myFile.createNewFile();
-//            }
-//
-//            fos = new FileOutputStream(myFile);
-//
-//            fos.write(body.getBytes());
-//            fos.close();
-//        } catch (IOException e) {
-//            // TODO Auto-generated catch block
-//            e.printStackTrace();
-//        }
-//    }
-//	//
-
     private void getBanner() {
         json_banner = null;
         final Thread image_url = new Thread() {
@@ -326,8 +283,6 @@ public class New_Hometab extends Fragment {
 
                                     JSONObject j_obj1 = j_arr.getJSONObject(1);
                                     imageLoader.DisplayImage(j_obj1.getString("BannerURL"), imageView_small_banner, false);
-
-                                    //list_adapter.notifyDataSetChanged();
                                     Config.banner_json = json_banner;
                                 }
                             } catch (JSONException e) {
@@ -343,7 +298,6 @@ public class New_Hometab extends Fragment {
     }
 
     static class ViewHolder {
-        //TextView textView_number;
         ImageView imageView1, imageView2;
         TextView textView1, textView2, latest_offer_id, new_laundry_id;
 
@@ -421,9 +375,6 @@ public class New_Hometab extends Fragment {
                     imageLoader.DisplayImage(array_list.get(position).get("DealImage"), holder.imageView1, false);
                 }
 
-                //String url="http://thumb1.shutterstock.com/photos/display_pic_with_logo/1131845/182358728.jpg";
-                //if(array_list.get(position).get("DealImage").length()>5)
-
             }
 
             if (position < array_list1.size()) {
@@ -436,7 +387,6 @@ public class New_Hometab extends Fragment {
                 holder.new_laundry_id.setText(array_list1.get(position).get("LaundryID"));
 
                 if (array_list1.get(position).get("LaundryImage").length() > 5) {
-                    //String url=array_list1.get(position).get("LaundryImage").replaceAll("\\", "");
                     imageLoader.DisplayImage(array_list1.get(position).get("LaundryImage"), holder.imageView2, false);
                 }
 
@@ -478,14 +428,4 @@ public class New_Hometab extends Fragment {
         }
 
     }
-
-//	@Override
-//	public void onResume() {
-//		if(array_list.size()!=0 && array_list1.size()!=0){
-//			list_adapter.notifyDataSetChanged();
-//		}
-//		else{
-//			getAllAddresses();
-//		}
-//	}
 }

@@ -36,18 +36,18 @@ public class ImageLoader {
     ExecutorService executorService;
     Handler handler = new Handler();//handler to display images in UI thread
 
-	
-	/*public Bitmap displayBitmap(String url){
-		Bitmap bitmap=memoryCache.get(url);
-		if(bitmap == null){
-			System.out.println("image from server>>>>>>>>>>...... ");
-			bitmap = getBitmap(url);
-			memoryCache.put(url, bitmap);
-		}else{
-			System.out.println("image from memory cache>>>>>>>>>>...... ");
-		}
-		return bitmap;
-	}*/
+
+    /*public Bitmap displayBitmap(String url){
+        Bitmap bitmap=memoryCache.get(url);
+        if(bitmap == null){
+            System.out.println("image from server>>>>>>>>>>...... ");
+            bitmap = getBitmap(url);
+            memoryCache.put(url, bitmap);
+        }else{
+            System.out.println("image from memory cache>>>>>>>>>>...... ");
+        }
+        return bitmap;
+    }*/
     private Map<ImageView, String> imageViews = Collections.synchronizedMap(new WeakHashMap<ImageView, String>());
 
     public ImageLoader(Context context) {
@@ -104,7 +104,7 @@ public class ImageLoader {
             bitmap = decodeFile(f);
             return bitmap;
         } catch (Throwable ex) {
-            ex.printStackTrace();
+            // ex.printStackTrace();
             if (ex instanceof OutOfMemoryError)
                 memoryCache.clear();
             return null;
@@ -122,7 +122,7 @@ public class ImageLoader {
             stream1.close();
 
             //Find the correct scale value. It should be the power of 2.
-			/* final int REQUIRED_SIZE=210;
+            /* final int REQUIRED_SIZE=210;
             int width_tmp=o.outWidth, height_tmp=o.outHeight;
             int scale=1;
             while(true){
@@ -142,7 +142,7 @@ public class ImageLoader {
             return bitmap;
         } catch (FileNotFoundException e) {
         } catch (IOException e) {
-            e.printStackTrace();
+            //  e.printStackTrace();
         }
         return null;
     }
@@ -200,7 +200,7 @@ public class ImageLoader {
                 BitmapDisplayer bd = new BitmapDisplayer(finalBitmap, photoToLoad);
                 handler.post(bd);
             } catch (Throwable th) {
-                th.printStackTrace();
+                //  th.printStackTrace();
             }
         }
     }

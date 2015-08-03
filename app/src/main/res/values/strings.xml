@@ -2,14 +2,8 @@
 <resources>
 
     <string name="app_name">Spot My Laundry</string>
-    <string name="action_settings">Settings</string>
          <string name="drawer_open">Slider Menu Opened</string>
     <string name="drawer_close">Slider Menu Closed</string>
-    
-     <string name="facebook">http://www.facebook.com</string>
-      <string name="twitter">http://www.twitter.com</string>
-       <string name="google">http://www.google.com</string>
-        <string name="pintrest">http://www.pinterest.com</string>
 
     <!-- Nav Drawer Menu Items -->
     <string-array name="nav_drawer_items">
@@ -73,7 +67,7 @@
     <string name="item">ITEM</string>
     <string name="service">SERVICE</string>
     <string name="add">ADD</string>
-    <string name="item_tab">Item</string>
+    <string name="item_tab">ITEM</string>
     <string name="rate">RATE</string>
     <string name="amt">AMT</string>
     <string name="qty">QTY</string>
@@ -92,4 +86,19 @@
     <string name="mobile">Mobile</string>
     <string name="phone">Phone</string>
     <string name="address_small">Address</string>
+    <string name="signup">SIGN UP</string>
+    <string name="country">Country</string>
+    <string name="dealsfromlaunddry">Deals From Laundry</string>
+    <string name="laundryname">Laundry Name</string>
+    <string name="dhs">DHS</string>
+    <string name="date">DATE</string>
+    <string name="orderid">ORDER ID</string>
+    <string name="amount">AMOUNT</string>
+
+    <!-- Mohsin Bhai-->
+    <string name="ok">OK</string>
+    <string name="action_bar_color">#2196f3</string>
+    <string name="terms_of_use">Terms Of Use</string>
+    <string name="light_grey">#57dde8f4</string>
+
 </resources>

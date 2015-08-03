@@ -22,7 +22,7 @@
         android:layout_marginRight="10dp"
         android:layout_toRightOf="@+id/imageView1"
         android:maxLines="1"
-        android:text="Laundry Name"
+        android:text="@string/laundryname"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@color/text_color"
         android:textSize="19sp"

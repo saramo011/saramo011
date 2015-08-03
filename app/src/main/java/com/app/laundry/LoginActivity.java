@@ -11,10 +11,8 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.View.OnTouchListener;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -53,7 +51,7 @@ public class LoginActivity extends ActionBarActivity {
         bar.setDisplayHomeAsUpEnabled(false);
         bar.setHomeButtonEnabled(false);
         bar.setTitle("Sign In");
-
+        bar.hide();
 
         prefs = this.getSharedPreferences("Settings", Context.MODE_PRIVATE);
         editor = prefs.edit();
@@ -78,8 +76,11 @@ public class LoginActivity extends ActionBarActivity {
 
         TextView txt_register = (TextView) findViewById(R.id.textView_new_user);
         String str = "NEW USER";
+
+
         SpannableString content = new SpannableString(str);
         content.setSpan(new UnderlineSpan(), 0, str.length(), 0);
+
         txt_register.setText(content);
         txt_register.setOnClickListener(new OnClickListener() {
 
@@ -94,23 +95,23 @@ public class LoginActivity extends ActionBarActivity {
             }
         });
 
-        txt_register.setOnTouchListener(new OnTouchListener() {
-
-            @Override
-            public boolean onTouch(View view, MotionEvent event) {
-                // TODO Auto-generated method stub
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN:
-                        ((TextView) view).setTextColor(0xFF2489CE); //white
-                        break;
-                    case MotionEvent.ACTION_CANCEL:
-                    case MotionEvent.ACTION_UP:
-                        ((TextView) view).setTextColor(0xFFFFFFFF); //black
-                        break;
-                }
-                return false;
-            }
-        });
+//        txt_register.setOnTouchListener(new OnTouchListener() {
+//
+//            @Override
+//            public boolean onTouch(View view, MotionEvent event) {
+//                // TODO Auto-generated method stub
+//                switch (event.getAction()) {
+//                    case MotionEvent.ACTION_DOWN:
+//                        ((TextView) view).setTextColor(0xFF2489CE); //white
+//                        break;
+//                    case MotionEvent.ACTION_CANCEL:
+//                    case MotionEvent.ACTION_UP:
+//                        ((TextView) view).setTextColor(0xFFFFFFFF); //black
+//                        break;
+//                }
+//                return false;
+//            }
+//        });
 
 		/*TextView txt_forgot = (TextView) findViewById(R.id.textView_forgot);
         txt_forgot.setOnClickListener(new OnClickListener() {
@@ -123,7 +124,7 @@ public class LoginActivity extends ActionBarActivity {
 			}
 		});
 		*/
-		
+
 		
 		/*txt_forgot.setOnTouchListener(new OnTouchListener() {
 			

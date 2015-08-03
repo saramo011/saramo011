@@ -372,7 +372,7 @@ public class Manage_Address extends Fragment {
 
                 holder.textView1 = (TextView) convertView.findViewById(R.id.textView1);
             /*	holder.textView4 = (TextView)convertView.findViewById(R.id.textView4);
-				holder.textView2 = (TextView)convertView.findViewById(R.id.textView2);
+                holder.textView2 = (TextView)convertView.findViewById(R.id.textView2);
 				*/
                 holder.imageView1 = (ImageView) convertView.findViewById(R.id.imageView1);
                 holder.imageViewDiscard = (ImageView) convertView.findViewById(R.id.imageViewDiscard);

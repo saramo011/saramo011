@@ -126,6 +126,7 @@ public class TabPageIndicator2 extends HorizontalScrollView implements PageIndic
             }
         }
     };
+
     public TabPageIndicator2(Context context) {
         this(context, null);
     }

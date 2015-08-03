@@ -179,7 +179,7 @@ public class BaseFragmentActivity extends ActionBarActivity {
 
 
         bar = getSupportActionBar();
-        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#2196f3")));
+        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#004765")));
         bar.setDisplayShowHomeEnabled(true);
 
         try {
@@ -295,7 +295,7 @@ public class BaseFragmentActivity extends ActionBarActivity {
         mDrawerList.setAdapter(adapter);
 
         // enabling action bar app icon and behaving it as toggle button
-		/*
+        /*
 		 * getActionBar().setDisplayHomeAsUpEnabled(true);
 		 * getActionBar().setHomeButtonEnabled(true);
 		 *
@@ -345,14 +345,19 @@ public class BaseFragmentActivity extends ActionBarActivity {
                 fragmentManager3.beginTransaction()
                         .replace(R.id.frame_container, fragment, "home").commit();
                 //}
-
+                fragmentManager3.popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
                 mDrawerLayout.closeDrawer(mDrawerList);
+
                 break;
             case 7: {
                 mDrawerLayout.closeDrawer(mDrawerList);
-                startActivity(new Intent(BaseFragmentActivity.this,
-                        AboutActivity.class));
-                overridePendingTransition(R.anim.right_in, R.anim.left_out);
+                FragmentManager fragmentManager1 = getSupportFragmentManager();
+
+                fragmentManager1.popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                fragment = new AboutActivity();
+                FragmentManager fragmentManager_about = getSupportFragmentManager();
+                fragmentManager_about.beginTransaction()
+                        .replace(R.id.frame_container, fragment, "About").addToBackStack("home").commit();
                 break;
             }
             case 3:

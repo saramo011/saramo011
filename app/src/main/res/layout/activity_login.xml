@@ -4,10 +4,30 @@
     android:layout_centerHorizontal="true"
     android:layout_gravity="center"
     android:gravity="center"
+    android:background="@drawable/splash_back"
     android:padding="40dp"
     android:paddingBottom="50dp">
 
+    <ImageView
+        android:id="@+id/image_icon_login"
+        android:src="@drawable/ic_ico_high"
+        android:layout_centerHorizontal="true"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
+    <TextView
+        android:id="@+id/textview_login_title"
+        android:layout_below="@+id/image_icon_login"
+        android:layout_width="match_parent"
+        android:text="SPOT MY LAUNDRY"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:typeface="sans"
+        android:textStyle="bold"
+        android:layout_margin="10dp"
+        android:textColor="@color/white"
+        android:layout_height="wrap_content" />
     <EditText
+        android:layout_below="@+id/textview_login_title"
         android:id="@+id/editText_username"
         android:layout_width="match_parent"
         android:layout_height="35dp"
@@ -45,7 +65,7 @@
         android:layout_height="35dp"
         android:layout_below="@+id/EditText_password"
         android:layout_marginTop="15dp"
-        android:background="@color/bgcolor_heading"
+        android:background="@drawable/button_selector"
         android:text="@string/signin"
         android:textColor="@color/button_title_color" />
 
@@ -59,15 +79,17 @@
         android:text="@string/rememberme"
         android:textSize="14sp" />
 
-    <TextView
 
+    <TextView
         android:id="@+id/textView_new_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageView_remember"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="26dp"
         android:padding="10dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/newuser"
-        android:textColor="@color/bgcolor_heading" />
+        android:textColor="@color/white" />
 </RelativeLayout>

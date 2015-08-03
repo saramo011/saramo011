@@ -9,6 +9,7 @@
         android:id="@+id/direct_to_home"
         android:icon="@drawable/home"
         android:title="Home"
+         android:visible="false"
         app:showAsAction="always"/>
   
   

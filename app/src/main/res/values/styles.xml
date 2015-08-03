@@ -15,11 +15,11 @@
     <style name="MyActionBar"
            parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
         <item name="android:background">#00000000</item>
-        
 
-      
+
+
     </style>
-    
+
     
     
       

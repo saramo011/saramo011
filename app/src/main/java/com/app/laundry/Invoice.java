@@ -181,6 +181,29 @@ public class Invoice extends Fragment {
 
                                         String[] date = jo_order_titles.getString("LaundryOrderDate").split("\\s");
 
+
+
+
+                                        //Lets format the string for address
+
+                                        String pickUpaddr[] = pickup_address.split(",");
+                                        if (pickUpaddr.length != 0) {
+                                            pickup_address = "";
+                                            if (pickUpaddr[0] != null) {
+                                                pickup_address = pickup_address + "<br>" + pickUpaddr[0];
+                                            }
+                                            if (pickUpaddr[1] != null) {
+                                                pickup_address = pickup_address + "," + pickUpaddr[1];
+                                            }
+                                            if (pickUpaddr[2] != null) {
+                                                pickup_address = pickup_address + ",<br><b>, " + pickUpaddr[2];
+                                            }
+                                            if (pickUpaddr[3] != null) {
+                                                pickup_address = pickup_address + "</b>" + pickUpaddr[3];
+                                            }
+                                        }
+
+
                                         String titles = "<b>Date:</b> " + date[0] + "<br><b>Order Id:</b> " + LaundryOrderID + "<br><b>Pick-up Address:</b> " + pickup_address + "<br><b>Drop-Off Address:</b> " + drop_address + "";
                                         tv2.setText(Html.fromHtml(titles));
                                         laundryId = jo_order_titles.getString("LaundryID");
