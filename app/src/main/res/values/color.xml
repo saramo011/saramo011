@@ -45,6 +45,8 @@
     <color name="light_6">#11aaff00</color>
     <color name="light_grey">#f6f6f6</color>
     <color name="order_history_back_grey">#ffffff</color><!-- Please go to file strings.java (variable light_grey line no. 102) Order_history.java to edit the background color of the order history-->
-
+    <color name="check">#2192b0</color>
+    <!-- 1 Aug 2015-->
+    <color name="topbar_light_pressed">#2196f3</color>
 
 </resources>

@@ -32,8 +32,6 @@ public class RateCart extends ActionBarActivity {
     ListView lv;
     ArrayList<HashMap<String, String>> all_list;
 
-    JSONArray searchResult = new JSONArray();
-    JSONObject jsonObj = new JSONObject();
     JSONObject json;
     Handler mHandler = new Handler();
 
@@ -45,16 +43,15 @@ public class RateCart extends ActionBarActivity {
         setContentView(R.layout.ratecard);
 
         ActionBar bar = getSupportActionBar();
-        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#2196f3")));
+        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor(getResources().getString(R.string.action_bar_color))));
         bar.setDisplayShowHomeEnabled(true);
         bar.setDisplayHomeAsUpEnabled(true);
         bar.setHomeButtonEnabled(true);
-        bar.setTitle("Rate Card");
+        bar.setTitle(getResources().getString(R.string.rate_card));
 
         lv = (ListView) findViewById(R.id.listView1);
         Intent intent = getIntent();
         laundryId = intent.getExtras().getString("LaundryID");
-        //Toast.makeText(this, "laundryId:"+laundryId, Toast.LENGTH_LONG).show();
         all_list = new ArrayList<HashMap<String, String>>();
 
         new loginAccess().execute();
@@ -87,8 +84,7 @@ public class RateCart extends ActionBarActivity {
             return true;
 
         } else if (id == R.id.direct_to_home) {
-            startActivity(new Intent(RateCart.this,
-                    BaseFragmentActivity.class));
+            startActivity(new Intent(RateCart.this, BaseFragmentActivity.class));
             overridePendingTransition(R.anim.right_in, R.anim.left_out);
         }
         return super.onOptionsItemSelected(item);
@@ -98,8 +94,7 @@ public class RateCart extends ActionBarActivity {
     class loginAccess extends AsyncTask<String, String, String> {
 
         protected void onPreExecute() {
-            ProgressDialogClass.showProgressDialog(RateCart.this,
-                    "Loading...");
+            ProgressDialogClass.showProgressDialog(RateCart.this, getResources().getString(R.string.loading));
         }
 
         @Override
@@ -126,29 +121,24 @@ public class RateCart extends ActionBarActivity {
                         String service = jo.getString("LaundryServiceName");
                         String amount = jo.getString("Amount");
 
-                        // String rate_id=jo.getString("LaundryRateID");
-                        // int index=Integer.parseInt(rate_id);
                         Config.Item_Array.add(i, item);
                         Config.Service_Array.add(i, service);
                         Config.Amount_Array.add(i, amount);
                     }
                 }
             } catch (JSONException e) {
-                e.printStackTrace();
+                // e.printStackTrace();
             }
             return check;
         }
 
         protected void onPostExecute(String file_url) {
-            int index = 0;
             String item = "";
             String service = "";
             String rate = "";
 
-
             for (int i = 0; i < Config.Item_Array.size(); i++) {
                 item = Config.Item_Array.get(i);
-
 
                 if (i != (Config.Item_Array.size() - 1) && item.equals(Config.Item_Array.get(i + 1))) {
                     service += "\n" + Config.Service_Array.get(i);
@@ -158,7 +148,7 @@ public class RateCart extends ActionBarActivity {
                     rate += "\n" + Config.Amount_Array.get(i) + "\n";
 
                     HashMap<String, String> map = new HashMap<String, String>();
-                    //item=Config.Item_Array.get(i);
+
                     map.put("textView_item", item);
                     map.put("textView_service", service);
                     map.put("textView_amnt", rate);
@@ -171,7 +161,6 @@ public class RateCart extends ActionBarActivity {
 
             }
 
-            //
             ListAdapter adapter = new SimpleAdapter(RateCart.this, all_list, R.layout.ratecard_items, new String[]{"textView_item", "textView_service", "textView_amnt"}, new int[]{R.id.textView_item, R.id.textView_service, R.id.textView_amnt});
             lv.setAdapter(adapter);
             ProgressDialogClass.dismissProgressDialog();

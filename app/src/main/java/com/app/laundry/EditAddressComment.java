@@ -33,7 +33,7 @@ import java.util.List;
 
 public class EditAddressComment extends ActionBarActivity {
     String AddressID, UserID, AddressName, CityID, CountryID, ContactNo, AddressLine1, AddressLine2,
-            AddressLine3, countryName, CityName, DefaultAddress;
+            AddressLine3, countryName, CityName;
 
     JSONObject json, json1, json2;
     ArrayList<String> city = new ArrayList<String>();
@@ -59,11 +59,11 @@ public class EditAddressComment extends ActionBarActivity {
         setContentView(R.layout.new_edit_address);
 
         ActionBar bar = getSupportActionBar();
-        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#2196f3")));
+        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor(getResources().getString(R.string.action_bar_color))));
         bar.setDisplayShowHomeEnabled(true);
         bar.setDisplayHomeAsUpEnabled(true);
         bar.setHomeButtonEnabled(true);
-        bar.setTitle("Edit Address");
+        bar.setTitle(getResources().getString(R.string.edit_address));
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
 
@@ -121,19 +121,19 @@ public class EditAddressComment extends ActionBarActivity {
                 AddressName = add_name.getText().toString();
 
                 if (AddressName.length() < 2) {
-                    Toast.makeText(EditAddressComment.this, "Enter short name!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditAddressComment.this, getResources().getString(R.string.enter_address_title), Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 AddressLine1 = add_lane1.getText().toString();
                 if (AddressLine1.length() < 4) {
-                    Toast.makeText(EditAddressComment.this, "Enter correct Address!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditAddressComment.this, getResources().getString(R.string.enter_correct_address), Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 ContactNo = cont_no.getText().toString();
                 if (ContactNo.length() < 5) {
-                    Toast.makeText(EditAddressComment.this, "Enter correct contact!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditAddressComment.this, getResources().getString(R.string.enter_correct_contact), Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -163,7 +163,7 @@ public class EditAddressComment extends ActionBarActivity {
 
     protected void updateDefault() {
         // TODO Auto-generated method stub
-        ProgressDialogClass.showProgressDialog(EditAddressComment.this, "Saving...");
+        ProgressDialogClass.showProgressDialog(EditAddressComment.this, getResources().getString(R.string.saving));
         json = null;
         final Thread update = new Thread() {
             @SuppressWarnings("deprecation")
@@ -204,7 +204,7 @@ public class EditAddressComment extends ActionBarActivity {
                             if (json != null) {
                                 try {
                                     if (json.getInt("status") == 200) {
-                                        Toast.makeText(EditAddressComment.this, "Saved!", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(EditAddressComment.this, getResources().getString(R.string.saved), Toast.LENGTH_SHORT).show();
                                         Intent i = new Intent(EditAddressComment.this, CommentActivity.class);
                                         i.putExtra("laundryArray", laundryArray);
                                         i.putExtra("laundryId", laundryId);
@@ -285,7 +285,7 @@ public class EditAddressComment extends ActionBarActivity {
 
     private void update_city_country() {
         // TODO Auto-generated method stub
-        ProgressDialogClass.showProgressDialog(EditAddressComment.this, "Loading...");
+        ProgressDialogClass.showProgressDialog(EditAddressComment.this, getResources().getString(R.string.loading));
         final Thread getdata = new Thread() {
             public void run() {
                 List<NameValuePair> params = new ArrayList<NameValuePair>();

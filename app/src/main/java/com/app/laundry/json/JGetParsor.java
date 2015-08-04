@@ -40,6 +40,10 @@ public class JGetParsor {
                 HttpPost httpPost = new HttpPost(url);
                 httpPost.setEntity(new UrlEncodedFormEntity(params));
 
+//                HttpURLConnection urlConnection=
+
+
+
                 HttpResponse httpResponse = httpClient.execute(httpPost);
                 HttpEntity httpEntity = httpResponse.getEntity();
                 is = httpEntity.getContent();

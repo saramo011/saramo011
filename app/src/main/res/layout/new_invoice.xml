@@ -25,26 +25,32 @@
         android:padding="8dp"
         android:text="Laundry"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@color/text_color" />
+        android:textColor="@color/white" />
 
 
+    <ScrollView
+        android:id="@+id/text_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_below="@+id/textView1"
+        android:labelFor="@id/textView1">
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
         android:lineSpacingMultiplier="1.2"
         android:padding="10dp"
         android:text=" "
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="@color/text_color" />
-
+    </ScrollView>
 
     <LinearLayout
+
         android:id="@+id/main_invoice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView2"
+        android:layout_below="@+id/text_scroll"
         android:background="#004765"
         android:gravity="center"
         android:padding="5dp"
@@ -100,23 +106,19 @@
             android:gravity="center"
             android:text="@string/amount"
             android:textAppearance="?android:attr/textAppearanceSmall"
-
             android:textColor="@color/white" />
-
     </LinearLayout>
-
     <ListView
         android:id="@+id/listView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/rel_bot_button"
-        android:layout_below="@+id/main_invoice"
+        android:layout_above="@id/button1"
+        android:layout_below="@id/main_invoice"
         android:layout_marginBottom="1dp"
         android:layout_marginTop="1dp"
         android:background="@color/bgcolor"
         android:divider="@color/bgcolor"
         android:dividerHeight="1dp"/>
-
     <Button
         android:id="@+id/button1"
         android:layout_width="fill_parent"

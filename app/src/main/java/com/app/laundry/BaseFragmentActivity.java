@@ -1,5 +1,6 @@
 package com.app.laundry;
 
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -50,8 +51,6 @@ public class BaseFragmentActivity extends ActionBarActivity {
     private ListView mDrawerList;
     private ActionBarDrawerToggle mDrawerToggle;
     private Fragment fragment = null;
-    // nav drawer title
-    private CharSequence mDrawerTitle;
     // used to store app title
     private CharSequence mTitle;
 
@@ -61,6 +60,7 @@ public class BaseFragmentActivity extends ActionBarActivity {
 
     private ArrayList<NavDrawerItem> navDrawerItems;
     private NavDrawerListAdapter adapter;
+
     private ActionMode.Callback mActionModeCallback = new ActionMode.Callback() {
 
         @Override
@@ -70,14 +70,14 @@ public class BaseFragmentActivity extends ActionBarActivity {
             MenuInflater inflater = mode.getMenuInflater();
             inflater.inflate(R.menu.main1, menu);
 
-
             MenuItem searchItem = menu.findItem(R.id.edt_mySearch);
             RelativeLayout m = (RelativeLayout) MenuItemCompat.getActionView(searchItem);
-            SearchView mSearchView = (SearchView) m
-                    .findViewById(R.id.edt_search);
+            SearchView mSearchView = (SearchView) m.findViewById(R.id.edt_search);
+
             mSearchView.setIconifiedByDefault(false);
             mSearchView.setFocusable(true);
             mSearchView.requestFocusFromTouch();
+
             mSearchView.setOnQueryTextFocusChangeListener(new View.OnFocusChangeListener() {
                 @Override
                 public void onFocusChange(View view, boolean hasFocus) {
@@ -93,20 +93,19 @@ public class BaseFragmentActivity extends ActionBarActivity {
                 public boolean onQueryTextSubmit(String s) {
 
                     actionMode.finish();
-                    Intent intent = new Intent(BaseFragmentActivity.this,
-                            SearchActivity.class);
-                    intent.putExtra("SearchText", s);
 
+                    Intent intent = new Intent(BaseFragmentActivity.this, SearchActivity.class);
+                    intent.putExtra("SearchText", s);
                     startActivity(intent);
                     overridePendingTransition(R.anim.right_in, R.anim.left_out);
+
                     InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                     if (inputManager != null) {
                         View view = getCurrentFocus();
                         if (view != null) {
                             IBinder token = view.getWindowToken();
                             if (token != null)
-                                inputManager.hideSoftInputFromWindow(token,
-                                        InputMethodManager.HIDE_NOT_ALWAYS);
+                                inputManager.hideSoftInputFromWindow(token, InputMethodManager.HIDE_NOT_ALWAYS);
                         }
                     }
 
@@ -144,8 +143,7 @@ public class BaseFragmentActivity extends ActionBarActivity {
                         if (view != null) {
                             IBinder token = view.getWindowToken();
                             if (token != null)
-                                inputManager.hideSoftInputFromWindow(token,
-                                        InputMethodManager.HIDE_NOT_ALWAYS);
+                                inputManager.hideSoftInputFromWindow(token, InputMethodManager.HIDE_NOT_ALWAYS);
                         }
                     }
                     return false;
@@ -165,21 +163,8 @@ public class BaseFragmentActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragmrnt_activity_main);
 
-		/*
-         * HomeFragment fragment = new HomeFragment();
-		 *
-		 * // adding fragment to relative layout by using layout id
-		 * FragmentTransaction ft =
-		 * getSupportFragmentManager().beginTransaction();
-		 * //getFragmentManager().beginTransaction().add(android.R.id.content,
-		 * details) ft.add(R.id.fragmentLeft, fragment);
-		 * ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-		 * ft.commit();
-		 */
-
-
         bar = getSupportActionBar();
-        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#004765")));
+        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor(getResources().getString(R.string.action_bar_color))));
         bar.setDisplayShowHomeEnabled(true);
 
         try {
@@ -195,27 +180,18 @@ public class BaseFragmentActivity extends ActionBarActivity {
             // Ignore
         }
 
-
-        //bar.setIcon(R.drawable.ic_launcher);
         bar.setDisplayHomeAsUpEnabled(true);
         bar.setHomeButtonEnabled(true);
-
-
-        //SpannableString s = new SpannableString("Name On Cake");
-        //s.setSpan(new TypefaceSpan1(MainActivity.this, "GrandHotel-Regular.ttf"), 0, s.length(),
-        //      Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        //s.setSpan(new RelativeSizeSpan(1.4f), 0, s.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         bar.setTitle(getString(R.string.app_name));
 
 
-        mTitle = mDrawerTitle = getTitle();
+        mTitle = getTitle();
 
         // load slide menu items
         navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items);
 
         // nav drawer icons from resources
-        navMenuIcons = getResources()
-                .obtainTypedArray(R.array.nav_drawer_icons);
+        navMenuIcons = getResources().obtainTypedArray(R.array.nav_drawer_icons);
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.list_slidermenu);
@@ -243,8 +219,6 @@ public class BaseFragmentActivity extends ActionBarActivity {
         mDrawerLayout.post(new Runnable() {
             @Override
             public void run() {
-
-
                 android.content.res.Resources resources = getResources();
                 float width = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 150, resources.getDisplayMetrics());
                 DrawerLayout.LayoutParams params = (DrawerLayout.LayoutParams) mDrawerList.getLayoutParams();
@@ -261,69 +235,35 @@ public class BaseFragmentActivity extends ActionBarActivity {
 
         // adding nav drawer items to array
         // Home
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[0], navMenuIcons
-                .getResourceId(0, -1)));
+        navDrawerItems.add(new NavDrawerItem(navMenuTitles[0], navMenuIcons.getResourceId(0, -1)));
         // Find People
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[1], navMenuIcons
-                .getResourceId(1, -1)));
+        navDrawerItems.add(new NavDrawerItem(navMenuTitles[1], navMenuIcons.getResourceId(1, -1)));
         // Photos
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons
-                .getResourceId(2, -1)));
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons
-                .getResourceId(3, -1)));
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons
-                .getResourceId(4, -1)));
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons
-                .getResourceId(5, -1)));
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[6], navMenuIcons
-                .getResourceId(6, -1)));
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[7], navMenuIcons
-                .getResourceId(7, -1)));
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[8], navMenuIcons
-                .getResourceId(8, -1)));
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[9], navMenuIcons
-                .getResourceId(9, -1)));
+        navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons.getResourceId(2, -1)));
+        navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons.getResourceId(3, -1)));
+        navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons.getResourceId(4, -1)));
+        navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons.getResourceId(5, -1)));
+        navDrawerItems.add(new NavDrawerItem(navMenuTitles[6], navMenuIcons.getResourceId(6, -1)));
+        navDrawerItems.add(new NavDrawerItem(navMenuTitles[7], navMenuIcons.getResourceId(7, -1)));
+        navDrawerItems.add(new NavDrawerItem(navMenuTitles[8], navMenuIcons.getResourceId(8, -1)));
+        navDrawerItems.add(new NavDrawerItem(navMenuTitles[9], navMenuIcons.getResourceId(9, -1)));
 
         // Recycle the typed array
         navMenuIcons.recycle();
-
         mDrawerList.setOnItemClickListener(new SlideMenuClickListener());
 
         // setting the nav drawer list adapter
-        adapter = new NavDrawerListAdapter(getApplicationContext(),
-                navDrawerItems);
+        adapter = new NavDrawerListAdapter(getApplicationContext(), navDrawerItems);
         mDrawerList.setAdapter(adapter);
-
-        // enabling action bar app icon and behaving it as toggle button
-        /*
-		 * getActionBar().setDisplayHomeAsUpEnabled(true);
-		 * getActionBar().setHomeButtonEnabled(true);
-		 *
-		 * mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
-		 * R.drawable.ic_drawer, //nav menu toggle icon R.string.app_name, //
-		 * nav drawer open - description for accessibility R.string.app_name //
-		 * nav drawer close - description for accessibility ) { public void
-		 * onDrawerClosed(View view) { getActionBar().setTitle(mTitle); //
-		 * calling onPrepareOptionsMenu() to show action bar icons
-		 * invalidateOptionsMenu(); }
-		 *
-		 * public void onDrawerOpened(View drawerView) {
-		 * getActionBar().setTitle(mDrawerTitle); // calling
-		 * onPrepareOptionsMenu() to hide action bar icons
-		 * invalidateOptionsMenu(); } };
-		 */
-
 
         if (savedInstanceState == null) {
             // on first time display view for first nav item
             displayView(0);
         }
 
-
         fragment = new HomeFragment();
         FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.frame_container, fragment, "home").commit();
+        fragmentManager.beginTransaction().replace(R.id.frame_container, fragment, "home").commit();
     }
 
     /**
@@ -331,59 +271,45 @@ public class BaseFragmentActivity extends ActionBarActivity {
      */
     private void displayView(final int position) {
         // update the main content by replacing fragments
-
+        FragmentManager fragmentManager = getSupportFragmentManager();
         switch (position) {
             case 0:
-                // mDrawerLayout.closeDrawer(mDrawerList);
-                // fragment = new HomeFragment();
-//			if(HomeFragment.pager!=null)
-//				HomeFragment.pager.setCurrentItem(0);
-//			else{
-                //mDrawerLayout.closeDrawer(mDrawerList);
                 fragment = new HomeFragment();
-                FragmentManager fragmentManager3 = getSupportFragmentManager();
-                fragmentManager3.beginTransaction()
-                        .replace(R.id.frame_container, fragment, "home").commit();
-                //}
-                fragmentManager3.popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                fragmentManager.beginTransaction().replace(R.id.frame_container, fragment, "home").commit();
+                //Remove all fragment back stacks
+                fragmentManager.popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
                 mDrawerLayout.closeDrawer(mDrawerList);
 
                 break;
             case 7: {
                 mDrawerLayout.closeDrawer(mDrawerList);
-                FragmentManager fragmentManager1 = getSupportFragmentManager();
-
-                fragmentManager1.popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
                 fragment = new AboutActivity();
-                FragmentManager fragmentManager_about = getSupportFragmentManager();
-                fragmentManager_about.beginTransaction()
-                        .replace(R.id.frame_container, fragment, "About").addToBackStack("home").commit();
+                fragmentManager.beginTransaction().replace(R.id.frame_container, fragment, "About").addToBackStack("home").commit();
                 break;
             }
             case 3:
                 mDrawerLayout.closeDrawer(mDrawerList);
-                startActivity(new Intent(Intent.ACTION_VIEW,
-                        Uri.parse("market://details?id="
-                                + getApplicationContext().getPackageName())));
+                try {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + getApplicationContext().getPackageName())));
+                } catch (ActivityNotFoundException e) {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + getApplicationContext().getPackageName())));
+                }
                 break;
             case 4: {
                 mDrawerLayout.closeDrawer(mDrawerList);
                 Intent i = new Intent(Intent.ACTION_SEND);
                 i.setType("text/plain");
-                i.putExtra(Intent.EXTRA_SUBJECT,
-                        getResources().getString(R.string.app_name));
-                String sAux = "Check out Spot My Laundry for your smartphone to get laundry service at your doorstep at \n\n";
-                sAux = sAux + "https://play.google.com/store/apps/details?id="
-                        + getApplicationContext().getPackageName() + " \n";
+                i.putExtra(Intent.EXTRA_SUBJECT, getResources().getString(R.string.app_name));
+                String sAux = getResources().getString(R.string.share_with_friends_text);
+                sAux = sAux + "\n\nhttps://play.google.com/store/apps/details?id=" + getApplicationContext().getPackageName();
                 i.putExtra(Intent.EXTRA_TEXT, sAux);
-                startActivity(Intent.createChooser(i, "choose one"));
+                startActivity(Intent.createChooser(i, getResources().getString(R.string.choose_one)));
             }
             break;
             case 5: {
                 mDrawerLayout.closeDrawer(mDrawerList);
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri
-                        .parse("mailto:" + "ahmad.asjad@znsoftech.com"));
-                intent.putExtra(Intent.EXTRA_SUBJECT, "Error in Laundry App");
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:" + getResources().getString(R.string.report_issue_mail_id)));
+                intent.putExtra(Intent.EXTRA_SUBJECT, getResources().getString(R.string.report_issue_subject));
                 startActivity(intent);
             }
             break;
@@ -391,41 +317,31 @@ public class BaseFragmentActivity extends ActionBarActivity {
             case 2:
                 mDrawerLayout.closeDrawer(mDrawerList);
                 fragment = new Manage_Address();
-                Fragment frag = new HomeFragment();
-                FragmentManager fragmentManager = getSupportFragmentManager();
-                fragmentManager.beginTransaction()
-                        .replace(R.id.frame_container, fragment, "manage_address").addToBackStack("home").commit();
+                fragmentManager.beginTransaction().replace(R.id.frame_container, fragment, "manage_address").addToBackStack("home").commit();
 
                 break;
             case 1:
                 mDrawerLayout.closeDrawer(mDrawerList);
                 fragment = new Order_History();
-                FragmentManager fragmentManager9 = getSupportFragmentManager();
-                fragmentManager9.beginTransaction()
-                        .replace(R.id.frame_container, fragment, "order_history").addToBackStack("home").commit();
+                fragmentManager.beginTransaction().replace(R.id.frame_container, fragment, "order_history").addToBackStack("home").commit();
                 break;
             case 6:
                 mDrawerLayout.closeDrawer(mDrawerList);
                 fragment = new Contact_Us();
-                FragmentManager fragmentManager1 = getSupportFragmentManager();
-                fragmentManager1.beginTransaction()
-                        .replace(R.id.frame_container, fragment, "contact_us").addToBackStack("home").commit();
+                fragmentManager.beginTransaction().replace(R.id.frame_container, fragment, "contact_us").addToBackStack("home").commit();
 
                 break;
 
             case 8:
                 mDrawerLayout.closeDrawer(mDrawerList);
                 fragment = new User_Agreement();
-                FragmentManager fragmentManager2 = getSupportFragmentManager();
-                fragmentManager2.beginTransaction()
-                        .replace(R.id.frame_container, fragment, "user_agreement").addToBackStack("home").commit();
+                fragmentManager.beginTransaction().replace(R.id.frame_container, fragment, "user_agreement").addToBackStack("home").commit();
 
                 break;
 
             case 9: {
                 mDrawerLayout.closeDrawer(mDrawerList);
-                SharedPreferences prefs = getSharedPreferences("Settings",
-                        Context.MODE_PRIVATE);
+                SharedPreferences prefs = getSharedPreferences("Settings", Context.MODE_PRIVATE);
                 prefs.edit().clear().commit();
                 Config.email = "";
                 Config.mobile = "";
@@ -435,8 +351,7 @@ public class BaseFragmentActivity extends ActionBarActivity {
                 Config.latitude = "78.0";
                 Config.longitude = "28.0";
 
-                Intent intent = new Intent(BaseFragmentActivity.this,
-                        LoginActivity.class);
+                Intent intent = new Intent(BaseFragmentActivity.this, LoginActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
@@ -448,34 +363,11 @@ public class BaseFragmentActivity extends ActionBarActivity {
             default:
                 break;
         }
-
-		/*if (fragment != null) {
-			mDrawerLayout.closeDrawer(mDrawerList);
-			new Handler().postDelayed(new Runnable() {
-				@Override
-				public void run() {
-					FragmentManager fragmentManager = getSupportFragmentManager();
-					fragmentManager.beginTransaction()
-							.replace(R.id.frame_container, fragment).commit();
-
-					// update selected item and title, then close the drawer
-					mDrawerList.setItemChecked(position, true);
-					mDrawerList.setSelection(position);
-					setTitle(navMenuTitles[position]);
-					// mDrawerLayout.closeDrawer(mDrawerList);
-				}
-			}, 350);
-
-		} else {
-			// error in creating fragment
-			Log.e("MainActivity", "Error in creating fragment");
-		}*/
     }
 
     @Override
     public void setTitle(CharSequence title) {
         mTitle = title;
-        // getActionBar().setTitle(mTitle);
     }
 
     @Override
@@ -500,15 +392,11 @@ public class BaseFragmentActivity extends ActionBarActivity {
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-        // Sync the toggle state after onRestoreInstanceState has occurred.
-        // mDrawerToggle.syncState();
     }
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        // Pass any configuration change to the drawer toggls
-        // mDrawerToggle.onConfigurationChanged(newConfig);
     }
 
     @Override
@@ -543,13 +431,9 @@ public class BaseFragmentActivity extends ActionBarActivity {
             return true;
         } else if (id < city_array_size) {
             String selected_item = item.getTitle().toString();
-            //Toast.makeText(getApplicationContext(), selected_item, Toast.LENGTH_SHORT).show();
-
-            //Log.e("CityOutsideOutsideOutsideOutsideOutsideOutside",Config.cityArray.get(i));
             for (int i = 0; i < Config.cityArray.size(); i++) {
                 if (selected_item.equals(Config.newCityArray.get(i))) {
                     Config.city = Config.newCityArray.get(i);
-                    //Toast.makeText(BaseFragmentActivity.this, "equal", Toast.LENGTH_SHORT).show();
                     if (HomeFragment.pager != null) {
                         int index = HomeFragment.pager.getCurrentItem();
                         Fragment new_fragment = new HomeFragment();
@@ -563,8 +447,7 @@ public class BaseFragmentActivity extends ActionBarActivity {
                             fragment = new_fragment;
 
                             FragmentManager fragmentManager = getSupportFragmentManager();
-                            fragmentManager.beginTransaction()
-                                    .replace(R.id.frame_container, fragment).commit();
+                            fragmentManager.beginTransaction().replace(R.id.frame_container, fragment).commit();
                         }
                         //Toast.makeText(getApplicationContext(), index+" If condition.", Toast.LENGTH_SHORT).show();
                     }

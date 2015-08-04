@@ -96,9 +96,32 @@
     <string name="amount">AMOUNT</string>
 
     <!-- Mohsin Bhai-->
-    <string name="ok">OK</string>
-    <string name="action_bar_color">#2196f3</string>
-    <string name="terms_of_use">Terms Of Use</string>
     <string name="light_grey">#57dde8f4</string>
+    <string name="color_invoice_text">#2192b0</string>
+    <string name="contact_us">CONTACT US</string>
+    <string name="user_agree">Copyright © 2015, Nazish Ahsan , contact me : nazish.ahsan@znsoftech.com  This application is free; you can share it and it under the terms of the GNU General Public License as published by the Free Application Foundation either version 1.0 of the License.Dummy text is also used to demonstrate the appearance of different typefaces and layouts, and in general the content of dummy text is nonsensical. Due to its widespread use as filler text for layouts, non-readability is of great importance: human perception is tuned to recognize certain patterns and repetitions in texts. If the distribution of letters and \'words\' is random, the reader will not be distracted from making a neutral judgement on the visual impact and readability of the typefaces (typography), or the distribution of text on the page (layout or type area). For this reason, dummy text usually consists of a more or less random series of words or syllables. This prevents repetitive patterns from impairing the overall visual impression and facilitates the comparison of different typefaces. Furthermore, it is advantageous when the dummy text is relatively realistic so that the layout impression of the final publication is not compromised.</string>
+
+    <!-- Mohsin Bhai-->
+    <string name="ok">OK</string>
+    <string name="action_bar_color">#004765</string>
+    <string name="terms_of_use">Terms Of Use</string>
+
+    <!--03-08-2015 -->
+    <string name="edit_address">Edit Address</string>
+    <string name="loading">Loading...</string>
+    <string name="saving">Saving...</string>
+    <string name="updating">Updating...</string>
+    <string name="please_wait">Please wait...</string>
+    <string name="saved">Saved!</string>
+    <string name="update_successfully">Updated successfully.</string>
+    <string name="enter_address_title">Enter Address Title!</string>
+    <string name="enter_correct_address">Enter correct Address!</string>
+    <string name="enter_correct_contact">Enter correct contact!</string>
+    <string name="choose_one">Choose one</string>
+    <string name="report_issue_subject">Error in Laundry App</string>
+    <string name="report_issue_mail_id">ahmad.asjad@znsoftech.com</string>
+    <string name="share_with_friends_text">Check out Spot My Laundry for your smartphone to get laundry service at your doorstep at</string>
+    <string name="rate_card">Rate Card</string>
+    <string name="privacy_policy_bar_text">Privacy Policy</string>
 
 </resources>

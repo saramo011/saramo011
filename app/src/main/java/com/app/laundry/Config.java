@@ -1,7 +1,5 @@
 package com.app.laundry;
 
-import android.content.Context;
-
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -48,16 +46,11 @@ public class Config {
     public static String Review_Url = website + "webservice/get/feedback/laundryid/";
     public static String Deals_Url = website + "webservice/get/deals";
     public static String Order_Offline_Url = "http://laundry.znsoftech.com/order_offline.php";
-    //public static String Order_Online_Url="http://laundry.znsoftech.com/order_online.php";
     public static String Order_Online_Url = "http://laundry.znsoftech.com/yii/webservice/set/order";
-    //public static String Services_Url="http://laundry.znsoftech.com/services.php";
-    //public static String Items_Url="http://laundry.znsoftech.com/items.php";
+
     public static String City_Url = website + "webservice/get/cities";
     public static String latitude = "";
     public static String longitude = "";
-
-
-    //public static String Review_Url="http://laundry.znsoftech.com/reviews.php?laundryid=%s";
     public static String phone = "";
     public static String name = "";
     public static String password = "";
@@ -68,17 +61,5 @@ public class Config {
     public static String city = "";
     public static String country = "";
     public static String usertype = "";
-    static Boolean isReload = false;
     static Boolean isBookingService = false;
-
-    public static String getStringResourceByName(String aString, Context c) {
-        String packageName = c.getPackageName();
-        int resId = c.getResources()
-                .getIdentifier(aString, "string", packageName);
-        if (resId == 0) {
-            return aString;
-        } else {
-            return c.getResources().getString(resId);
-        }
-    }
 }

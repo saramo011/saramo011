@@ -12,20 +12,17 @@ import android.webkit.WebView;
 
 public class PolicyActivity extends ActionBarActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_policy);
 
-
         ActionBar bar = getSupportActionBar();
-        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#2196f3")));
+        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor(getResources().getString(R.string.action_bar_color))));
         bar.setDisplayShowHomeEnabled(true);
         bar.setDisplayHomeAsUpEnabled(true);
         bar.setHomeButtonEnabled(true);
-        bar.setTitle("Privacy Policy");
-
+        bar.setTitle(getResources().getString(R.string.privacy_policy_bar_text));
 
         WebView webView1 = (WebView) findViewById(R.id.webView1);
         webView1.loadUrl("file:///android_asset/privacypolicy.html");
@@ -51,8 +48,7 @@ public class PolicyActivity extends ActionBarActivity {
             return true;
 
         } else if (id == R.id.direct_to_home) {
-            startActivity(new Intent(PolicyActivity.this,
-                    BaseFragmentActivity.class));
+            startActivity(new Intent(PolicyActivity.this, BaseFragmentActivity.class));
             overridePendingTransition(R.anim.right_in, R.anim.left_out);
         }
         return super.onOptionsItemSelected(item);

@@ -1,6 +1,5 @@
 package com.app.laundry;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,6 +8,9 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.bluejamesbond.text.DocumentView;
+import com.bluejamesbond.text.style.TextAlignment;
 
 public class User_Agreement extends Fragment {
     TextView title, message;
@@ -26,14 +28,17 @@ public class User_Agreement extends Fragment {
 
         View view = inflater.inflate(R.layout.user_agreement, container, false);
         title = (TextView) view.findViewById(R.id.title);
-        message = (TextView) view.findViewById(R.id.message);
+//        message = (TextView) view.findViewById(R.id.message);
         title.setText("User Agreement");
-        message.setText("Copyright © 2015, Nazish Ahsan, contact me: nazish.ahsan@znsoftech.com\n\n" +
-                "This application is free; you can sharte it and" +
-                " it under the terms of the GNU General Public License as" +
-                " published by the Free Application Foundation; either version 1.0 of the" +
-                " License.");
-        message.setLinkTextColor(Color.BLUE);
+//        message.setText("Copyright © 2015, Nazish Ahsan, contact me: nazish.ahsan@znsoftech.com\n\n" +
+//                "This application is free; you can sharte it and" +
+//                " it under the terms of the GNU General Public License as" +
+//                " published by the Free Application Foundation; either version 1.0 of the" +
+//                " License.");
+//        message.setLinkTextColor(Color.BLUE);
+        DocumentView documentView = (DocumentView) view.findViewById(R.id.text_useragreement_justified);
+        documentView.getDocumentLayoutParams().setTextAlignment(TextAlignment.JUSTIFIED);
+
 
         return view;
     }

@@ -1,8 +1,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/scrollView1"
-    android:background="@color/white"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
     <LinearLayout
         android:id="@+id/linearLayout1"
@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="10dp"
-            android:src="@drawable/icon" />
+            android:src="@drawable/ic_ico_high" />
 
         <TextView
             android:id="@+id/textView_about"

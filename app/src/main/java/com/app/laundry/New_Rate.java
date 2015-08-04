@@ -28,7 +28,6 @@ import java.util.List;
 
 public class New_Rate extends FragmentActivity {
 
-    JSONObject jsonObj = new JSONObject();
     Handler mHandler = new Handler();
     JSONObject json;
     String url_to_call;
@@ -60,36 +59,16 @@ public class New_Rate extends FragmentActivity {
     Button ok;
     EditText editText_msg;
     int tag1, tag2, tag3, tag4;
-    String review;
-    String laundryId;
-    String user_id = Config.userid;
+    String review, laundryId;
+
     OnClickListener clickLis = new OnClickListener() {
 
         @Override
         public void onClick(View v) {
             // TODO Auto-generated method stub
-            imageView_star5.setImageResource(R.drawable.rating_before);
-            imageView_star4.setImageResource(R.drawable.rating_before);
-            imageView_star3.setImageResource(R.drawable.rating_before);
-            imageView_star2.setImageResource(R.drawable.rating_before);
-            imageView_star1.setImageResource(R.drawable.rating_before);
             int tag = Integer.parseInt(v.getTag().toString());
             tag1 = tag;
-            //Toast.makeText(New_Rate.this, tag1+"", Toast.LENGTH_SHORT).show();
-            switch (tag) {
-                case 5:
-                    imageView_star5.setImageResource(R.drawable.rating_after);
-                case 4:
-                    imageView_star4.setImageResource(R.drawable.rating_after);
-                case 3:
-                    imageView_star3.setImageResource(R.drawable.rating_after);
-                case 2:
-                    imageView_star2.setImageResource(R.drawable.rating_after);
-                case 1:
-                    imageView_star1.setImageResource(R.drawable.rating_after);
-                default:
-                    break;
-            }
+            update_rating(tag, new ImageView[]{imageView_star1, imageView_star2, imageView_star3, imageView_star4, imageView_star5});
 
         }
     };
@@ -98,33 +77,9 @@ public class New_Rate extends FragmentActivity {
         @Override
         public void onClick(View v) {
             // TODO Auto-generated method stub
-            imageView_star15.setImageResource(R.drawable.rating_before);
-            imageView_star14.setImageResource(R.drawable.rating_before);
-            imageView_star13.setImageResource(R.drawable.rating_before);
-            imageView_star12.setImageResource(R.drawable.rating_before);
-            imageView_star11.setImageResource(R.drawable.rating_before);
             int tag = Integer.parseInt(v.getTag().toString());
             tag2 = tag;
-            //Toast.makeText(New_Rate.this, tag2+"", Toast.LENGTH_SHORT).show();
-            switch (tag) {
-                case 5:
-                    imageView_star15
-                            .setImageResource(R.drawable.rating_after);
-                case 4:
-                    imageView_star14
-                            .setImageResource(R.drawable.rating_after);
-                case 3:
-                    imageView_star13
-                            .setImageResource(R.drawable.rating_after);
-                case 2:
-                    imageView_star12
-                            .setImageResource(R.drawable.rating_after);
-                case 1:
-                    imageView_star11
-                            .setImageResource(R.drawable.rating_after);
-                default:
-                    break;
-            }
+            update_rating(tag, new ImageView[]{imageView_star11, imageView_star12, imageView_star13, imageView_star14, imageView_star15});
 
         }
     };
@@ -134,33 +89,9 @@ public class New_Rate extends FragmentActivity {
         @Override
         public void onClick(View v) {
             // TODO Auto-generated method stub
-            imageView_star25.setImageResource(R.drawable.rating_before);
-            imageView_star24.setImageResource(R.drawable.rating_before);
-            imageView_star23.setImageResource(R.drawable.rating_before);
-            imageView_star22.setImageResource(R.drawable.rating_before);
-            imageView_star21.setImageResource(R.drawable.rating_before);
             int tag = Integer.parseInt(v.getTag().toString());
             tag3 = tag;
-            //Toast.makeText(New_Rate.this, tag3+"", Toast.LENGTH_SHORT).show();
-            switch (tag) {
-                case 5:
-                    imageView_star25
-                            .setImageResource(R.drawable.rating_after);
-                case 4:
-                    imageView_star24
-                            .setImageResource(R.drawable.rating_after);
-                case 3:
-                    imageView_star23
-                            .setImageResource(R.drawable.rating_after);
-                case 2:
-                    imageView_star22
-                            .setImageResource(R.drawable.rating_after);
-                case 1:
-                    imageView_star21
-                            .setImageResource(R.drawable.rating_after);
-                default:
-                    break;
-            }
+            update_rating(tag, new ImageView[]{imageView_star21, imageView_star22, imageView_star23, imageView_star24, imageView_star25});
 
         }
     };
@@ -170,33 +101,9 @@ public class New_Rate extends FragmentActivity {
         @Override
         public void onClick(View v) {
             // TODO Auto-generated method stub
-            imageView_star35.setImageResource(R.drawable.rating_before);
-            imageView_star34.setImageResource(R.drawable.rating_before);
-            imageView_star33.setImageResource(R.drawable.rating_before);
-            imageView_star32.setImageResource(R.drawable.rating_before);
-            imageView_star31.setImageResource(R.drawable.rating_before);
             int tag = Integer.parseInt(v.getTag().toString());
             tag4 = tag;
-            //Toast.makeText(New_Rate.this, tag4+"", Toast.LENGTH_SHORT).show();
-            switch (tag) {
-                case 5:
-                    imageView_star35
-                            .setImageResource(R.drawable.rating_after);
-                case 4:
-                    imageView_star34
-                            .setImageResource(R.drawable.rating_after);
-                case 3:
-                    imageView_star33
-                            .setImageResource(R.drawable.rating_after);
-                case 2:
-                    imageView_star32
-                            .setImageResource(R.drawable.rating_after);
-                case 1:
-                    imageView_star31
-                            .setImageResource(R.drawable.rating_after);
-                default:
-                    break;
-            }
+            update_rating(tag, new ImageView[]{imageView_star31, imageView_star32, imageView_star33, imageView_star34, imageView_star35});
 
         }
     };
@@ -212,8 +119,6 @@ public class New_Rate extends FragmentActivity {
         tag1 = tag2 = tag3 = tag4 = 1;
         Intent intent = getIntent();
         laundryId = intent.getExtras().getString("LaundryID");
-
-        //Toast.makeText(New_Rate.this, Config.userid+" ",Toast.LENGTH_LONG).show();
 
         ok.setOnClickListener(new OnClickListener() {
 
@@ -249,55 +154,17 @@ public class New_Rate extends FragmentActivity {
         imageView_star4 = (ImageView) findViewById(R.id.imageView_star4);
         imageView_star5 = (ImageView) findViewById(R.id.imageView_star5);
 
-        imageView_star1.setOnClickListener(clickLis);
-        imageView_star2.setOnClickListener(clickLis);
-        imageView_star3.setOnClickListener(clickLis);
-        imageView_star4.setOnClickListener(clickLis);
-        imageView_star5.setOnClickListener(clickLis);
-
-        imageView_star1.setTag(1);
-        imageView_star2.setTag(2);
-        imageView_star3.setTag(3);
-        imageView_star4.setTag(4);
-        imageView_star5.setTag(5);
-
         imageView_star11 = (ImageView) findViewById(R.id.imageView_star11);
         imageView_star12 = (ImageView) findViewById(R.id.imageView_star12);
         imageView_star13 = (ImageView) findViewById(R.id.imageView_star13);
         imageView_star14 = (ImageView) findViewById(R.id.imageView_star14);
         imageView_star15 = (ImageView) findViewById(R.id.imageView_star15);
 
-        imageView_star11.setOnClickListener(clickLis1);
-        imageView_star12.setOnClickListener(clickLis1);
-        imageView_star13.setOnClickListener(clickLis1);
-        imageView_star14.setOnClickListener(clickLis1);
-        imageView_star15.setOnClickListener(clickLis1);
-
-        imageView_star11.setTag(1);
-        imageView_star12.setTag(2);
-        imageView_star13.setTag(3);
-        imageView_star14.setTag(4);
-        imageView_star15.setTag(5);
-
-        //
         imageView_star21 = (ImageView) findViewById(R.id.imageView_star21);
         imageView_star22 = (ImageView) findViewById(R.id.imageView_star22);
         imageView_star23 = (ImageView) findViewById(R.id.imageView_star23);
         imageView_star24 = (ImageView) findViewById(R.id.imageView_star24);
         imageView_star25 = (ImageView) findViewById(R.id.imageView_star25);
-
-        imageView_star21.setOnClickListener(clickLis2);
-        imageView_star22.setOnClickListener(clickLis2);
-        imageView_star23.setOnClickListener(clickLis2);
-        imageView_star24.setOnClickListener(clickLis2);
-        imageView_star25.setOnClickListener(clickLis2);
-
-        imageView_star21.setTag(1);
-        imageView_star22.setTag(2);
-        imageView_star23.setTag(3);
-        imageView_star24.setTag(4);
-        imageView_star25.setTag(5);
-        //
 
         imageView_star31 = (ImageView) findViewById(R.id.imageView_star31);
         imageView_star32 = (ImageView) findViewById(R.id.imageView_star32);
@@ -305,27 +172,30 @@ public class New_Rate extends FragmentActivity {
         imageView_star34 = (ImageView) findViewById(R.id.imageView_star34);
         imageView_star35 = (ImageView) findViewById(R.id.imageView_star35);
 
-        imageView_star31.setOnClickListener(clickLis3);
-        imageView_star32.setOnClickListener(clickLis3);
-        imageView_star33.setOnClickListener(clickLis3);
-        imageView_star34.setOnClickListener(clickLis3);
-        imageView_star35.setOnClickListener(clickLis3);
+        rating_on_oncreate(clickLis, new ImageView[]{imageView_star1, imageView_star2, imageView_star3, imageView_star4, imageView_star5});
 
-        imageView_star31.setTag(1);
-        imageView_star32.setTag(2);
-        imageView_star33.setTag(3);
-        imageView_star34.setTag(4);
-        imageView_star35.setTag(5);
+        rating_on_oncreate(clickLis1, new ImageView[]{imageView_star11, imageView_star12, imageView_star13, imageView_star14, imageView_star15});
+
+        rating_on_oncreate(clickLis2, new ImageView[]{imageView_star21, imageView_star22, imageView_star23, imageView_star24, imageView_star25});
+
+        rating_on_oncreate(clickLis3, new ImageView[]{imageView_star31, imageView_star32, imageView_star33, imageView_star34, imageView_star35});
 
         update_rating_onStart();
 
+    }
+
+    private void rating_on_oncreate(OnClickListener listener, ImageView[] image) {
+        for (int i = 0; i < image.length; i++) {
+            image[i].setOnClickListener(listener);
+            image[i].setTag(i + 1);
+        }
     }
 
     private void update_rating_onStart() {
         // TODO Auto-generated method stub
 
         json = null;
-        ProgressDialogClass.showProgressDialog(New_Rate.this, "Please wait...");
+        ProgressDialogClass.showProgressDialog(New_Rate.this, getResources().getString(R.string.please_wait));
         final Thread getdata = new Thread() {
             @SuppressWarnings("deprecation")
             public void run() {
@@ -355,14 +225,9 @@ public class New_Rate extends FragmentActivity {
                         @Override
                         public void run() {
                             // TODO Auto-generated method stub
-                            String str = "";
                             ProgressDialogClass.dismissProgressDialog();
                             if (json != null) {
-                                str = " URL=" + url_to_call + json.toString();
                                 try {
-                                    //Toast.makeText(New_Rate.this, json.getInt("status")+"",Toast.LENGTH_LONG).show();
-                                    //editText_msg.setText(json.toString());
-                                    str = " URL=" + url_to_call + json.toString();
                                     if (json.getInt("status") == 200) {
                                         //Toast.makeText(New_Rate.this, json.getString("status_message"),Toast.LENGTH_LONG).show();
                                         JSONArray j_arr = json.getJSONArray("data");
@@ -378,36 +243,31 @@ public class New_Rate extends FragmentActivity {
                                         int PickupQuality = Math.round(pq1);
                                         int DropoffQuality = Math.round(dq);
 
+                                        tag1 = PriceQuality;
+                                        tag2 = ServiceQuality;
+                                        tag3 = PickupQuality;
+                                        tag4 = DropoffQuality;
+
                                         String Comments = j_obj.getString("Comments");
 
-                                        //
+                                        update_rating(PriceQuality, new ImageView[]{imageView_star1, imageView_star2, imageView_star3, imageView_star4, imageView_star5});
 
-                                        update_data(PriceQuality, new ImageView[]{imageView_star1, imageView_star2, imageView_star3, imageView_star4, imageView_star5});
+                                        update_rating(ServiceQuality, new ImageView[]{imageView_star11, imageView_star12, imageView_star13, imageView_star14, imageView_star15});
 
-                                        update_data(ServiceQuality, new ImageView[]{imageView_star11, imageView_star12, imageView_star13, imageView_star14, imageView_star15});
+                                        update_rating(PickupQuality, new ImageView[]{imageView_star21, imageView_star22, imageView_star23, imageView_star24, imageView_star25});
 
-                                        update_data(PickupQuality, new ImageView[]{imageView_star21, imageView_star22, imageView_star23, imageView_star24, imageView_star25});
-
-                                        update_data(DropoffQuality, new ImageView[]{imageView_star31, imageView_star32, imageView_star33, imageView_star34, imageView_star35});
+                                        update_rating(DropoffQuality, new ImageView[]{imageView_star31, imageView_star32, imageView_star33, imageView_star34, imageView_star35});
 
                                         editText_msg.setText(Comments);
 
-                                        //Toast.makeText(New_Rate.this, PriceQuality+" "+ServiceQuality+" "+PickupQuality+" "+DropoffQuality+" "+Comments, Toast.LENGTH_LONG).show();
+                                        Toast.makeText(New_Rate.this, PriceQuality + " " + ServiceQuality + " " + PickupQuality + " " + DropoffQuality, Toast.LENGTH_LONG).show();
 
                                     }
-//									else
-//											Toast.makeText(New_Rate.this, "Json status wrong.",Toast.LENGTH_LONG).show();
                                 } catch (JSONException e) {
                                     // TODO Auto-generated catch block
                                     //e.printStackTrace();
                                 }
                             }
-//							else
-//								Toast.makeText(New_Rate.this, "Json null.",Toast.LENGTH_LONG).show();
-
-                            //	Toast.makeText(New_Rate.this, Config.userid+" ",Toast.LENGTH_LONG).show();
-                            //	writeToFile("json_data", str);
-
                         }
                     });
                 }
@@ -416,36 +276,7 @@ public class New_Rate extends FragmentActivity {
         show.start();
     }
 
-//	public  void writeToFile(String fileName, String body)
-//    {
-//        FileOutputStream fos = null;
-//
-//        try {
-//            final File dir = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Error/" );
-//
-//            if (!dir.exists())
-//            {
-//                dir.mkdirs(); 
-//            }
-//
-//            final File myFile = new File(dir, fileName + ".txt");
-//
-//            if (!myFile.exists()) 
-//            {    
-//                myFile.createNewFile();
-//            } 
-//
-//            fos = new FileOutputStream(myFile);
-//
-//            fos.write(body.getBytes());
-//            fos.close();
-//        } catch (IOException e) {
-//            // TODO Auto-generated catch block
-//            e.printStackTrace();
-//        }
-//    }
-
-    private void update_data(int value, ImageView[] image) {
+    private void update_rating(int value, ImageView[] image) {
 
         for (int i = 0; i < image.length; i++)
             image[i].setImageResource(R.drawable.rating_before);
@@ -471,7 +302,7 @@ public class New_Rate extends FragmentActivity {
 
     private void update_rating() {
         // TODO Auto-generated method stub
-        ProgressDialogClass.showProgressDialog(New_Rate.this, "Updating...");
+        ProgressDialogClass.showProgressDialog(New_Rate.this, getResources().getString(R.string.updating));
         final Thread getdata = new Thread() {
             @SuppressWarnings("deprecation")
             public void run() {
@@ -513,7 +344,8 @@ public class New_Rate extends FragmentActivity {
                                 try {
                                     //Toast.makeText(New_Rate.this, json.toString(),Toast.LENGTH_LONG).show();
                                     if (json.getInt("status") == 200) {
-                                        Toast.makeText(New_Rate.this, "Updated successfully.", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(New_Rate.this, getResources().getString(R.string.update_successfully), Toast.LENGTH_LONG).show();
+                                        Toast.makeText(New_Rate.this, tag1 + " " + tag2 + " " + tag3 + " " + tag4, Toast.LENGTH_LONG).show();
                                         onBackPressed();
                                     }
                                     //Toast.makeText(New_Rate.this, json.getInt("status"),Toast.LENGTH_LONG).show();
@@ -523,7 +355,6 @@ public class New_Rate extends FragmentActivity {
                                 }
                             }
                             ProgressDialogClass.dismissProgressDialog();
-                            //Toast.makeText(New_Rate.this, tag1+" "+tag2+" "+tag3+" "+tag4,Toast.LENGTH_LONG).show();
                         }
                     });
                 }

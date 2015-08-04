@@ -17,7 +17,7 @@
         android:protectionLevel="signature" />
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <!--     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <!--     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/> -->
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -137,10 +137,6 @@
         </activity>
 
         <activity
-            android:name="com.app.laundry.AboutActivity"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
             android:name="com.app.laundry.LaundryReview"
             android:screenOrientation="portrait" >
         </activity>
@@ -151,13 +147,6 @@
             android:screenOrientation="portrait" >
         </activity>
 
-        <activity
-            android:name="com.app.laundry.RateListActivity"
-            android:alwaysRetainTaskState="true"
-            android:screenOrientation="portrait" >
-        </activity>
-
-        <!-- Sandeep Rana-->
     </application>
 
 </manifest>

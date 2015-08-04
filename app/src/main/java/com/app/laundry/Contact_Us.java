@@ -1,6 +1,5 @@
 package com.app.laundry;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -25,12 +24,12 @@ public class Contact_Us extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.user_agreement, container, false);
-        title = (TextView) view.findViewById(R.id.title);
-        message = (TextView) view.findViewById(R.id.message);
-        title.setText("Contact Us");
-        message.setText("Mobile No. : +91-9685741298\nEmail id : ahmad.asjad@znsoftech.com");
-        message.setLinkTextColor(Color.BLUE);
+        View view = inflater.inflate(R.layout.contact_us, container, false);
+//        title = (TextView) view.findViewById(R.id.title);
+//        message = (TextView) view.findViewById(R.id.message);
+//        title.setText("Contact Us");
+//        message.setText("Mobile No. : +91-9685741298\nEmail id : ahmad.asjad@znsoftech.com");
+//        message.setLinkTextColor(Color.BLUE);
 
         return view;
     }

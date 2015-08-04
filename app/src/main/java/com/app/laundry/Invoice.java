@@ -185,26 +185,52 @@ public class Invoice extends Fragment {
 
 
                                         //Lets format the string for address
-
+                                        String whiteSpace = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+                                        String textcolor = getResources().getString(R.string.color_invoice_text);
                                         String pickUpaddr[] = pickup_address.split(",");
                                         if (pickUpaddr.length != 0) {
                                             pickup_address = "";
+
                                             if (pickUpaddr[0] != null) {
-                                                pickup_address = pickup_address + "<br>" + pickUpaddr[0];
+                                                pickup_address = pickup_address + "<br>&nbsp;<font color=\"" + textcolor + "\">" + whiteSpace + pickUpaddr[0];
                                             }
                                             if (pickUpaddr[1] != null) {
-                                                pickup_address = pickup_address + "," + pickUpaddr[1];
+                                                pickup_address = pickup_address + ",<br>" + whiteSpace + pickUpaddr[1];
                                             }
                                             if (pickUpaddr[2] != null) {
-                                                pickup_address = pickup_address + ",<br><b>, " + pickUpaddr[2];
+                                                pickup_address = pickup_address + ",<br>" + whiteSpace + "" + pickUpaddr[2] + ",";
                                             }
                                             if (pickUpaddr[3] != null) {
-                                                pickup_address = pickup_address + "</b>" + pickUpaddr[3];
+                                                pickup_address = pickup_address + "</b><br>" + whiteSpace + pickUpaddr[3] + "</font>";
+                                            }
+                                        }
+                                        String dropaddr[] = drop_address.split(",");
+                                        if (dropaddr.length != 0) {
+                                            drop_address = "";
+
+                                            if (dropaddr[0] != null) {
+                                                drop_address = drop_address + "<br>&nbsp;<font color=\"" + textcolor + "\">" + whiteSpace + dropaddr[0];
+                                            }
+                                            if (dropaddr[1] != null) {
+                                                drop_address = drop_address + ",<br>" + whiteSpace + dropaddr[1];
+                                            }
+                                            if (dropaddr[2] != null) {
+                                                drop_address = drop_address + ",<br>" + whiteSpace + "" + dropaddr[2] + ",";
+                                            }
+                                            if (dropaddr[3] != null) {
+                                                drop_address = drop_address + "</b><br>" + whiteSpace + dropaddr[3] + "</font>";
                                             }
                                         }
 
 
-                                        String titles = "<b>Date:</b> " + date[0] + "<br><b>Order Id:</b> " + LaundryOrderID + "<br><b>Pick-up Address:</b> " + pickup_address + "<br><b>Drop-Off Address:</b> " + drop_address + "";
+                                        String titles = "<b>" +
+                                                "Date:</b> <font color=\"" + textcolor + "\">" + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + date[0] + "</font><br><b>" +
+                                                "Order Id:" + "&nbsp;&nbsp;&nbsp;&nbsp;" + "</b> <font color=\"" + textcolor + "\">" + LaundryOrderID + "</font><br><b>Pick-up " +
+                                                "Address:</b> " + pickup_address + "<br><b>" +
+                                                "Drop-Off Address:</b> " + drop_address + "";
+
+
+
                                         tv2.setText(Html.fromHtml(titles));
                                         laundryId = jo_order_titles.getString("LaundryID");
 

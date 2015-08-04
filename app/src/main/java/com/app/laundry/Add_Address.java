@@ -207,6 +207,7 @@ public class Add_Address extends Fragment {
         };
         image_url.start();
 
+
         final Thread show = new Thread(new Runnable() {
 
             @Override
