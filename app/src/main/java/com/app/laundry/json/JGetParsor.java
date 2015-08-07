@@ -43,7 +43,6 @@ public class JGetParsor {
 //                HttpURLConnection urlConnection=
 
 
-
                 HttpResponse httpResponse = httpClient.execute(httpPost);
                 HttpEntity httpEntity = httpResponse.getEntity();
                 is = httpEntity.getContent();

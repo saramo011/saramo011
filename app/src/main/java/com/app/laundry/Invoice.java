@@ -182,8 +182,6 @@ public class Invoice extends Fragment {
                                         String[] date = jo_order_titles.getString("LaundryOrderDate").split("\\s");
 
 
-
-
                                         //Lets format the string for address
                                         String whiteSpace = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
                                         String textcolor = getResources().getString(R.string.color_invoice_text);
@@ -228,7 +226,6 @@ public class Invoice extends Fragment {
                                                 "Order Id:" + "&nbsp;&nbsp;&nbsp;&nbsp;" + "</b> <font color=\"" + textcolor + "\">" + LaundryOrderID + "</font><br><b>Pick-up " +
                                                 "Address:</b> " + pickup_address + "<br><b>" +
                                                 "Drop-Off Address:</b> " + drop_address + "";
-
 
 
                                         tv2.setText(Html.fromHtml(titles));

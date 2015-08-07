@@ -127,7 +127,7 @@ public class LoginActivity extends ActionBarActivity {
 
 		
 		/*txt_forgot.setOnTouchListener(new OnTouchListener() {
-			
+
 			@Override
 			public boolean onTouch(View view, MotionEvent event) {
 				// TODO Auto-generated method stub

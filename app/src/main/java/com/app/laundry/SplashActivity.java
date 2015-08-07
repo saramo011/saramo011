@@ -69,7 +69,7 @@ public class SplashActivity extends Activity {
 
         //ConversionTest ct = new ConversionTest();
         //String sourcePoint = ct.testLatitudeLongitudeToUMT32XYConversion("59.9627222","10.8780242");
-		
+
 		/*String uuid = "6d25168f-8a45-4946-9233-b96258c4b5a5";
 		String token = "a9e28828612af1674b46e33953dc534f";
 		String secret = "30dd53935f448de8f918d6d07cbe1f08";
