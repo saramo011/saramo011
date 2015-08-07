@@ -60,7 +60,7 @@ public class Add_CommentAddress extends ActionBarActivity {
         setContentView(R.layout.new_edit_address);
 
         ActionBar bar = getSupportActionBar();
-        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#2196f3")));
+        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor(getString(R.string.action_bar_color))));
         bar.setDisplayShowHomeEnabled(true);
         bar.setDisplayHomeAsUpEnabled(true);
         bar.setHomeButtonEnabled(true);
@@ -74,7 +74,7 @@ public class Add_CommentAddress extends ActionBarActivity {
         add_lane2 = (EditText) findViewById(R.id.AddressLine2);
         add_lane3 = (EditText) findViewById(R.id.AddressLine3);
 
-        TextView tv = (TextView) findViewById(R.id.textView1);
+        TextView tv = (TextView) findViewById(R.id.text_title_address);
         tv.setText("Add Address");
 
         bt_save = (Button) findViewById(R.id.bt_save);

@@ -3,7 +3,7 @@
     android1:layout_width="match_parent"
     android1:layout_height="match_parent"
     android1:background="@color/white"
-    android1:gravity="center"
+    android1:gravity="center|top"
     android1:padding="20dp">
 
     <TextView
@@ -11,6 +11,7 @@
         android1:layout_width="match_parent"
         android1:layout_height="wrap_content"
         android1:layout_marginBottom="20dp"
+        android1:layout_marginTop="10dp"
         android1:gravity="center"
         android1:text="@string/contact_us"
         android1:textColor="@color/btn_bgcolor_dark"

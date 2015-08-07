@@ -38,7 +38,7 @@
             android:paddingRight="5dp"
             android:singleLine="true"
             android:textColor="@color/edit_text_text"
-            android:textColorHint="@color/hint_color"/>
+            android:textColorHint="@color/hint_color" />
 
         <EditText
             android:id="@+id/EditText_email2"
@@ -54,7 +54,7 @@
             android:paddingRight="5dp"
             android:singleLine="true"
             android:textColor="@color/edit_text_text"
-            android:textColorHint="@color/hint_color"/>
+            android:textColorHint="@color/hint_color" />
 
         <EditText
             android:id="@+id/EditText_password"
@@ -70,7 +70,7 @@
             android:paddingRight="5dp"
             android:singleLine="true"
             android:textColor="@color/edit_text_text"
-            android:textColorHint="@color/hint_color"/>
+            android:textColorHint="@color/hint_color" />
 
         <RelativeLayout
             android:id="@+id/rel_spinner"
@@ -111,7 +111,7 @@
             android:paddingRight="5dp"
             android:singleLine="true"
             android:textColor="@color/edit_text_text"
-            android:textColorHint="@color/hint_color"/>
+            android:textColorHint="@color/hint_color" />
 
         <EditText
             android:id="@+id/EditText_phone"
@@ -133,7 +133,6 @@
             android:id="@+id/EditText_address"
             android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:padding="5dp"
             android:layout_below="@+id/EditText_phone"
             android:layout_marginTop="10dp"
             android:background="@drawable/edittextstyle"
@@ -141,9 +140,10 @@
             android:gravity="top|left"
             android:hint="@string/address_small"
             android:inputType="textMultiLine"
+            android:padding="5dp"
             android:scrollHorizontally="false"
             android:textColor="@color/edit_text_text"
-            android:textColorHint="@color/hint_color"/>
+            android:textColorHint="@color/hint_color" />
 
 
         <Spinner

@@ -1,35 +1,35 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/splash_back"
     android:layout_gravity="center"
+    android:background="@drawable/splash_back"
     android:gravity="center"
-    android:padding="40dp"
-    >
+    android:padding="40dp">
 
     <!--<VideoView-->
-        <!--android:id="@+id/videoView1"-->
-        <!--android:layout_width="0dp"-->
-        <!--android:layout_height="0dp"-->
-        <!--android:clickable="false" />-->
+    <!--android:id="@+id/videoView1"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="0dp"-->
+    <!--android:clickable="false" />-->
     <ImageView
 
-        android:layout_centerInParent="true"
         android:id="@+id/text_app_name"
-        android:src="@drawable/ic_ico_high"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@drawable/ic_ico_high" />
+
     <TextView
 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_below="@id/text_app_name"
         android:gravity="center|bottom"
-        android:textColor="@color/white"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_alignParentBottom="true"
-        android:textStyle="bold"
         android:text="@string/spot_mylaundry"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
 
 
 </RelativeLayout>

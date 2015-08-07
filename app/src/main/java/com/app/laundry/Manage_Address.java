@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -305,18 +306,19 @@ public class Manage_Address extends Fragment {
 
     static class ViewHolder {
         //TextView textView_number;
-        TextView AddressID, UserID, AddressName, CityID, CountryID, ContactNo,
-                AddressLine1,
-                AddressLine2,//Landmark
-                AddressLine3,//ZipCode
-                countryName,
-                CityName,
-                textView1, DefaultAddress;
+        TextView textView1;
+//                AddressID, UserID, AddressName, CityID, CountryID, ContactNo,
+//                AddressLine1,
+//                AddressLine2,//Landmark
+//                AddressLine3,//ZipCode
+//                countryName,
+//                CityName,
+//                DefaultAddress;
         //textView4,		textView2,
 
         ImageView imageView1;
-        ImageView imageViewDiscard;
-        ImageView imageViewEdit;
+        Button imageViewDiscard;
+        Button imageViewEdit;
     }
 
     private class Addadapter extends BaseAdapter {
@@ -355,63 +357,68 @@ public class Manage_Address extends Fragment {
                 convertView = mInflater.inflate(R.layout.new_add_address_items, null);
                 holder = new ViewHolder();
 
-                holder.AddressID = (TextView) convertView.findViewById(R.id.AddressID);
-                holder.UserID = (TextView) convertView.findViewById(R.id.UserID);
-                holder.AddressName = (TextView) convertView.findViewById(R.id.AddressName);
-                holder.CityID = (TextView) convertView.findViewById(R.id.CityID);
-                holder.CountryID = (TextView) convertView.findViewById(R.id.CountryID);
+//                holder.AddressID = (TextView) convertView.findViewById(R.id.AddressID);
+//                holder.UserID = (TextView) convertView.findViewById(R.id.UserID);
+//                holder.AddressName = (TextView) convertView.findViewById(R.id.AddressName);
+//                holder.CityID = (TextView) convertView.findViewById(R.id.CityID);
+//                holder.CountryID = (TextView) convertView.findViewById(R.id.CountryID);
 
-                holder.ContactNo = (TextView) convertView.findViewById(R.id.ContactNo);
-                holder.AddressLine1 = (TextView) convertView.findViewById(R.id.AddressLine1);
-                holder.AddressLine2 = (TextView) convertView.findViewById(R.id.AddressLine2);
-                holder.AddressLine3 = (TextView) convertView.findViewById(R.id.AddressLine3);
-                holder.countryName = (TextView) convertView.findViewById(R.id.countryName);
-                holder.CityName = (TextView) convertView.findViewById(R.id.CityName);
+//                holder.ContactNo = (TextView) convertView.findViewById(R.id.ContactNo);
+//                holder.AddressLine1 = (TextView) convertView.findViewById(R.id.AddressLine1);
+//                holder.AddressLine2 = (TextView) convertView.findViewById(R.id.AddressLine2);
+//                holder.AddressLine3 = (TextView) convertView.findViewById(R.id.AddressLine3);
+//                holder.countryName = (TextView) convertView.findViewById(R.id.countryName);
+//                holder.CityName = (TextView) convertView.findViewById(R.id.CityName);
 
-                holder.DefaultAddress = (TextView) convertView.findViewById(R.id.DefaultAddress);
+//                holder.DefaultAddress = (TextView) convertView.findViewById(R.id.DefaultAddress);
 
                 holder.textView1 = (TextView) convertView.findViewById(R.id.textView1);
             /*	holder.textView4 = (TextView)convertView.findViewById(R.id.textView4);
                 holder.textView2 = (TextView)convertView.findViewById(R.id.textView2);
 				*/
                 holder.imageView1 = (ImageView) convertView.findViewById(R.id.imageView1);
-                holder.imageViewDiscard = (ImageView) convertView.findViewById(R.id.imageViewDiscard);
-                holder.imageViewEdit = (ImageView) convertView.findViewById(R.id.imageViewEdit);
+                holder.imageViewDiscard = (Button) convertView.findViewById(R.id.imageViewDiscard);
+                holder.imageViewEdit = (Button) convertView.findViewById(R.id.imageViewEdit);
 
                 convertView.setTag(holder);
             } else {
                 holder = (ViewHolder) convertView.getTag();
             }
 
-            holder.AddressID.setText(array_list.get(position).get("AddressID"));
-            holder.UserID.setText(array_list.get(position).get("UserID"));
-            holder.AddressName.setText(array_list.get(position).get("AddressName"));
-            holder.CityID.setText(array_list.get(position).get("CityID"));
-            holder.CountryID.setText(array_list.get(position).get("CountryID"));
+//            holder.AddressID.setText(array_list.get(position).get("AddressID"));
+//            holder.UserID.setText(array_list.get(position).get("UserID"));
+//            holder.AddressName.setText(array_list.get(position).get("AddressName"));
+//            holder.CityID.setText(array_list.get(position).get("CityID"));
+//            holder.CountryID.setText(array_list.get(position).get("CountryID"));
 
-            holder.ContactNo.setText(array_list.get(position).get("ContactNo"));
-            holder.AddressLine1.setText(array_list.get(position).get("AddressLine1"));
-            holder.AddressLine2.setText(array_list.get(position).get("AddressLine2"));
-            holder.AddressLine3.setText(array_list.get(position).get("AddressLine3"));
-            holder.countryName.setText(array_list.get(position).get("countryName"));
-            holder.CityName.setText(array_list.get(position).get("CityName"));
-            holder.DefaultAddress.setText(array_list.get(position).get("DefaultAddress"));
+//            holder.ContactNo.setText(array_list.get(position).get("ContactNo"));
+//            holder.AddressLine1.setText(array_list.get(position).get("AddressLine1"));
+//            holder.AddressLine2.setText(array_list.get(position).get("AddressLine2"));
+//            holder.AddressLine3.setText(array_list.get(position).get("AddressLine3"));
+//            holder.countryName.setText(array_list.get(position).get("countryName"));
+//            holder.CityName.setText(array_list.get(position).get("CityName"));
+//            holder.DefaultAddress.setText(array_list.get(position).get("DefaultAddress"));
 
             if (array_list.get(position).get("DefaultAddress").equals("0")) {
                 holder.imageView1.setImageResource(R.drawable.off);
             } else {
                 holder.imageView1.setImageResource(R.drawable.on);
             }
+//            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            String whitespace = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 
-            String full_address = array_list.get(position).get("AddressName") + "\n" +
-                    array_list.get(position).get("AddressLine1") + ", " +
-                    array_list.get(position).get("AddressLine2") + ", " +
-                    array_list.get(position).get("AddressLine3") + ",\n" +
-                    array_list.get(position).get("CityName") + "\n" +
-                    array_list.get(position).get("countryName") + "\n" +
-                    array_list.get(position).get("ContactNo");
+            String full_address = "<br>Address :<br><b><font color=\"#208da9\"><i>" + whitespace + whitespace +                  //Address Name :
+                    array_list.get(position).get("AddressName") + "</i><br>" + whitespace + whitespace +
+                    array_list.get(position).get("AddressLine1") + ", <br>" + whitespace + whitespace +
+                    array_list.get(position).get("AddressLine2") + ", <br>" + whitespace + whitespace +
+                    array_list.get(position).get("AddressLine3") + ",<br>" + whitespace + whitespace +
+                    array_list.get(position).get("CityName") + "<br>" + whitespace + whitespace +
+                    array_list.get(position).get("countryName") + "<br>" + whitespace + whitespace +
+                    array_list.get(position).get("ContactNo") + "</font></b>";
 
-            holder.textView1.setText(full_address);
+            full_address = full_address.toUpperCase().replace("&NBSP;", "&nbsp;");
+//            holder.textView1.setText(full_address);
+            holder.textView1.setText(Html.fromHtml(full_address));
             //holder.textView4.setText(Html.fromHtml("<u>Edit</u>"));
 
             holder.imageView1.setOnClickListener(new View.OnClickListener() {

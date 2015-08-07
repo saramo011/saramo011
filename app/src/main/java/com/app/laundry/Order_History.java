@@ -60,8 +60,7 @@ public class Order_History extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.new_order_history, container, false);
 
@@ -94,7 +93,7 @@ public class Order_History extends Fragment {
     }
 
     private void getAllOrders() {
-        ProgressDialogClass.showProgressDialog(getActivity(), "Loading...");
+        ProgressDialogClass.showProgressDialog(getActivity(), getResources().getString(R.string.loading));
         array_list.clear();
 
         final Thread fetch_address = new Thread() {
@@ -226,7 +225,6 @@ public class Order_History extends Fragment {
 
     static class ViewHolder {
         TextView textView1, textView2, textView3;
-        ImageView imagebtn;
         LinearLayout main;
     }
 
@@ -272,7 +270,6 @@ public class Order_History extends Fragment {
                 holder.textView3 = (TextView) convertView.findViewById(R.id.textView3);
                 holder.textView2 = (TextView) convertView.findViewById(R.id.textView2);
                 holder.main = (LinearLayout) convertView.findViewById(R.id.main);
-                holder.imagebtn = (ImageView) convertView.findViewById(R.id.imgView3);
 
                 convertView.setTag(holder);
             } else {
@@ -307,14 +304,10 @@ public class Order_History extends Fragment {
                     // TODO Auto-generated method stub
                     Bundle data = new Bundle();
                     Fragment fragment = new Invoice();
-
                     data.putString("LaundryOrderID", array_list.get(position).get("LaundryOrderID"));
-
                     fragment.setArguments(data);
-
                     android.support.v4.app.FragmentManager fragmentManager = getFragmentManager();
-                    fragmentManager.beginTransaction()
-                            .replace(R.id.frame_container, fragment, "invoice").addToBackStack("order_history").commit();
+                    fragmentManager.beginTransaction().replace(R.id.frame_container, fragment, "invoice").addToBackStack("order_history").commit();
 
                 }
             });

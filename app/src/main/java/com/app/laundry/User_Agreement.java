@@ -13,7 +13,6 @@ import com.bluejamesbond.text.DocumentView;
 import com.bluejamesbond.text.style.TextAlignment;
 
 public class User_Agreement extends Fragment {
-    TextView title, message;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -23,22 +22,15 @@ public class User_Agreement extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.user_agreement, container, false);
-        title = (TextView) view.findViewById(R.id.title);
-//        message = (TextView) view.findViewById(R.id.message);
-        title.setText("User Agreement");
-//        message.setText("Copyright © 2015, Nazish Ahsan, contact me: nazish.ahsan@znsoftech.com\n\n" +
-//                "This application is free; you can sharte it and" +
-//                " it under the terms of the GNU General Public License as" +
-//                " published by the Free Application Foundation; either version 1.0 of the" +
-//                " License.");
-//        message.setLinkTextColor(Color.BLUE);
+        TextView title = (TextView) view.findViewById(R.id.title);
+
+        title.setText(getResources().getString(R.string.user_agreement));
+
         DocumentView documentView = (DocumentView) view.findViewById(R.id.text_useragreement_justified);
         documentView.getDocumentLayoutParams().setTextAlignment(TextAlignment.JUSTIFIED);
-
 
         return view;
     }

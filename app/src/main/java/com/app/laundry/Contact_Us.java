@@ -7,11 +7,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 public class Contact_Us extends Fragment {
-
-    TextView title, message;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -29,14 +28,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.app.laundry.json.JGetParsor;
-import com.app.laundry.json.JsonReturn;
-import com.app.laundry.lazyloading.ImageLoader;
 import com.app.laundry.network.Network;
 import com.app.laundry.util.AlertUtil;
 import com.app.laundry.util.ProgressDialogClass;
 
 import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -55,14 +51,10 @@ public class LaundryBookingActivity extends ActionBarActivity implements OnItemS
     ArrayList<HashMap<String, String>> l_items = new ArrayList<HashMap<String, String>>();
     ArrayList<HashMap<String, String>> s_items = new ArrayList<HashMap<String, String>>();
 
-    JSONObject jsonObj = new JSONObject();
     Handler mHandler = new Handler();
     TextView textView_laundry_name;
-    TextView textView_laundry_review;
+    String laundryId;
 
-    String laundryId, strlaundryName;
-    TextView textView_detail;
-    TextView textView_laundry_vote;
     Button button_add;
 
     JSONObject json;
@@ -72,9 +64,7 @@ public class LaundryBookingActivity extends ActionBarActivity implements OnItemS
 
     EditText spinner_quantity;
     ListView listView_booking;
-    ImageView imageView_bannerdsa, plus, minus;
-    ImageLoader imageLoader;
-    ArrayList<JSONObject> bannerArray = new ArrayList<JSONObject>();
+    ImageView plus, minus;
     private EfficientAdapter list_ed;
 
     @Override
@@ -84,7 +74,7 @@ public class LaundryBookingActivity extends ActionBarActivity implements OnItemS
         setContentView(R.layout.activity_booking);
 
         ActionBar bar = getSupportActionBar();
-        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#2196f3")));
+        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor(getResources().getString(R.string.action_bar_color))));
         bar.setDisplayShowHomeEnabled(true);
         bar.setDisplayHomeAsUpEnabled(true);
         bar.setHomeButtonEnabled(true);
@@ -94,7 +84,7 @@ public class LaundryBookingActivity extends ActionBarActivity implements OnItemS
         listView_booking = (ListView) findViewById(R.id.listView1);
         list_ed = new EfficientAdapter(LaundryBookingActivity.this);
         listView_booking.setAdapter(list_ed);
-        // final String[] quantity_items = new String[] { "1", "2","3", "4","5", "6","7", "8","9", "10","11", "12","13", "14","15", "16","17", "18","19", "20"};
+
         spinner_service = (Spinner) findViewById(R.id.spinner_laundry2);
         spinner_laundry = (Spinner) findViewById(R.id.spinner_laundry);
 
@@ -111,7 +101,7 @@ public class LaundryBookingActivity extends ActionBarActivity implements OnItemS
                 String number = spinner_quantity.getText().toString();
 
                 if (number.length() > 9) {
-                    Toast.makeText(LaundryBookingActivity.this, "Too much Quantity.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LaundryBookingActivity.this, getResources().getString(R.string.too_much_quantity), Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -134,7 +124,7 @@ public class LaundryBookingActivity extends ActionBarActivity implements OnItemS
                 String number = spinner_quantity.getText().toString();
 
                 if (number.length() > 9) {
-                    Toast.makeText(LaundryBookingActivity.this, "Too much Quantity.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LaundryBookingActivity.this, getResources().getString(R.string.too_much_quantity), Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -153,7 +143,8 @@ public class LaundryBookingActivity extends ActionBarActivity implements OnItemS
         bar.setTitle(laundryName);
         laundryId = intent.getExtras().getString("LaundryId");
 
-        textView_laundry_name.setText("Fill Order Details");
+        textView_laundry_name.setText(getResources().getString(R.string.fill_order_details));
+
         Button button_submit = (Button) findViewById(R.id.button_submit);
         button_submit.setOnClickListener(new OnClickListener() {
 
@@ -196,18 +187,13 @@ public class LaundryBookingActivity extends ActionBarActivity implements OnItemS
                     }
 
 
-                    Intent intent = new Intent(LaundryBookingActivity.this,
-                            CommentActivity.class);
-                    Log.w("Putting detail for another page", "running till here");
+                    Intent intent = new Intent(LaundryBookingActivity.this, CommentActivity.class);
                     intent.putExtra("LaundryId", laundryId);
                     intent.putExtra("LaundryArray", jArray.toString());
                     intent.putExtra("LaundryName", laundryName);
 
-
                     startActivity(intent);
                     overridePendingTransition(R.anim.right_in, R.anim.left_out);
-                } else {
-                    //Toast.makeText(LaundryBookingActivity.this, "Please add atleast one item.",Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -224,14 +210,7 @@ public class LaundryBookingActivity extends ActionBarActivity implements OnItemS
 
         final AlertUtil alert = new AlertUtil();
         if (Network.HaveNetworkConnection(LaundryBookingActivity.this)) {
-            //getLaundryDetail("");
-            //new loginAccess().execute();
             update_laundry_items();
-            imageLoader = new ImageLoader(LaundryBookingActivity.this
-                    .getApplicationContext());
-            float ppi = getResources().getDisplayMetrics().density;
-            int height = (int) (60 * ppi);
-            // imageView_banner.getLayoutParams().height = height;
 
         } else {
             alert.confirmationAlert(LaundryBookingActivity.this, getResources()
@@ -246,9 +225,6 @@ public class LaundryBookingActivity extends ActionBarActivity implements OnItemS
                         }
                     });
         }
-        // Use AsyncTask execute Method To Prevent ANR Problem
-        // tryLogin("", "");
-        // postData();
 
     }
 
@@ -257,12 +233,12 @@ public class LaundryBookingActivity extends ActionBarActivity implements OnItemS
         String qty = spinner_quantity.getText() + "";
 
         if (qty.length() > 9) {
-            Toast.makeText(LaundryBookingActivity.this, "Too much Quantity.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(LaundryBookingActivity.this, getResources().getString(R.string.too_much_quantity), Toast.LENGTH_SHORT).show();
             return;
         }
 
         if (Integer.parseInt(qty) == 0) {
-            Toast.makeText(LaundryBookingActivity.this, "Please add Quantity.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(LaundryBookingActivity.this, getResources().getString(R.string.please_add_quantity), Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -275,10 +251,8 @@ public class LaundryBookingActivity extends ActionBarActivity implements OnItemS
             HashMap<String, String> tempHashMap = bookingArray.get(i);
 
             if (tempHashMap.get("Item").equals(temp_item) && tempHashMap.get("Service").equals(temp_service)) {
-                //Toast.makeText(LaundryBookingActivity.this, "Entered in loop.",Toast.LENGTH_SHORT).show();
                 int quantity = Integer.parseInt(qty) + Integer.parseInt(tempHashMap.get("Quantity"));
                 if (quantity < 1) {
-                    //Toast.makeText(LaundryBookingActivity.this, "Too much Quantity.",Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -309,7 +283,6 @@ public class LaundryBookingActivity extends ActionBarActivity implements OnItemS
             tempHash.put("Quantity", qty);
             tempHash.put("Amount", amount);
 
-
             bookingArray.add(tempHash);
         }
 
@@ -319,7 +292,7 @@ public class LaundryBookingActivity extends ActionBarActivity implements OnItemS
     //New fetch data
     private void update_laundry_items() {
         // TODO Auto-generated method stub
-        ProgressDialogClass.showProgressDialog(LaundryBookingActivity.this, "Loading...");
+        ProgressDialogClass.showProgressDialog(LaundryBookingActivity.this, getResources().getString(R.string.loading));
         final Thread getdata = new Thread() {
             @SuppressWarnings("deprecation")
             public void run() {
@@ -388,170 +361,6 @@ public class LaundryBookingActivity extends ActionBarActivity implements OnItemS
         super.onResume();
         if (Config.isBookingService)
             finish();
-    }
-
-
-    void Booking(final String laundryId) {
-
-        //	ProgressDialogClass.showProgressDialog(LaundryBookingActivity.this,
-        //		"Loading...");
-
-        final Thread splashTread = new Thread() {
-            @Override
-            public void run() {
-
-                ArrayList<BasicNameValuePair> nameValuePairs = new ArrayList<BasicNameValuePair>();
-
-
-                JSONArray jArray = new JSONArray();
-                //int count = 0;
-                for (int i = 0; i < bookingArray.size(); i++) {
-
-                    JSONObject ticketjson = null;
-                    try {
-                        ticketjson = new JSONObject();
-                        ticketjson.put(
-                                "item",
-                                bookingArray.get(i).get(
-                                        "Item"));
-                        ticketjson.put(
-                                "service",
-                                bookingArray.get(i).get(
-                                        "Service"));
-                        ticketjson.put(
-                                "quantity",
-                                bookingArray.get(i).get(
-                                        "Quantity"));
-
-
-                    } catch (JSONException e) {
-                        // TODO Auto-generated catch block
-                        e.printStackTrace();
-                    }
-                    jArray.put(ticketjson);
-
-                }
-
-                nameValuePairs.add(new BasicNameValuePair("laundry_id",
-                        laundryId));
-                nameValuePairs.add(new BasicNameValuePair("user_id",
-                        Config.userid));
-                nameValuePairs.add(new BasicNameValuePair("cur_lat",
-                        Config.latitude));
-                nameValuePairs.add(new BasicNameValuePair("cur_long",
-                        Config.longitude));
-                nameValuePairs.add(new BasicNameValuePair("cur_add",
-                        ""));
-                nameValuePairs.add(new BasicNameValuePair("comment",
-                        ""));
-                nameValuePairs.add(new BasicNameValuePair("orders",
-                        jArray.toString()));
-
-                JsonReturn jsonReturn = new JsonReturn();
-                jsonObj = jsonReturn.setReview(
-                        Config.Order_Online_Url, nameValuePairs);
-
-
-            }
-        };
-        splashTread.start();
-
-        final Thread displayThread = new Thread(new Runnable() {
-            public void run() {
-
-                try {
-                    splashTread.join();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-
-                if (mHandler != null) {
-                    mHandler.post(new Runnable() {
-                        public void run() {
-                            // ProgressDialogClass.dismissProgressDialog();
-                            if (jsonObj != null) {
-                                if (jsonObj.length() > 0) {
-                                    try {
-
-                                        if (jsonObj.getString("status")
-                                                .equals("200")) {
-
-
-                                            Toast.makeText(LaundryBookingActivity.this, jsonObj.getString(
-                                                    "stauts_message"), Toast.LENGTH_LONG).show();
-                                        } else {
-                                            AlertUtil alert = new AlertUtil();
-                                            alert.messageAlert(
-                                                    LaundryBookingActivity.this, "", jsonObj.getString(
-                                                            "stauts_message"));
-                                        }
-
-                                    } catch (JSONException e) {
-                                        // TODO Auto-generated catch block
-                                        e.printStackTrace();
-                                    }
-
-                                }
-                            }
-                            ProgressDialogClass.dismissProgressDialog();
-
-                        }
-
-                    });
-                }
-            }
-        });
-        displayThread.start();
-
-    }
-
-    private void GetBanner() {
-
-        final Thread splashTread = new Thread() {
-            @Override
-            public void run() {
-
-
-                bannerArray = JsonReturn.BannerparseJson1("http://laundry.znsoftech.com/banner.php/");
-            }
-
-        };
-        splashTread.start();
-
-        final Thread displayThread = new Thread(new Runnable() {
-            public void run() {
-
-                try {
-                    splashTread.join();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                if (mHandler != null) {
-                    mHandler.post(new Runnable() {
-                        public void run() {
-                            if (bannerArray.size() > 0) {
-                                JSONObject tempHashMap = bannerArray.get(0);
-
-//								try {
-//
-////									imageLoader.DisplayImage(tempHashMap
-////												.getString("BannerURL"),
-////												imageView_banner,false);
-//
-//								} catch (JSONException e) {
-//									// TODO Auto-generated catch block
-//									e.printStackTrace();
-//								}
-
-                            }
-
-                        }
-                    });
-                }
-            }
-        });
-        displayThread.start();
-
     }
 
     @Override
@@ -632,7 +441,6 @@ public class LaundryBookingActivity extends ActionBarActivity implements OnItemS
     }
 
     static class ViewHolder {
-        //TextView textView_number;
         TextView textView_item;
         TextView textView_service;
         TextView textView_dhs;
@@ -671,8 +479,7 @@ public class LaundryBookingActivity extends ActionBarActivity implements OnItemS
             if (convertView == null || convertView.getTag() == null) {
                 convertView = mInflater.inflate(R.layout.booking_row, null);
                 holder = new ViewHolder();
-                //holder.textView_number = (TextView) convertView
-                //		.findViewById(R.id.textView_number);
+
                 holder.textView_item = (TextView) convertView
                         .findViewById(R.id.textView_item);
                 holder.textView_service = (TextView) convertView
@@ -692,8 +499,6 @@ public class LaundryBookingActivity extends ActionBarActivity implements OnItemS
             }
 
             if (bookingArray.size() == position) {
-                //holder.textView_number.setText("");
-                //holder.textView_number.setVisibility(View.INVISIBLE);
                 holder.textView_item.setVisibility(View.INVISIBLE);
                 holder.textView_dhs.setVisibility(View.INVISIBLE);
                 //holder.textView_amnt.setVisibility(View.INVISIBLE);
@@ -737,6 +542,5 @@ public class LaundryBookingActivity extends ActionBarActivity implements OnItemS
         }
 
     }
-
 
 }

@@ -29,8 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Add_Address extends Fragment {
-    String AddressName, CityID, CountryID, ContactNo, AddressLine1, AddressLine2,
-            AddressLine3, countryName, CityName;
+    String AddressName, CityID, CountryID, ContactNo, AddressLine1, AddressLine2, AddressLine3, countryName, CityName;
     int position;
     JSONObject json, json1, json2;
     ArrayList<String> city = new ArrayList<String>();
@@ -55,8 +54,7 @@ public class Add_Address extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.new_edit_address, container, false);
 
@@ -65,6 +63,7 @@ public class Add_Address extends Fragment {
         add_lane1 = (EditText) view.findViewById(R.id.AddressLine1);
         add_lane2 = (EditText) view.findViewById(R.id.AddressLine2);
         add_lane3 = (EditText) view.findViewById(R.id.AddressLine3);
+
 
         bt_save = (Button) view.findViewById(R.id.bt_save);
 
@@ -86,19 +85,19 @@ public class Add_Address extends Fragment {
                 AddressName = add_name.getText().toString();
 
                 if (AddressName.length() < 2) {
-                    Toast.makeText(getActivity(), "Enter short name!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), getResources().getString(R.string.enter_address_title), Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 AddressLine1 = add_lane1.getText().toString();
                 if (AddressLine1.length() < 4) {
-                    Toast.makeText(getActivity(), "Enter correct Address!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), getResources().getString(R.string.enter_correct_address), Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 ContactNo = cont_no.getText().toString();
                 if (ContactNo.length() < 5) {
-                    Toast.makeText(getActivity(), "Enter correct contact!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), getResources().getString(R.string.enter_correct_contact), Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -129,7 +128,7 @@ public class Add_Address extends Fragment {
 
     protected void updateDefault() {
         // TODO Auto-generated method stub
-        ProgressDialogClass.showProgressDialog(getActivity(), "Saving...");
+        ProgressDialogClass.showProgressDialog(getActivity(), getResources().getString(R.string.saving));
         json = null;
         final Thread update = new Thread() {
             @SuppressWarnings("deprecation")
@@ -174,7 +173,7 @@ public class Add_Address extends Fragment {
                             if (json != null) {
                                 try {
                                     if (json.getInt("status") == 200) {
-                                        Toast.makeText(getActivity(), "Saved!", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getActivity(), getResources().getString(R.string.saved), Toast.LENGTH_SHORT).show();
                                         Fragment fragment = new Manage_Address();
                                         android.support.v4.app.FragmentManager fragmentManager = getFragmentManager();
                                         fragmentManager.beginTransaction()
@@ -249,7 +248,7 @@ public class Add_Address extends Fragment {
 
     private void update_city_country() {
         // TODO Auto-generated method stub
-        ProgressDialogClass.showProgressDialog(getActivity(), "Loading...");
+        ProgressDialogClass.showProgressDialog(getActivity(), getResources().getString(R.string.loading));
         final Thread getdata = new Thread() {
             public void run() {
                 List<NameValuePair> params = new ArrayList<NameValuePair>();

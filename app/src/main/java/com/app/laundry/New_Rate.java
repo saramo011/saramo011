@@ -260,7 +260,7 @@ public class New_Rate extends FragmentActivity {
 
                                         editText_msg.setText(Comments);
 
-                                        Toast.makeText(New_Rate.this, PriceQuality + " " + ServiceQuality + " " + PickupQuality + " " + DropoffQuality, Toast.LENGTH_LONG).show();
+                                        // Toast.makeText(New_Rate.this, PriceQuality + " " + ServiceQuality + " " + PickupQuality + " " + DropoffQuality, Toast.LENGTH_LONG).show();
 
                                     }
                                 } catch (JSONException e) {
@@ -345,7 +345,7 @@ public class New_Rate extends FragmentActivity {
                                     //Toast.makeText(New_Rate.this, json.toString(),Toast.LENGTH_LONG).show();
                                     if (json.getInt("status") == 200) {
                                         Toast.makeText(New_Rate.this, getResources().getString(R.string.update_successfully), Toast.LENGTH_LONG).show();
-                                        Toast.makeText(New_Rate.this, tag1 + " " + tag2 + " " + tag3 + " " + tag4, Toast.LENGTH_LONG).show();
+                                        //  Toast.makeText(New_Rate.this, tag1 + " " + tag2 + " " + tag3 + " " + tag4, Toast.LENGTH_LONG).show();
                                         onBackPressed();
                                     }
                                     //Toast.makeText(New_Rate.this, json.getInt("status"),Toast.LENGTH_LONG).show();

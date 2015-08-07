@@ -1,27 +1,20 @@
 package com.app.laundry;
 
-import android.app.Dialog;
 import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.app.laundry.network.Network;
 import com.app.laundry.util.AlertUtil;
 
-import org.json.JSONArray;
-
 public class ChooseOnlineOfflineActivity extends FragmentActivity {
 
-    JSONArray searchResult = new JSONArray();
     Handler mHandler = new Handler();
     ImageView imageView_on_online;
     ImageView imageView_on_offline;
@@ -130,31 +123,4 @@ public class ChooseOnlineOfflineActivity extends FragmentActivity {
 
     }
 
-    void showDialog(String msgStr, final EditText editText) {
-        final Dialog dialog = new Dialog(ChooseOnlineOfflineActivity.this);
-        dialog.setContentView(R.layout.custom_alert_popup1);
-        dialog.getWindow().setBackgroundDrawable(
-                new ColorDrawable(android.graphics.Color.TRANSPARENT));
-        TextView title = (TextView) dialog.findViewById(R.id.textView1);
-        title.setVisibility(TextView.GONE);
-        TextView msg = (TextView) dialog.findViewById(R.id.textView2);
-        msg.setText(msgStr);
-
-        TextView ok = (TextView) dialog.findViewById(R.id.textView_ok);
-        ok.setText("Ok");
-        LinearLayout lay_abort = (LinearLayout) dialog
-                .findViewById(R.id.lay_abort);
-        // if button is clicked, close the custom dialog
-        ok.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-                if (editText != null)
-                    editText.setText("");
-            }
-        });
-        lay_abort.setVisibility(TextView.GONE);
-
-        dialog.show();
-    }
 }

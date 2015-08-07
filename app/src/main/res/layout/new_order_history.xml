@@ -23,17 +23,16 @@
 
     <LinearLayout
         android:id="@+id/ll"
-        android:paddingLeft="15dp"
-        android:paddingRight="10dp"
-        android:paddingBottom="5dp"
-        android:paddingTop="5dp"
-        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageView_banner"
         android:background="@color/btn_bgcolor"
+        android:gravity="center"
         android:orientation="horizontal"
-        >
+        android:paddingBottom="5dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp">
 
         <TextView
             android:id="@+id/textView1"
@@ -69,8 +68,8 @@
             android:id="@+id/imgView3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:gravity="end"
             android:layout_weight="1"
+            android:gravity="end"
             android:src="@drawable/ic_action_arrow"
             android:visibility="invisible" />
 

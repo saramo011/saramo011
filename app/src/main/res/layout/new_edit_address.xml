@@ -38,13 +38,12 @@
             android:padding="10dp">
 
             <TextView
-                android:id="@+id/textView1"
-                android:layout_width="316dp"
+                android:id="@+id/text_title_address"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:background="#b3b3b3"
+                android:background="@color/topbar_back"
                 android:gravity="center"
-                android:padding="0dp"
                 android:text="Edit Address"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/white" />
@@ -62,11 +61,12 @@
                 android:id="@+id/AddressName"
                 android:layout_width="fill_parent"
                 android:layout_height="30dp"
-                android:background="@drawable/edittextstyle"
+                android:background="@drawable/edit_new_style"
                 android:ems="10"
+                android:hint="e.g HOME,OFFICE"
                 android:inputType="textPersonName"
                 android:padding="5dp"
-                android:textAppearance="?android:attr/textAppearanceSmall"></EditText>
+                android:textAppearance="?android:attr/textAppearanceSmall" />
 
             <!--                 <requestFocus /> -->
 
@@ -83,9 +83,10 @@
             <EditText
                 android:id="@+id/AddressLine1"
                 android:layout_width="fill_parent"
-                android:layout_height="60dp"
-                android:background="@drawable/edittextstyle"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_new_style"
                 android:ems="10"
+                android:hint="@string/address_hint"
                 android:inputType="textMultiLine"
                 android:padding="5dp"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
@@ -104,9 +105,9 @@
                 android:id="@+id/AddressLine2"
                 android:layout_width="fill_parent"
                 android:layout_height="30dp"
-                android:background="@drawable/edittextstyle"
-
+                android:background="@drawable/edit_new_style"
                 android:ems="10"
+                android:hint="@string/landmark"
                 android:inputType="textPersonName"
                 android:padding="5dp"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
@@ -126,7 +127,7 @@
                 android:id="@+id/AddressLine3"
                 android:layout_width="fill_parent"
                 android:layout_height="30dp"
-                android:background="@drawable/edittextstyle"
+                android:background="@drawable/edit_new_style"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:padding="5dp"
@@ -143,14 +144,18 @@
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@color/text_color" />
 
-            <Spinner
-                android:id="@+id/spinner1"
-                android:layout_width="fill_parent"
-                android:layout_height="30dp"
-                android:background="@drawable/edittextstyle"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_from_spin">
 
-                android:hint="Select"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
+                <Spinner
+                    android:id="@+id/spinner1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="30dp"
+                    android:hint="Select"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+            </LinearLayout>
 
 
             <TextView
@@ -162,14 +167,16 @@
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@color/text_color" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_from_spin">
             <Spinner
                 android:id="@+id/spinner2"
                 android:layout_width="fill_parent"
                 android:layout_height="30dp"
-                android:background="@drawable/edittextstyle"
-
                 android:textAppearance="?android:attr/textAppearanceSmall" />
-
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/textView7"
@@ -184,7 +191,7 @@
                 android:id="@+id/ContactNo"
                 android:layout_width="fill_parent"
                 android:layout_height="30dp"
-                android:background="@drawable/edittextstyle"
+                android:background="@drawable/edit_new_style"
                 android:ems="10"
                 android:inputType="phone"
                 android:maxLength="10"
@@ -220,7 +227,7 @@
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
-                    android:background="@drawable/submit_btn"
+                    android:background="@drawable/button_selector"
                     android:gravity="center"
                     android:text="Save"
                     android:textColor="@color/button_title_color" />

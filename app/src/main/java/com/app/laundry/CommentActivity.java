@@ -25,7 +25,6 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.app.laundry.json.JGetParsor;
-import com.app.laundry.lazyloading.ImageLoader;
 import com.app.laundry.network.Network;
 import com.app.laundry.util.AlertUtil;
 import com.app.laundry.util.ProgressDialogClass;
@@ -45,17 +44,14 @@ public class CommentActivity extends ActionBarActivity {
     Handler mHandler = new Handler();
 
     JSONObject json;
+    Intent i = null;
 
-    String AddressID, UserID, AddressName, CityID, CountryID, ContactNo, AddressLine1, AddressLine2,
-            AddressLine3, countryName, CityName, DefaultAddress;
+    String AddressID, UserID, AddressName, CityID, CountryID, ContactNo, AddressLine1, AddressLine2, AddressLine3, countryName, CityName;
     String address_position1, address_position2;
 
-    Button but_submit;
     String laundryId, laundryArray, laundryName;
     boolean online_offline;
 
-    //ImageView imageView_banner,imageView_small_banner;
-    ImageLoader imageLoader;
     ImageView image_edit1, image_edit2;
 
     Spinner sp1, sp2;
@@ -71,28 +67,23 @@ public class CommentActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.new_pick_up_address);
 
-        //	Log.w("On Comment Activity Page", "running till here");
-
         ActionBar bar = getSupportActionBar();
-        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#2196f3")));
+        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor(getResources().getString(R.string.action_bar_color))));
         bar.setDisplayShowHomeEnabled(true);
         bar.setDisplayHomeAsUpEnabled(true);
         bar.setHomeButtonEnabled(true);
 
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
-        //  imageView_banner=(ImageView)findViewById(R.id.imageView_banner);
-        //imageView_small_banner=(ImageView)findViewById(R.id.imageView_small_banner);
+        i = getIntent();
 
-        Intent intent = getIntent();
+        laundryId = i.getExtras().getString("LaundryId");
+        laundryArray = i.getExtras().getString("LaundryArray");
+        laundryName = i.getExtras().getString("LaundryName");
 
-        laundryId = intent.getExtras().getString("LaundryId");
-        laundryArray = intent.getExtras().getString("LaundryArray");
-        laundryName = intent.getExtras().getString("LaundryName");
-
-        address_position1 = intent.getExtras().getString("address_position1");
-        address_position2 = intent.getExtras().getString("address_position2");
-        online_offline = intent.getExtras().getBoolean("LaundryOffline");
+        address_position1 = i.getExtras().getString("address_position1");
+        address_position2 = i.getExtras().getString("address_position2");
+        online_offline = i.getExtras().getBoolean("LaundryOffline");
 
         bar.setTitle("Confirm Address");
 
@@ -111,7 +102,7 @@ public class CommentActivity extends ActionBarActivity {
                 if (sp_name.equals("new")) {
 
 
-                    Intent i = new Intent(CommentActivity.this, Add_CommentAddress.class);
+                    i = new Intent(CommentActivity.this, Add_CommentAddress.class);
 
                     i.putExtra("address_position1", 0 + "");
                     i.putExtra("address_position2", 0 + "");
@@ -167,7 +158,7 @@ public class CommentActivity extends ActionBarActivity {
                 if (sp_name.equals("new")) {
 
 
-                    Intent i = new Intent(CommentActivity.this, Add_CommentAddress.class);
+                    i = new Intent(CommentActivity.this, Add_CommentAddress.class);
 
                     i.putExtra("address_position1", 0 + "");
                     i.putExtra("address_position2", 0 + "");
@@ -248,7 +239,7 @@ public class CommentActivity extends ActionBarActivity {
                 countryName = array_list.get(address_position1).get("countryName");
                 CityName = array_list.get(address_position1).get("CityName");
 
-                Intent i = new Intent(CommentActivity.this, EditAddressComment.class);
+                i = new Intent(CommentActivity.this, EditAddressComment.class);
 
                 i.putExtra("address_position1", address_position1 + "");
                 i.putExtra("address_position2", address_position2 + "");
@@ -298,7 +289,7 @@ public class CommentActivity extends ActionBarActivity {
                 CityName = array_list.get(address_position2).get("CityName");
 
 
-                Intent i = new Intent(CommentActivity.this, EditAddressComment.class);
+                i = new Intent(CommentActivity.this, EditAddressComment.class);
 
                 i.putExtra("address_position2", address_position2 + "");
                 i.putExtra("address_position1", address_position1 + "");
@@ -357,7 +348,7 @@ public class CommentActivity extends ActionBarActivity {
     }
 
     void getAllAddresses() {
-        ProgressDialogClass.showProgressDialog(CommentActivity.this, "Loading...");
+        ProgressDialogClass.showProgressDialog(CommentActivity.this, getResources().getString(R.string.loading));
 
         final Thread fetch_address = new Thread() {
             @Override
@@ -503,7 +494,7 @@ public class CommentActivity extends ActionBarActivity {
 
     public void Booking() {
         json = null;
-        ProgressDialogClass.showProgressDialog(CommentActivity.this, "Loading...");
+        ProgressDialogClass.showProgressDialog(CommentActivity.this, getResources().getString(R.string.loading));
 
         final Thread splashTread = new Thread() {
             @SuppressWarnings("deprecation")
@@ -571,8 +562,7 @@ public class CommentActivity extends ActionBarActivity {
                                     } else {
                                         AlertUtil alert = new AlertUtil();
                                         alert.messageAlert(
-                                                CommentActivity.this, "", json.getString(
-                                                        "stauts_message"));
+                                                CommentActivity.this, "", json.getString("stauts_message"));
                                     }
 
                                 } catch (JSONException e) {
@@ -610,8 +600,7 @@ public class CommentActivity extends ActionBarActivity {
             onBackPressed();
             return true;
         } else if (id == R.id.direct_to_home) {
-            startActivity(new Intent(CommentActivity.this,
-                    BaseFragmentActivity.class));
+            startActivity(new Intent(CommentActivity.this, BaseFragmentActivity.class));
             overridePendingTransition(R.anim.right_in, R.anim.left_out);
         }
 

@@ -16,31 +16,25 @@ import com.app.laundry.tabs.lib.TabPageIndicator2;
 
 public class HomeFragment extends Fragment {
 
-
     private static final String[] CONTENT = new String[]{"Home", "Nearby", "Leading", "Favourite", "Deals"};
     static ViewPager pager;
     View rootView;
     FragmentPagerAdapter adapter;
     TabPageIndicator2 indicator;
-
-    public static HomeFragment newInstance() {
-        HomeFragment fragment = new HomeFragment();
-        return fragment;
-    }
+//
+//    public static HomeFragment newInstance() {
+//        HomeFragment fragment = new HomeFragment();
+//        return fragment;
+//    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        /**
-         * Inflate the layout for this fragment
-         */
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         rootView = inflater.inflate(R.layout.mymusic_fragment, container, false);
         adapter = new GoogleMusicAdapter(getChildFragmentManager());
 
@@ -80,7 +74,6 @@ public class HomeFragment extends Fragment {
             } else {
                 fragment = LaundryFragment.newInstance();
             }
-
 
             fragment.setArguments(data);
             return fragment;

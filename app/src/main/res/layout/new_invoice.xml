@@ -34,15 +34,16 @@
         android:layout_height="130dp"
         android:layout_below="@+id/textView1"
         android:labelFor="@id/textView1">
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:lineSpacingMultiplier="1.2"
-        android:padding="10dp"
-        android:text=" "
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@color/text_color" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingMultiplier="1.2"
+            android:padding="10dp"
+            android:text=" "
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/text_color" />
     </ScrollView>
 
     <LinearLayout
@@ -53,8 +54,8 @@
         android:layout_below="@+id/text_scroll"
         android:background="#004765"
         android:gravity="center"
-        android:padding="5dp"
-        >
+        android:padding="5dp">
+
         <TextView
             android:id="@+id/textView3"
             android:layout_width="0dp"
@@ -108,6 +109,7 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/white" />
     </LinearLayout>
+
     <ListView
         android:id="@+id/listView1"
         android:layout_width="match_parent"
@@ -118,7 +120,8 @@
         android:layout_marginTop="1dp"
         android:background="@color/bgcolor"
         android:divider="@color/bgcolor"
-        android:dividerHeight="1dp"/>
+        android:dividerHeight="1dp" />
+
     <Button
         android:id="@+id/button1"
         android:layout_width="fill_parent"

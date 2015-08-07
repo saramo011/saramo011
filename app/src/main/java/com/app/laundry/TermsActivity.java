@@ -12,7 +12,6 @@ import android.webkit.WebView;
 
 public class TermsActivity extends ActionBarActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,8 +41,7 @@ public class TermsActivity extends ActionBarActivity {
             return true;
 
         } else if (id == R.id.direct_to_home) {
-            startActivity(new Intent(TermsActivity.this,
-                    BaseFragmentActivity.class));
+            startActivity(new Intent(TermsActivity.this, BaseFragmentActivity.class));
             overridePendingTransition(R.anim.right_in, R.anim.left_out);
         }
         return super.onOptionsItemSelected(item);

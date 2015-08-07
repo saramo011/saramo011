@@ -110,19 +110,19 @@ public class Edit_Address extends Fragment {
                 AddressName = add_name.getText().toString();
 
                 if (AddressName.length() < 2) {
-                    Toast.makeText(getActivity(), "Enter short name!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), getResources().getString(R.string.enter_address_title), Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 AddressLine1 = add_lane1.getText().toString();
                 if (AddressLine1.length() < 4) {
-                    Toast.makeText(getActivity(), "Enter correct Address!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), getResources().getString(R.string.enter_correct_address), Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 ContactNo = cont_no.getText().toString();
                 if (ContactNo.length() < 5) {
-                    Toast.makeText(getActivity(), "Enter correct contact!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), getResources().getString(R.string.enter_correct_contact), Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -153,7 +153,7 @@ public class Edit_Address extends Fragment {
 
     protected void updateDefault() {
         // TODO Auto-generated method stub
-        ProgressDialogClass.showProgressDialog(getActivity(), "Saving...");
+        ProgressDialogClass.showProgressDialog(getActivity(), getResources().getString(R.string.saving));
         json = null;
         final Thread update = new Thread() {
             @SuppressWarnings("deprecation")
@@ -194,7 +194,7 @@ public class Edit_Address extends Fragment {
                             if (json != null) {
                                 try {
                                     if (json.getInt("status") == 200) {
-                                        Toast.makeText(getActivity(), "Saved!", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getActivity(), getResources().getString(R.string.saved), Toast.LENGTH_SHORT).show();
                                         Fragment fragment = new Manage_Address();
                                         android.support.v4.app.FragmentManager fragmentManager = getFragmentManager();
                                         fragmentManager.beginTransaction()
@@ -222,7 +222,11 @@ public class Edit_Address extends Fragment {
             public void run() {
                 List<NameValuePair> params = new ArrayList<NameValuePair>();
                 JGetParsor j = new JGetParsor();
-                json = j.makeHttpRequest(Config.banner_url, "POST", params);
+                if (Config.banner_json != null) {
+                    json = Config.banner_json;
+                } else {
+                    json = j.makeHttpRequest(Config.banner_url, "POST", params);
+                }
             }
         };
         image_url.start();
@@ -253,6 +257,7 @@ public class Edit_Address extends Fragment {
 
                                     JSONObject j_obj1 = j_arr.getJSONObject(1);
                                     imageLoader.DisplayImage(j_obj1.getString("BannerURL"), imageView_small_banner, false);
+                                    Config.banner_json = json;
                                 }
                             } catch (JSONException e) {
                                 // TODO Auto-generated catch block
@@ -268,7 +273,7 @@ public class Edit_Address extends Fragment {
 
     private void update_city_country() {
         // TODO Auto-generated method stub
-        ProgressDialogClass.showProgressDialog(getActivity(), "Loading...");
+        ProgressDialogClass.showProgressDialog(getActivity(), getResources().getString(R.string.loading));
         final Thread getdata = new Thread() {
             public void run() {
                 List<NameValuePair> params = new ArrayList<NameValuePair>();

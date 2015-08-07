@@ -114,7 +114,7 @@ public class Invoice extends Fragment {
     }
 
     private void getDetails() {
-        ProgressDialogClass.showProgressDialog(getActivity(), "Loading...");
+        ProgressDialogClass.showProgressDialog(getActivity(), getResources().getString(R.string.loading));
         array_list.clear();
 
         final Thread fetch_address = new Thread() {
@@ -289,7 +289,11 @@ public class Invoice extends Fragment {
             public void run() {
                 List<NameValuePair> params = new ArrayList<NameValuePair>();
                 JGetParsor j = new JGetParsor();
-                json = j.makeHttpRequest(Config.banner_url, "POST", params);
+                if (Config.banner_json != null) {
+                    json = Config.banner_json;
+                } else {
+                    json = j.makeHttpRequest(Config.banner_url, "POST", params);
+                }
             }
         };
         image_url.start();
@@ -316,6 +320,7 @@ public class Invoice extends Fragment {
                                     JSONArray j_arr = json.getJSONArray("data");
                                     JSONObject j_obj = j_arr.getJSONObject(0);
                                     imageLoader.DisplayImage(j_obj.getString("BannerURL"), imageView_banner, false);
+                                    Config.banner_json = json;
                                 }
                             } catch (JSONException e) {
                                 // TODO Auto-generated catch block

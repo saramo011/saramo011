@@ -46,7 +46,7 @@ public class LaundryReview extends ActionBarActivity {
         setContentView(R.layout.review_laundry);
 
         ActionBar bar = getSupportActionBar();
-        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#2196f3")));
+        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor(getResources().getString(R.string.action_bar_color))));
         bar.setDisplayShowHomeEnabled(true);
         bar.setDisplayHomeAsUpEnabled(true);
         bar.setHomeButtonEnabled(true);
@@ -55,9 +55,6 @@ public class LaundryReview extends ActionBarActivity {
         Intent intent = getIntent();
 
         listView_laundry_review = (ListView) findViewById(R.id.listView_laundry_review);
-
-        //TextView textView_laundryname=(TextView)findViewById(R.id.textView_laundryname);
-        //textView_laundryname.setText(intent.getExtras().getString("LaundryName"));
 
         bar.setTitle(intent.getExtras().getString("LaundryName") + " Reviews");
 
@@ -78,8 +75,7 @@ public class LaundryReview extends ActionBarActivity {
 
         json = null;
         array_list.clear();
-        ProgressDialogClass.showProgressDialog(LaundryReview.this,
-                "Loading...");
+        ProgressDialogClass.showProgressDialog(LaundryReview.this, getResources().getString(R.string.loading));
         final Thread splashTread = new Thread() {
             @Override
             public void run() {

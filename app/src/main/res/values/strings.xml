@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">Spot My Laundry</string>
-         <string name="drawer_open">Slider Menu Opened</string>
+    <string name="drawer_open">Slider Menu Opened</string>
     <string name="drawer_close">Slider Menu Closed</string>
 
     <!-- Nav Drawer Menu Items -->
@@ -44,21 +44,21 @@
         <item>@drawable/user_agreement</item>
         <item>@drawable/sign_out</item>
     </array>
-    
-     <string name="desc_list_item_icon">Item Icon</string>
-<!-- <string name="login_text1">Sign in for free & listen to</string> -->
+
+    <string name="desc_list_item_icon">Item Icon</string>
+    <!-- <string name="login_text1">Sign in for free & listen to</string> -->
 
 
-<string name="about">"An easy way to discover laundries or dry clean services near you. Additionaly you can look for offers from third party merchants too."</string>
+    <string name="about">"An easy way to discover laundries or dry clean services near you. Additionaly you can look for offers from third party merchants too."</string>
 
 
-<!-- <string name="about">"Welcome to Alsamad Group! -->
-    
-<!-- A Name which has carved out a niche for itself in the Web Industry! A pioneer in the area of IT solutions, Alsamad Group offers a wide spectrum of services including Website Design, development, Web application development. The company is 100 percent customer-driven and fully committed to offer advanced IT expertise and cutting-edge software solutions."</string> -->
+    <!-- <string name="about">"Welcome to Alsamad Group! -->
 
- <string name="network_title">""</string>
+    <!-- A Name which has carved out a niche for itself in the Web Industry! A pioneer in the area of IT solutions, Alsamad Group offers a wide spectrum of services including Website Design, development, Web application development. The company is 100 percent customer-driven and fully committed to offer advanced IT expertise and cutting-edge software solutions."</string> -->
+
+    <string name="network_title">""</string>
     <string name="network_message">"Unable to connect, Please check your network connection."</string>
-<!--30th july 2015 Sandeep Rana-->
+    <!--30th july 2015 Sandeep Rana-->
     <string name="quality">QUANTITY</string>
     <string name="spot_mylaundry">SPOT MY LAUNDRY</string>
     <string name="version">Version 1.0</string>
@@ -123,5 +123,15 @@
     <string name="share_with_friends_text">Check out Spot My Laundry for your smartphone to get laundry service at your doorstep at</string>
     <string name="rate_card">Rate Card</string>
     <string name="privacy_policy_bar_text">Privacy Policy</string>
+    <string name="color_address_edit">#ff208da9</string>
+    <string name="address_hint">e.g POCKET 2 ,JASOLA,DELHI,INDIA</string>
+    <string name="landmark">e.g near Mother Dairy</string>
 
+    <!-- 05-08-2015-->
+    <string name="user_agreement">User Agreement</string>
+    <!-- 06-08-2015 -->
+    <string name="too_much_quantity">Too much Quantity.</string>
+    <string name="fill_order_details">Fill Order Details</string>
+    <string name="please_add_quantity">Please add Quantity.</string>
+    <string name="add_address">Add Address</string>
 </resources>
