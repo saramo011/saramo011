@@ -63,4 +63,5 @@
     <color name="color_emptystar">#77000000</color> //check strings.xml this is just for annotation
 
     <color name="text_color_grey">#777777</color>
+    <color name="text_color_grey_dark">#878787</color>
 </resources>

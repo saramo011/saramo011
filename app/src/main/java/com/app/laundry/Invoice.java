@@ -37,7 +37,7 @@ import java.util.List;
 public class Invoice extends Fragment {
 
     JSONObject json;
-    ImageView imageView_banner;
+//    ImageView imageView_banner;
     ImageLoader imageLoader;
     Handler mHandler = new Handler();
     String LaundryOrderID;
@@ -71,7 +71,7 @@ public class Invoice extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.new_invoice, container, false);
-        imageView_banner = (ImageView) view.findViewById(R.id.imageView_banner);
+//        imageView_banner = (ImageView) view.findViewById(R.id.imageView_banner);
 
         list = (ListView) view.findViewById(R.id.listView1);
 
@@ -314,10 +314,10 @@ public class Invoice extends Fragment {
                             // TODO Auto-generated method stub
                             try {
                                 if (json.getInt("status") == 200) {
-                                    JSONArray j_arr = json.getJSONArray("data");
-                                    JSONObject j_obj = j_arr.getJSONObject(0);
-                                    imageLoader.DisplayImage(j_obj.getString("BannerURL"), imageView_banner, false);
-                                    Config.banner_json = json;
+//                                    JSONArray j_arr = json.getJSONArray("data");
+//                                    JSONObject j_obj = j_arr.getJSONObject(0);
+//                                    imageLoader.DisplayImage(j_obj.getString("BannerURL"), imageView_banner, false);
+//                                    Config.banner_json = json;
                                 }
                             } catch (JSONException e) {
                                 // TODO Auto-generated catch block

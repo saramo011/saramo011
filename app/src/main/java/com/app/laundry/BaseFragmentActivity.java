@@ -18,6 +18,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.internal.widget.ActionBarContextView;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.SearchView;
 import android.util.TypedValue;
@@ -167,6 +168,7 @@ public class BaseFragmentActivity extends ActionBarActivity {
         bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor(getResources().getString(R.string.action_bar_color))));
         bar.setDisplayShowHomeEnabled(true);
 
+
         try {
             ViewConfiguration config = ViewConfiguration.get(this);
 
@@ -179,6 +181,16 @@ public class BaseFragmentActivity extends ActionBarActivity {
         } catch (Exception ex) {
             // Ignore
         }
+
+//        ActionBar actionBar = getActionBar();
+//        mActionBarView = getLayoutInflater().inflate(R.layout.action_bar_custom, null);
+//        actionBar.setCustomView(mActionBarView);
+//        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+
+        View view=getLayoutInflater().inflate(R.layout.actionbarview, null);
+        bar.setCustomView(view);
+        bar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+
 
         bar.setDisplayHomeAsUpEnabled(true);
         bar.setHomeButtonEnabled(true);

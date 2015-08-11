@@ -45,7 +45,7 @@ public class Manage_Address extends Fragment {
     Handler mHandler = new Handler();
     JSONObject json;
 
-    ImageView imageView_banner;
+//    ImageView imageView_banner;
     ImageLoader imageLoader;
     ListView listView_address;
     Button bt_add_address;
@@ -77,7 +77,7 @@ public class Manage_Address extends Fragment {
 
         View view = inflater.inflate(R.layout.new_add_address, container, false);
 
-        imageView_banner = (ImageView) view.findViewById(R.id.imageView_banner);
+//        imageView_banner = (ImageView) view.findViewById(R.id.imageView_banner);
 
 
         listView_address = (ListView) view.findViewById(R.id.listView_laundry1);
@@ -86,7 +86,7 @@ public class Manage_Address extends Fragment {
         if (mContext == null)
             mContext = getActivity();
 
-        imageView_banner.setVisibility(View.GONE);
+//        imageView_banner.setVisibility(View.GONE);
         bt_add_address.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -282,9 +282,9 @@ public class Manage_Address extends Fragment {
                             // TODO Auto-generated method stub
                             try {
                                 if (json.getInt("status") == 200) {
-                                    JSONArray j_arr = json.getJSONArray("data");
-                                    JSONObject j_obj = j_arr.getJSONObject(0);
-                                    imageLoader.DisplayImage(j_obj.getString("BannerURL"), imageView_banner, false);
+//                                    JSONArray j_arr = json.getJSONArray("data");
+//                                    JSONObject j_obj = j_arr.getJSONObject(0);
+//                                    imageLoader.DisplayImage(j_obj.getString("BannerURL"), imageView_banner, false);
                                 }
                             } catch (JSONException e) {
                                 // TODO Auto-generated catch block
@@ -413,14 +413,14 @@ public class Manage_Address extends Fragment {
 
             String full_address = "<br>Address :<br><b><font color=\"#208da9\"><i>" + whitespace + whitespace +                  //Address Name :
                     array_list.get(position).get("AddressName") + "</i><br>" + whitespace + whitespace +
-                    array_list.get(position).get("AddressLine1") + ", <br>" + whitespace + whitespace +
-                    array_list.get(position).get("AddressLine2") + ", <br>" + whitespace + whitespace +
-                    array_list.get(position).get("AddressLine3") + ",<br>" + whitespace + whitespace +
+                    array_list.get(position).get("AddressLine1") + " <br>" + whitespace + whitespace +
+                    array_list.get(position).get("AddressLine2") + " <br>" + whitespace + whitespace +
+                    array_list.get(position).get("AddressLine3") + "<br>" + whitespace + whitespace +
                     array_list.get(position).get("CityName") + "<br>" + whitespace + whitespace +
                     array_list.get(position).get("countryName") + "<br>" + whitespace + whitespace +
                     array_list.get(position).get("ContactNo") + "</font></b>";
 
-            full_address = full_address.toUpperCase().replace("&NBSP;", "&nbsp;");
+//            full_address = full_address.toUpperCase().replace("&NBSP;", "&nbsp;").replace("\\N","\n");
 //            holder.textView1.setText(full_address);
             holder.textView1.setText(Html.fromHtml(full_address));
             //holder.textView4.setText(Html.fromHtml("<u>Edit</u>"));

@@ -5,6 +5,10 @@
     tools:context="com.example.actionbar.MainActivity">
 
 
+    <!--<item android:id="@id/icon"-->
+        <!--android:title="icon"-->
+        <!--android:icon="@drawable/icon"-->
+        <!--app:showAsAction="always"/>-->
     <item
         android:id="@+id/action_search"
         android:layout_width="fill_parent"
@@ -12,6 +16,7 @@
         android:icon="@drawable/action_search"
         android:title="Search"
         app:showAsAction="always" />
+
     <!--
        <item
            android:id="@+id/city_list"

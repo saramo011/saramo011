@@ -2,7 +2,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:background="@drawable/back3"
+    android:background="@drawable/back5"
     android:gravity="center"
     android:padding="40dp">
 
@@ -12,23 +12,21 @@
     <!--android:layout_height="0dp"-->
     <!--android:clickable="false" />-->
     <ImageView
-
         android:id="@+id/text_app_name"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:src="@drawable/ic_ico_high" />
 
     <TextView
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_marginTop="20dp"
         android:layout_below="@id/text_app_name"
         android:gravity="center|bottom"
         android:text="@string/spot_mylaundry"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@color/btn_bgcolor"
+        android:textColor="@color/white"
         android:textStyle="bold" />
 
 

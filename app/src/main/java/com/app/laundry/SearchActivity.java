@@ -50,7 +50,7 @@ public class SearchActivity extends ActionBarActivity {
     Handler mHandler = new Handler();
     ListView listView_laundry;
     ProgressBar progressBar1;
-    ImageView imageView_banner;
+//    ImageView imageView_banner;
     ImageLoader imageLoader;
     SearchView mSearchView;
     ActionMode actionMode;
@@ -170,20 +170,20 @@ public class SearchActivity extends ActionBarActivity {
         progressBar1 = (ProgressBar) findViewById(R.id.progressBar1);
         progressBar1.setVisibility(View.GONE);
         listView_laundry = (ListView) findViewById(R.id.listView_laundry);
-        imageView_banner = (ImageView) findViewById(R.id.imageView_banner);
+//        imageView_banner = (ImageView) findViewById(R.id.imageView_banner);
 
         InputMethodManager im = (InputMethodManager) getApplicationContext().getSystemService(Context.INPUT_METHOD_SERVICE);
         im.hideSoftInputFromWindow(getWindow().getDecorView().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
 
 
-        imageView_banner.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                // TODO Auto-generated method stub
-
-            }
-        });
+//        imageView_banner.setOnClickListener(new OnClickListener() {
+//
+//            @Override
+//            public void onClick(View v) {
+//                // TODO Auto-generated method stub
+//
+//            }
+//        });
 
 
         listView_laundry.setOnItemClickListener(new OnItemClickListener() {
@@ -214,11 +214,11 @@ public class SearchActivity extends ActionBarActivity {
         if (Network.HaveNetworkConnection(SearchActivity.this)) {
             float ppi = getResources().getDisplayMetrics().density;
             int height = (int) (90 * ppi);
-            imageView_banner.getLayoutParams().height = height;
-            GetBanner();
-            if (searchText.length() > 0) {
-                getLaundry(searchText);
-            }
+//            imageView_banner.getLayoutParams().height = height;
+//            GetBanner();
+//            if (searchText.length() > 0) {
+//                getLaundry(searchText);
+//            }
         } else {
             final AlertUtil alert = new AlertUtil();
             alert.confirmationAlert(SearchActivity.this, getResources()
@@ -316,59 +316,59 @@ public class SearchActivity extends ActionBarActivity {
 
     }
 
-    private void GetBanner() {
-
-        final Thread splashTread = new Thread() {
-            @Override
-            public void run() {
-
-
-                bannerArray = JsonReturn.BannerparseJson1("http://laundry.znsoftech.com/banner.php/");
-            }
-
-        };
-        splashTread.start();
-
-        final Thread displayThread = new Thread(new Runnable() {
-            public void run() {
-
-                try {
-                    splashTread.join();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                if (mHandler != null) {
-                    mHandler.post(new Runnable() {
-                        public void run() {
-                            if (bannerArray.size() > 0) {
-                                JSONObject tempHashMap = bannerArray.get(0);
-
-                                try {
-
-
-                                    imageLoader.DisplayImage(tempHashMap
-                                                    .getString("BannerURL"),
-                                            imageView_banner, false);
-
-                                    // Handler handler = new Handler();
-                                    // handler.postDelayed(r, 1000);
-
-
-                                } catch (JSONException e) {
-                                    // TODO Auto-generated catch block
-                                    e.printStackTrace();
-                                }
-
-                            }
-
-                        }
-                    });
-                }
-            }
-        });
-        displayThread.start();
-
-    }
+//    private void GetBanner() {
+//
+//        final Thread splashTread = new Thread() {
+//            @Override
+//            public void run() {
+//
+//
+//                bannerArray = JsonReturn.BannerparseJson1("http://laundry.znsoftech.com/banner.php/");
+//            }
+//
+//        };
+//        splashTread.start();
+//
+//        final Thread displayThread = new Thread(new Runnable() {
+//            public void run() {
+//
+//                try {
+//                    splashTread.join();
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//                if (mHandler != null) {
+//                    mHandler.post(new Runnable() {
+//                        public void run() {
+//                            if (bannerArray.size() > 0) {
+//                                JSONObject tempHashMap = bannerArray.get(0);
+//
+//                                try {
+//
+//
+//                                    imageLoader.DisplayImage(tempHashMap
+//                                                    .getString("BannerURL"),
+//                                            imageView_banner, false);
+//
+//                                    // Handler handler = new Handler();
+//                                    // handler.postDelayed(r, 1000);
+//
+//
+//                                } catch (JSONException e) {
+//                                    // TODO Auto-generated catch block
+//                                    e.printStackTrace();
+//                                }
+//
+//                            }
+//
+//                        }
+//                    });
+//                }
+//            }
+//        });
+//        displayThread.start();
+//
+//    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

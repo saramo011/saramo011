@@ -34,7 +34,7 @@ import java.util.List;
 
 public class Order_History extends Fragment {
 
-    ImageView imageView_banner, imageView_small_banner;
+    ImageView imageView_small_banner;
     ImageLoader imageLoader;
     JSONObject json;
     Handler mHandler = new Handler();
@@ -64,10 +64,10 @@ public class Order_History extends Fragment {
 
         View view = inflater.inflate(R.layout.new_order_history, container, false);
 
-        imageView_banner = (ImageView) view.findViewById(R.id.imageView_banner);
+//        imageView_banner = (ImageView) view.findViewById(R.id.imageView_banner);
         imageView_small_banner = (ImageView) view.findViewById(R.id.imageView_small_banner);
 
-        imageView_banner.setVisibility(View.GONE);
+//        imageView_banner.setVisibility(View.GONE);
         imageView_small_banner.setVisibility(View.GONE);
 
         list = (ListView) view.findViewById(R.id.listView1);
@@ -195,8 +195,8 @@ public class Order_History extends Fragment {
                                 if (json.getInt("status") == 200) {
                                     JSONArray j_arr = json.getJSONArray("data");
 
-                                    JSONObject j_obj = j_arr.getJSONObject(0);
-                                    imageLoader.DisplayImage(j_obj.getString("BannerURL"), imageView_banner, false);
+//                                    JSONObject j_obj = j_arr.getJSONObject(0);
+//                                    imageLoader.DisplayImage(j_obj.getString("BannerURL"), imageView_banner, false);
 
                                     JSONObject j_obj1 = j_arr.getJSONObject(1);
                                     imageLoader.DisplayImage(j_obj1.getString("BannerURL"), imageView_small_banner, false);

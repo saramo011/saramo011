@@ -47,7 +47,7 @@ public class EditAddressComment extends ActionBarActivity {
     Spinner sp1, sp2;
     EditText add_name, cont_no, add_lane1, add_lane2, add_lane3;
     Button bt_save;
-    ImageView imageView_banner, imageView_small_banner;
+    ImageView imageView_small_banner;
     ImageLoader imageLoader;
     String address_position2, address_position1, laundryId, laundryName, laundryArray;
     boolean online_offline;
@@ -75,10 +75,10 @@ public class EditAddressComment extends ActionBarActivity {
 
         bt_save = (Button) findViewById(R.id.bt_save);
 
-        imageView_banner = (ImageView) findViewById(R.id.imageView_banner);
+//        imageView_banner = (ImageView) findViewById(R.id.imageView_banner);
         imageView_small_banner = (ImageView) findViewById(R.id.imageView_small_banner);
 
-        imageView_banner.setVisibility(View.GONE);
+//        imageView_banner.setVisibility(View.GONE);
         imageView_small_banner.setVisibility(View.GONE);
 
         sp1 = (Spinner) findViewById(R.id.spinner1);
@@ -265,8 +265,8 @@ public class EditAddressComment extends ActionBarActivity {
                                 if (json.getInt("status") == 200) {
                                     JSONArray j_arr = json.getJSONArray("data");
 
-                                    JSONObject j_obj = j_arr.getJSONObject(0);
-                                    imageLoader.DisplayImage(j_obj.getString("BannerURL"), imageView_banner, false);
+//                                    JSONObject j_obj = j_arr.getJSONObject(0);
+//                                    imageLoader.DisplayImage(j_obj.getString("BannerURL"), imageView_banner, false);
 
                                     JSONObject j_obj1 = j_arr.getJSONObject(1);
                                     imageLoader.DisplayImage(j_obj1.getString("BannerURL"), imageView_small_banner, false);
