@@ -15,6 +15,7 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.BaseExpandableListAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -35,6 +36,9 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 
 public class Manage_Address extends Fragment {
 
@@ -459,9 +463,14 @@ public class Manage_Address extends Fragment {
 
                     fragment.setArguments(data);
 
+                    ((BaseFragmentActivity)getActivity()).setActionBarTitle("Edit Address");
+
+
                     FragmentManager fragmentManager = getFragmentManager();
                     fragmentManager.beginTransaction()
-                            .replace(R.id.frame_container, fragment, "edit_address").addToBackStack("manage_address").commit();
+                            .setCustomAnimations(android.R.anim.fade_in,android.R.anim.fade_out)
+                            .replace(R.id.frame_container, fragment, "edit_address")
+                            .addToBackStack("manage_address").commit();
                 }
             });
 

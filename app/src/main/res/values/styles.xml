@@ -82,4 +82,10 @@
         <item name="android:radius">3dp</item>
     </style>
 
+    <!-- 10 Aug 2015-->
+    <style name="StarRatingBar" parent="Widget.AppCompat.RatingBar">
+        <item name="android:progressDrawable">@drawable/progressdrawableratingstar</item>
+
+    </style>
+
 </resources>

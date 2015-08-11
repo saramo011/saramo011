@@ -74,9 +74,6 @@ public class Add_CommentAddress extends ActionBarActivity {
         add_lane2 = (EditText) findViewById(R.id.AddressLine2);
         add_lane3 = (EditText) findViewById(R.id.AddressLine3);
 
-        TextView tv = (TextView) findViewById(R.id.text_title_address);
-        tv.setText("Add Address");
-
         bt_save = (Button) findViewById(R.id.bt_save);
 
         imageView_banner = (ImageView) findViewById(R.id.imageView_banner);

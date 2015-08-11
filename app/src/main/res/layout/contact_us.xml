@@ -6,23 +6,11 @@
     android1:gravity="center|top"
     android1:padding="20dp">
 
-    <TextView
-        android1:id="@+id/title_contact_us"
-        android1:layout_width="match_parent"
-        android1:layout_height="wrap_content"
-        android1:layout_marginBottom="20dp"
-        android1:layout_marginTop="10dp"
-        android1:gravity="center"
-        android1:text="@string/contact_us"
-        android1:textColor="@color/btn_bgcolor_dark"
-        android1:textSize="30sp"
-        android1:textStyle="bold" />
 
     <LinearLayout
         android1:id="@+id/lin_call"
         android1:layout_width="match_parent"
         android1:layout_height="wrap_content"
-        android1:layout_below="@id/title_contact_us"
         android1:gravity="left"
         android1:orientation="horizontal"
         android1:padding="20dp">
@@ -69,6 +57,30 @@
             android1:gravity="left|center_vertical"
             android1:paddingLeft="10dp"
             android1:text="ahmad.asjad@znsoftech.com"
+            android1:textAppearance="?android:attr/textAppearanceMedium" />
+    </LinearLayout>
+    <LinearLayout
+        android1:layout_width="match_parent"
+        android1:layout_height="wrap_content"
+        android1:layout_below="@id/lin_email"
+        android1:gravity="left"
+        android1:padding="20dp">
+
+        <ImageView
+
+            android1:id="@+id/icon_www"
+            android1:layout_width="70dp"
+            android1:layout_height="70dp"
+            android1:layout_below="@id/icon_call"
+            android1:src="@drawable/www" />
+
+        <TextView
+            android1:layout_width="wrap_content"
+            android1:layout_height="match_parent"
+            android1:autoLink="web"
+            android1:gravity="left|center_vertical"
+            android1:paddingLeft="10dp"
+            android1:text="www.znsoftech.com"
             android1:textAppearance="?android:attr/textAppearanceMedium" />
     </LinearLayout>
 </RelativeLayout>

@@ -2,6 +2,9 @@ package com.app.laundry;
 
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
@@ -10,6 +13,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.Toast;
 
 import com.app.laundry.json.JGetParsor;
@@ -32,81 +36,85 @@ public class New_Rate extends FragmentActivity {
     JSONObject json;
     String url_to_call;
 
-    ImageView imageView_star1;
-    ImageView imageView_star2;
-    ImageView imageView_star3;
-    ImageView imageView_star4;
-    ImageView imageView_star5;
-
-    ImageView imageView_star11;
-    ImageView imageView_star12;
-    ImageView imageView_star13;
-    ImageView imageView_star14;
-    ImageView imageView_star15;
-
-    ImageView imageView_star21;
-    ImageView imageView_star22;
-    ImageView imageView_star23;
-    ImageView imageView_star24;
-    ImageView imageView_star25;
-
-    ImageView imageView_star31;
-    ImageView imageView_star32;
-    ImageView imageView_star33;
-    ImageView imageView_star34;
-    ImageView imageView_star35;
+//    ImageView imageView_star1;
+//    ImageView imageView_star2;
+//    ImageView imageView_star3;
+//    ImageView imageView_star4;
+//    ImageView imageView_star5;
+//
+//    ImageView imageView_star11;
+//    ImageView imageView_star12;
+//    ImageView imageView_star13;
+//    ImageView imageView_star14;
+//    ImageView imageView_star15;
+//
+//    ImageView imageView_star21;
+//    ImageView imageView_star22;
+//    ImageView imageView_star23;
+//    ImageView imageView_star24;
+//    ImageView imageView_star25;
+//
+//    ImageView imageView_star31;
+//    ImageView imageView_star32;
+//    ImageView imageView_star33;
+//    ImageView imageView_star34;
+//    ImageView imageView_star35;
 
     Button ok;
     EditText editText_msg;
     int tag1, tag2, tag3, tag4;
     String review, laundryId;
 
-    OnClickListener clickLis = new OnClickListener() {
-
-        @Override
-        public void onClick(View v) {
-            // TODO Auto-generated method stub
-            int tag = Integer.parseInt(v.getTag().toString());
-            tag1 = tag;
-            update_rating(tag, new ImageView[]{imageView_star1, imageView_star2, imageView_star3, imageView_star4, imageView_star5});
-
-        }
-    };
-    OnClickListener clickLis1 = new OnClickListener() {
-
-        @Override
-        public void onClick(View v) {
-            // TODO Auto-generated method stub
-            int tag = Integer.parseInt(v.getTag().toString());
-            tag2 = tag;
-            update_rating(tag, new ImageView[]{imageView_star11, imageView_star12, imageView_star13, imageView_star14, imageView_star15});
-
-        }
-    };
-    //
-    OnClickListener clickLis2 = new OnClickListener() {
-
-        @Override
-        public void onClick(View v) {
-            // TODO Auto-generated method stub
-            int tag = Integer.parseInt(v.getTag().toString());
-            tag3 = tag;
-            update_rating(tag, new ImageView[]{imageView_star21, imageView_star22, imageView_star23, imageView_star24, imageView_star25});
-
-        }
-    };
-    //
-    OnClickListener clickLis3 = new OnClickListener() {
-
-        @Override
-        public void onClick(View v) {
-            // TODO Auto-generated method stub
-            int tag = Integer.parseInt(v.getTag().toString());
-            tag4 = tag;
-            update_rating(tag, new ImageView[]{imageView_star31, imageView_star32, imageView_star33, imageView_star34, imageView_star35});
-
-        }
-    };
+    RatingBar ratingBar_price,
+            ratingBar_service,
+            ratingBar_pickup,
+            ratingBar_dropoff;
+//    OnClickListener clickLis = new OnClickListener() {
+//
+//        @Override
+//        public void onClick(View v) {
+//            // TODO Auto-generated method stub
+//            int tag = Integer.parseInt(v.getTag().toString());
+//            tag1 = tag;
+//            update_rating(tag, new ImageView[]{imageView_star1, imageView_star2, imageView_star3, imageView_star4, imageView_star5});
+//
+//        }
+//    };
+//    OnClickListener clickLis1 = new OnClickListener() {
+//
+//        @Override
+//        public void onClick(View v) {
+//            // TODO Auto-generated method stub
+//            int tag = Integer.parseInt(v.getTag().toString());
+//            tag2 = tag;
+//            update_rating(tag, new ImageView[]{imageView_star11, imageView_star12, imageView_star13, imageView_star14, imageView_star15});
+//
+//        }
+//    };
+//    //
+//    OnClickListener clickLis2 = new OnClickListener() {
+//
+//        @Override
+//        public void onClick(View v) {
+//            // TODO Auto-generated method stub
+//            int tag = Integer.parseInt(v.getTag().toString());
+//            tag3 = tag;
+//            update_rating(tag, new ImageView[]{imageView_star21, imageView_star22, imageView_star23, imageView_star24, imageView_star25});
+//
+//        }
+//    };
+//    //
+//    OnClickListener clickLis3 = new OnClickListener() {
+//
+//        @Override
+//        public void onClick(View v) {
+//            // TODO Auto-generated method stub
+//            int tag = Integer.parseInt(v.getTag().toString());
+//            tag4 = tag;
+//            update_rating(tag, new ImageView[]{imageView_star31, imageView_star32, imageView_star33, imageView_star34, imageView_star35});
+//
+//        }
+//    };
 
     // private GoogleMap mMap;
     @Override
@@ -115,6 +123,11 @@ public class New_Rate extends FragmentActivity {
         setContentView(R.layout.new_rating);
 
         editText_msg = (EditText) findViewById(R.id.editText1);
+        ratingBar_price= (RatingBar) findViewById(R.id.ratingbar_pricequality);
+        ratingBar_service= (RatingBar) findViewById(R.id.ratingbar_servicequality);
+        ratingBar_pickup= (RatingBar) findViewById(R.id.ratingbar_pickupquality);
+        ratingBar_dropoff= (RatingBar) findViewById(R.id.ratingbar_dropoffquality);
+
         ok = (Button) findViewById(R.id.button_ok);
         tag1 = tag2 = tag3 = tag4 = 1;
         Intent intent = getIntent();
@@ -126,7 +139,10 @@ public class New_Rate extends FragmentActivity {
             public void onClick(View v) {
                 // TODO Auto-generated method stub
                 if (Network.HaveNetworkConnection(New_Rate.this)) {
+
+                    //getting properties should be here
                     review = editText_msg.getText().toString();
+
                     update_rating();
                 } else {
                     final AlertUtil alert = new AlertUtil();
@@ -148,48 +164,48 @@ public class New_Rate extends FragmentActivity {
         });
 
 
-        imageView_star1 = (ImageView) findViewById(R.id.imageView_star1);
-        imageView_star2 = (ImageView) findViewById(R.id.imageView_star2);
-        imageView_star3 = (ImageView) findViewById(R.id.imageView_star3);
-        imageView_star4 = (ImageView) findViewById(R.id.imageView_star4);
-        imageView_star5 = (ImageView) findViewById(R.id.imageView_star5);
+//        imageView_star1 = (ImageView) findViewById(R.id.imageView_star1);
+//        imageView_star2 = (ImageView) findViewById(R.id.imageView_star2);
+//        imageView_star3 = (ImageView) findViewById(R.id.imageView_star3);
+//        imageView_star4 = (ImageView) findViewById(R.id.imageView_star4);
+//        imageView_star5 = (ImageView) findViewById(R.id.imageView_star5);
+//
+//        imageView_star11 = (ImageView) findViewById(R.id.imageView_star11);
+//        imageView_star12 = (ImageView) findViewById(R.id.imageView_star12);
+//        imageView_star13 = (ImageView) findViewById(R.id.imageView_star13);
+//        imageView_star14 = (ImageView) findViewById(R.id.imageView_star14);
+//        imageView_star15 = (ImageView) findViewById(R.id.imageView_star15);
+//
+//        imageView_star21 = (ImageView) findViewById(R.id.imageView_star21);
+//        imageView_star22 = (ImageView) findViewById(R.id.imageView_star22);
+//        imageView_star23 = (ImageView) findViewById(R.id.imageView_star23);
+//        imageView_star24 = (ImageView) findViewById(R.id.imageView_star24);
+//        imageView_star25 = (ImageView) findViewById(R.id.imageView_star25);
+//
+//        imageView_star31 = (ImageView) findViewById(R.id.imageView_star31);
+//        imageView_star32 = (ImageView) findViewById(R.id.imageView_star32);
+//        imageView_star33 = (ImageView) findViewById(R.id.imageView_star33);
+//        imageView_star34 = (ImageView) findViewById(R.id.imageView_star34);
+//        imageView_star35 = (ImageView) findViewById(R.id.imageView_star35);
 
-        imageView_star11 = (ImageView) findViewById(R.id.imageView_star11);
-        imageView_star12 = (ImageView) findViewById(R.id.imageView_star12);
-        imageView_star13 = (ImageView) findViewById(R.id.imageView_star13);
-        imageView_star14 = (ImageView) findViewById(R.id.imageView_star14);
-        imageView_star15 = (ImageView) findViewById(R.id.imageView_star15);
-
-        imageView_star21 = (ImageView) findViewById(R.id.imageView_star21);
-        imageView_star22 = (ImageView) findViewById(R.id.imageView_star22);
-        imageView_star23 = (ImageView) findViewById(R.id.imageView_star23);
-        imageView_star24 = (ImageView) findViewById(R.id.imageView_star24);
-        imageView_star25 = (ImageView) findViewById(R.id.imageView_star25);
-
-        imageView_star31 = (ImageView) findViewById(R.id.imageView_star31);
-        imageView_star32 = (ImageView) findViewById(R.id.imageView_star32);
-        imageView_star33 = (ImageView) findViewById(R.id.imageView_star33);
-        imageView_star34 = (ImageView) findViewById(R.id.imageView_star34);
-        imageView_star35 = (ImageView) findViewById(R.id.imageView_star35);
-
-        rating_on_oncreate(clickLis, new ImageView[]{imageView_star1, imageView_star2, imageView_star3, imageView_star4, imageView_star5});
-
-        rating_on_oncreate(clickLis1, new ImageView[]{imageView_star11, imageView_star12, imageView_star13, imageView_star14, imageView_star15});
-
-        rating_on_oncreate(clickLis2, new ImageView[]{imageView_star21, imageView_star22, imageView_star23, imageView_star24, imageView_star25});
-
-        rating_on_oncreate(clickLis3, new ImageView[]{imageView_star31, imageView_star32, imageView_star33, imageView_star34, imageView_star35});
+//        rating_on_oncreate(clickLis, new ImageView[]{imageView_star1, imageView_star2, imageView_star3, imageView_star4, imageView_star5});
+//
+//        rating_on_oncreate(clickLis1, new ImageView[]{imageView_star11, imageView_star12, imageView_star13, imageView_star14, imageView_star15});
+//
+//        rating_on_oncreate(clickLis2, new ImageView[]{imageView_star21, imageView_star22, imageView_star23, imageView_star24, imageView_star25});
+//
+//        rating_on_oncreate(clickLis3, new ImageView[]{imageView_star31, imageView_star32, imageView_star33, imageView_star34, imageView_star35});
 
         update_rating_onStart();
 
     }
 
-    private void rating_on_oncreate(OnClickListener listener, ImageView[] image) {
-        for (int i = 0; i < image.length; i++) {
-            image[i].setOnClickListener(listener);
-            image[i].setTag(i + 1);
-        }
-    }
+//    private void rating_on_oncreate(OnClickListener listener, ImageView[] image) {
+//        for (int i = 0; i < image.length; i++) {
+//            image[i].setOnClickListener(listener);
+//            image[i].setTag(i + 1);
+//        }
+//    }
 
     private void update_rating_onStart() {
         // TODO Auto-generated method stub
@@ -233,30 +249,40 @@ public class New_Rate extends FragmentActivity {
                                         JSONArray j_arr = json.getJSONArray("data");
                                         JSONObject j_obj = j_arr.getJSONObject(0);
 
-                                        Float pq = Float.parseFloat(j_obj.getString("PriceQuality"));
-                                        Float sq = Float.parseFloat(j_obj.getString("ServiceQuality"));
-                                        Float pq1 = Float.parseFloat(j_obj.getString("PickupQuality"));
-                                        Float dq = Float.parseFloat(j_obj.getString("DropoffQuality"));
+                                        Float PriceQuality = Float.parseFloat(j_obj.getString("PriceQuality"));
+                                        Float ServiceQuality = Float.parseFloat(j_obj.getString("ServiceQuality"));
+                                        Float PickupQuality = Float.parseFloat(j_obj.getString("PickupQuality"));
+                                        Float DropoffQuality = Float.parseFloat(j_obj.getString("DropoffQuality"));
 
-                                        int PriceQuality = Math.round(pq);
-                                        int ServiceQuality = Math.round(sq);
-                                        int PickupQuality = Math.round(pq1);
-                                        int DropoffQuality = Math.round(dq);
-
-                                        tag1 = PriceQuality;
-                                        tag2 = ServiceQuality;
-                                        tag3 = PickupQuality;
-                                        tag4 = DropoffQuality;
+//                                        int PriceQuality = Math.round(pq);
+//                                        int ServiceQuality = Math.round(sq);
+//                                        int PickupQuality = Math.round(pq1);
+//                                        int DropoffQuality = Math.round(dq);
+//
+//                                        tag1 = PriceQuality;
+//                                        tag2 = ServiceQuality;
+//                                        tag3 = PickupQuality;
+//                                        tag4 = DropoffQuality;
 
                                         String Comments = j_obj.getString("Comments");
 
-                                        update_rating(PriceQuality, new ImageView[]{imageView_star1, imageView_star2, imageView_star3, imageView_star4, imageView_star5});
 
-                                        update_rating(ServiceQuality, new ImageView[]{imageView_star11, imageView_star12, imageView_star13, imageView_star14, imageView_star15});
+//                                        ratingStyle(ratingBar_dropoff); //This functions allows us to customize rating bar programmatically
 
-                                        update_rating(PickupQuality, new ImageView[]{imageView_star21, imageView_star22, imageView_star23, imageView_star24, imageView_star25});
 
-                                        update_rating(DropoffQuality, new ImageView[]{imageView_star31, imageView_star32, imageView_star33, imageView_star34, imageView_star35});
+                                        ratingBar_price.setRating(PriceQuality);
+                                        ratingBar_service.setRating(ServiceQuality);
+                                        ratingBar_pickup.setRating(PickupQuality);
+                                        ratingBar_dropoff.setRating(DropoffQuality);
+
+
+//                                        update_rating(PriceQuality, new ImageView[]{imageView_star1, imageView_star2, imageView_star3, imageView_star4, imageView_star5});
+//
+//                                        update_rating(ServiceQuality, new ImageView[]{imageView_star11, imageView_star12, imageView_star13, imageView_star14, imageView_star15});
+//
+//                                        update_rating(PickupQuality, new ImageView[]{imageView_star21, imageView_star22, imageView_star23, imageView_star24, imageView_star25});
+//
+//                                        update_rating(DropoffQuality, new ImageView[]{imageView_star31, imageView_star32, imageView_star33, imageView_star34, imageView_star35});
 
                                         editText_msg.setText(Comments);
 
@@ -276,29 +302,29 @@ public class New_Rate extends FragmentActivity {
         show.start();
     }
 
-    private void update_rating(int value, ImageView[] image) {
-
-        for (int i = 0; i < image.length; i++)
-            image[i].setImageResource(R.drawable.rating_before);
-
-        switch (value) {
-
-            case 5:
-                image[4].setImageResource(R.drawable.rating_after);
-            case 4:
-                image[3].setImageResource(R.drawable.rating_after);
-            case 3:
-                image[2].setImageResource(R.drawable.rating_after);
-            case 2:
-                image[1].setImageResource(R.drawable.rating_after);
-            case 1:
-                image[0].setImageResource(R.drawable.rating_after);
-            default:
-                break;
-
-        }
-
-    }
+//    private void update_rating(int value, ImageView[] image) {
+//
+//        for (int i = 0; i < image.length; i++)
+//            image[i].setImageResource(R.drawable.rating_before);
+//
+//        switch (value) {
+//
+//            case 5:
+//                image[4].setImageResource(R.drawable.rating_after);
+//            case 4:
+//                image[3].setImageResource(R.drawable.rating_after);
+//            case 3:
+//                image[2].setImageResource(R.drawable.rating_after);
+//            case 2:
+//                image[1].setImageResource(R.drawable.rating_after);
+//            case 1:
+//                image[0].setImageResource(R.drawable.rating_after);
+//            default:
+//                break;
+//
+//        }
+//
+//    }
 
     private void update_rating() {
         // TODO Auto-generated method stub
@@ -310,10 +336,10 @@ public class New_Rate extends FragmentActivity {
 
                 params.add(new BasicNameValuePair("LaundryID", laundryId));
                 params.add(new BasicNameValuePair("UserID", Config.userid));
-                params.add(new BasicNameValuePair("PriceQuality", tag1 + ""));
-                params.add(new BasicNameValuePair("ServiceQuality", tag2 + ""));
-                params.add(new BasicNameValuePair("PickupQuality", tag3 + ""));
-                params.add(new BasicNameValuePair("DropoffQuality", tag4 + ""));
+                params.add(new BasicNameValuePair("PriceQuality", ratingBar_price.getRating() + ""));
+                params.add(new BasicNameValuePair("ServiceQuality", ratingBar_service.getRating() + ""));
+                params.add(new BasicNameValuePair("PickupQuality", ratingBar_pickup.getRating() + ""));
+                params.add(new BasicNameValuePair("DropoffQuality", ratingBar_dropoff.getRating() + ""));
                 params.add(new BasicNameValuePair("Comments", review));
                 JGetParsor j = new JGetParsor();
                 json = j.makeHttpRequest(Config.set_ratings, "POST", params);
@@ -361,5 +387,22 @@ public class New_Rate extends FragmentActivity {
             }
         });
         show.start();
+
     }
+        /**
+         * this is for customizing the color of rating bar
+         *
+         */
+//        void ratingStyle(RatingBar ratbar){
+//        LayerDrawable stars = (LayerDrawable) ratbar
+//                .getProgressDrawable();
+//        stars.getDrawable(2).setColorFilter(Color.parseColor(getResources().getString(R.string.color_filledstar)),
+//                PorterDuff.Mode.SRC_ATOP); // for filled stars
+//        stars.getDrawable(1).setColorFilter(Color.parseColor(getResources().getString(R.string.color_filledstar)),
+//                PorterDuff.Mode.SRC_ATOP); // for half filled stars
+//        stars.getDrawable(0).setColorFilter(Color.parseColor(getResources().getString(R.string.color_emptystar)),
+//                PorterDuff.Mode.SRC_ATOP); // for empty stars
+//
+//
+//    }
 }

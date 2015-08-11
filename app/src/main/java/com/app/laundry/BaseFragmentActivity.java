@@ -199,7 +199,7 @@ public class BaseFragmentActivity extends ActionBarActivity {
         mDrawerToggle = new ActionBarDrawerToggle(
                 BaseFragmentActivity.this,                             /* host Activity */
                 mDrawerLayout,                    /* DrawerLayout object */
-                R.drawable.ic_drawer,             /* nav drawer image to replace 'Up' caret */
+                R.string.app_name,             /* nav drawer image to replace 'Up' caret */
                 R.string.app_name /* "close drawer" description for accessibility */
         ) {
             @Override
@@ -272,22 +272,36 @@ public class BaseFragmentActivity extends ActionBarActivity {
     private void displayView(final int position) {
         // update the main content by replacing fragments
         FragmentManager fragmentManager = getSupportFragmentManager();
+        ActionBar baraction=getSupportActionBar();
         switch (position) {
             case 0:
                 fragment = new HomeFragment();
                 fragmentManager.beginTransaction().replace(R.id.frame_container, fragment, "home").commit();
                 //Remove all fragment back stacks
-                fragmentManager.popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                baraction.setTitle("Spot My Laundry");
+//                baraction.setLogo(R.drawable.icon);
+                fragmentManager
+                        .popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
                 mDrawerLayout.closeDrawer(mDrawerList);
 
                 break;
             case 7: {
+
+                baraction.setTitle("About Us");
                 mDrawerLayout.closeDrawer(mDrawerList);
                 fragment = new AboutActivity();
-                fragmentManager.beginTransaction().replace(R.id.frame_container, fragment, "About").addToBackStack("home").commit();
+                fragmentManager
+                        .beginTransaction()
+                        .setCustomAnimations(android.R.anim.fade_in,android.R.anim.fade_out)
+                        .replace(R.id.frame_container, fragment, "About")
+                        .addToBackStack("home")
+                        .commit();
+
                 break;
             }
             case 3:
+
+
                 mDrawerLayout.closeDrawer(mDrawerList);
                 try {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + getApplicationContext().getPackageName())));
@@ -296,6 +310,7 @@ public class BaseFragmentActivity extends ActionBarActivity {
                 }
                 break;
             case 4: {
+
                 mDrawerLayout.closeDrawer(mDrawerList);
                 Intent i = new Intent(Intent.ACTION_SEND);
                 i.setType("text/plain");
@@ -307,6 +322,8 @@ public class BaseFragmentActivity extends ActionBarActivity {
             }
             break;
             case 5: {
+
+//                baraction.setTitle("HOME");
                 mDrawerLayout.closeDrawer(mDrawerList);
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:" + getResources().getString(R.string.report_issue_mail_id)));
                 intent.putExtra(Intent.EXTRA_SUBJECT, getResources().getString(R.string.report_issue_subject));
@@ -315,27 +332,51 @@ public class BaseFragmentActivity extends ActionBarActivity {
             break;
 
             case 2:
+                baraction.setTitle("My Address");
                 mDrawerLayout.closeDrawer(mDrawerList);
                 fragment = new Manage_Address();
-                fragmentManager.beginTransaction().replace(R.id.frame_container, fragment, "manage_address").addToBackStack("home").commit();
+                fragmentManager
+                        .beginTransaction()
+                        .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
+                        .replace(R.id.frame_container, fragment, "manage_address")
+                        .addToBackStack("home")
+                        .commit();
 
                 break;
             case 1:
                 mDrawerLayout.closeDrawer(mDrawerList);
                 fragment = new Order_History();
-                fragmentManager.beginTransaction().replace(R.id.frame_container, fragment, "order_history").addToBackStack("home").commit();
+
+                baraction.setTitle("Order History");
+                fragmentManager.beginTransaction()
+                        .setCustomAnimations(android.R.anim.fade_in,android.R.anim.fade_out)
+                        .replace(R.id.frame_container, fragment, "order_history")
+                        .addToBackStack("home")
+                        .commit();
                 break;
             case 6:
                 mDrawerLayout.closeDrawer(mDrawerList);
                 fragment = new Contact_Us();
-                fragmentManager.beginTransaction().replace(R.id.frame_container, fragment, "contact_us").addToBackStack("home").commit();
 
+                baraction.setTitle("Contact Us");
+                fragmentManager
+                        .beginTransaction()
+                        .setCustomAnimations(android.R.anim.fade_in,android.R.anim.fade_out)
+                        .replace(R.id.frame_container, fragment, "contact_us")
+                        .addToBackStack("home")
+                        .commit();
                 break;
 
             case 8:
                 mDrawerLayout.closeDrawer(mDrawerList);
                 fragment = new User_Agreement();
-                fragmentManager.beginTransaction().replace(R.id.frame_container, fragment, "user_agreement").addToBackStack("home").commit();
+
+                baraction.setTitle("User Agreement");
+                fragmentManager
+                        .beginTransaction()
+                        .setCustomAnimations(android.R.anim.fade_in,android.R.anim.fade_out)
+                        .replace(R.id.frame_container, fragment, "user_agreement")
+                        .addToBackStack("home").commit();
 
                 break;
 
@@ -351,6 +392,7 @@ public class BaseFragmentActivity extends ActionBarActivity {
                 Config.latitude = "78.0";
                 Config.longitude = "28.0";
 
+                baraction.setTitle("Settings");
                 Intent intent = new Intent(BaseFragmentActivity.this, LoginActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -474,6 +516,9 @@ public class BaseFragmentActivity extends ActionBarActivity {
             // display view for selected nav drawer item
             displayView(position);
         }
+    }
+    void setActionBarTitle(String title){
+        getSupportActionBar().setTitle(title);
     }
 
 }

@@ -28,25 +28,17 @@
         android:layout_above="@+id/imageView_small_banner"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/imageView_banner">
+        android:layout_below="@+id/imageView_banner"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        >
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
-            android:background="@color/bgcolor"
             android:orientation="vertical"
-            android:padding="10dp">
+            >
 
-            <TextView
-                android:id="@+id/text_title_address"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@color/topbar_back"
-                android:gravity="center"
-                android:text="Edit Address"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@color/white" />
 
             <TextView
                 android:id="@+id/textView1"

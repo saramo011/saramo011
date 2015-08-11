@@ -25,9 +25,9 @@ public class User_Agreement extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.user_agreement, container, false);
-        TextView title = (TextView) view.findViewById(R.id.title);
-
-        title.setText(getResources().getString(R.string.user_agreement));
+//        TextView title = (TextView) view.findViewById(R.id.title);
+//
+//        title.setText(getResources().getString(R.string.user_agreement));
 
         DocumentView documentView = (DocumentView) view.findViewById(R.id.text_useragreement_justified);
         documentView.getDocumentLayoutParams().setTextAlignment(TextAlignment.JUSTIFIED);

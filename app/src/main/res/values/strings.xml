@@ -134,4 +134,6 @@
     <string name="fill_order_details">Fill Order Details</string>
     <string name="please_add_quantity">Please add Quantity.</string>
     <string name="add_address">Add Address</string>
+    <string name="color_filledstar">#f1c40f</string>
+    <string name="color_emptystar">#77000000</string>
 </resources>
