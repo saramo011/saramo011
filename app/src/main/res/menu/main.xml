@@ -14,24 +14,20 @@
         android:layout_width="fill_parent"
         android:background="@color/bgcolor_heading"
         android:icon="@drawable/action_search"
-        android:title="Search"
+        android:title="Search For"
         app:showAsAction="always" />
 
-    <!--
-       <item
-           android:id="@+id/city_list"
-           android:icon="@drawable/dots"
-           app:showAsAction="always">
-           <menu>
-               <item android:id="@+id/city1"
-                     android:title="Dubai"
-                     app:showAsAction="never" />
-               <item android:id="@+id/city2"
-                     android:title="Soudi"
-                     app:showAsAction="never" />
-           </menu>
-       </item>
-       -->
-
-
+    <!--<item-->
+    <!--android:id="@+id/city_list"-->
+    <!--android:icon="@drawable/dots"-->
+    <!--app:showAsAction="always">-->
+    <!--<menu>-->
+    <!--<item android:id="@+id/city1"-->
+    <!--android:title="Dubai"-->
+    <!--app:showAsAction="never" />-->
+    <!--<item android:id="@+id/city2"-->
+    <!--android:title="Soudi"-->
+    <!--app:showAsAction="never" />-->
+    <!--</menu>-->
+    <!--</item>-->
 </menu>

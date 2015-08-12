@@ -465,6 +465,7 @@ public class BaseFragmentActivity extends ActionBarActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+
         Config.newCityArray.clear();
         city_array_size = Config.cityArray.size();
         for (int i = 0; i < city_array_size; i++) {

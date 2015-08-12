@@ -59,23 +59,14 @@ public class SplashActivity extends Activity {
             @Override
             protected void onPostExecute(Void aVoid) {
                 super.onPostExecute(aVoid);
-                Intent intent = new Intent(SplashActivity.this, BaseFragmentActivity.class);
+//                Intent intent = new Intent(SplashActivity.this, BaseFragmentActivity.class);
+//
+//                startActivity(intent);
 
-                startActivity(intent);
-                if (Config.email.equals("")) {
+                startActivity(new Intent(SplashActivity.this,
+                        LoginActivity.class));
+                overridePendingTransition(R.anim.right_in, R.anim.left_out);
 
-                    startActivity(new Intent(SplashActivity.this,
-                            LoginActivity.class));
-                    overridePendingTransition(R.anim.right_in, R.anim.left_out);
-
-                } else {
-
-                    Intent intenti = new Intent(SplashActivity.this,
-                            BaseFragmentActivity.class);
-
-                    startActivity(intenti);
-
-                }
 
             }
         }.execute();
