@@ -11,6 +11,9 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.bluejamesbond.text.DocumentView;
+import com.bluejamesbond.text.style.TextAlignment;
+
 public class AboutActivity extends Fragment {
 
     TextView title, message;
@@ -27,8 +30,12 @@ public class AboutActivity extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.activity_about, container, false);
+        DocumentView dv = (DocumentView) view.findViewById(R.id.text_aboutus_justified);
+        dv.getDocumentLayoutParams().setTextAlignment(TextAlignment.JUSTIFIED);
+        dv.getDocumentLayoutParams().setTextSize(15);
+        dv.setText(getString(R.string.about));
 
-        TextView textView_about = (TextView) view.findViewById(R.id.textView_about);
+//        TextView textView_about = (TextView) view.findViewById(R.id.textView_about);
         //TextViewJustify.justifyText(textView_about, 340f);
 
         TextView textView_terms = (TextView) view.findViewById(R.id.textView_terms);

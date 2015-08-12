@@ -7,7 +7,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.bluejamesbond.text.DocumentView;
 import com.bluejamesbond.text.style.TextAlignment;
@@ -31,6 +30,7 @@ public class User_Agreement extends Fragment {
 
         DocumentView documentView = (DocumentView) view.findViewById(R.id.text_useragreement_justified);
         documentView.getDocumentLayoutParams().setTextAlignment(TextAlignment.JUSTIFIED);
+
 
         return view;
     }
