@@ -17,75 +17,16 @@ public class SplashActivity extends Activity {
 
 
     protected boolean _active = true;
-    //    protected int _splashTime = 5000;
+
     SharedPreferences prefs;
     ArrayList<HashMap<String, String>> countResult = new ArrayList<HashMap<String, String>>();
-//    Handler mHandler = new Handler();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Use our own list adapter
         setContentView(R.layout.activity_splash);
-
         TextView view = (TextView) findViewById(R.id.splash_text);
-//        view.setTypeface(Typeface.createFromAsset(getAssets(),"varela.ttf"));
         view.setShadowLayer(40, 0, 0, Color.parseColor("#ff208da9"));
-//        MediaController controller = new MediaController(SplashActivity.this);
-//        controller.hide();
-//        controller.setVisibility(View.GONE);
-//        //Uri video = Uri.parse("android.resource://" + getPackageName() + "/"
-//        //	+ R.raw.your_raw_file);
-//        VideoView videoView = (VideoView) findViewById(R.id.videoView1);
-//        videoView.setMediaController(controller);
-//        videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.splash_video));
-//        videoView.start();
-
-
-        //ImageView img = (ImageView)findViewById(R.id.imageView1);
-        //img.setBackgroundResource(R.drawable.splash_anim);
-
-        // Get the background, which has been compiled to an AnimationDrawable object.
-        //AnimationDrawable frameAnimation = (AnimationDrawable) img.getBackground();
-
-        // Start the animation (looped playback by default).
-        //frameAnimation.start();
-    /*	String encodeName="Atal Buy�r";
-        try {
-			encodeName = URLEncoder.encode("Atal Buy�r", "UTF-8").replace("+", " ");
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		try
-		{
-		    final String s = new String(encodeName.getBytes(), "UTF-8");
-		    String sa=s;
-		    String sa1=sa;
-		}
-		catch (UnsupportedEncodingException e)
-		{
-		    Log.e("utf8", "conversion", e);
-		}
-		*/
-
-
-        //ConversionTest ct = new ConversionTest();
-        //String sourcePoint = ct.testLatitudeLongitudeToUMT32XYConversion("59.9627222","10.8780242");
-
-		/*String uuid = "6d25168f-8a45-4946-9233-b96258c4b5a5";
-		String token = "a9e28828612af1674b46e33953dc534f";
-		String secret = "30dd53935f448de8f918d6d07cbe1f08";
-		String issuance = "1397076527";
-		AppBlade.register(getApplicationContext(), token, secret, uuid, issuance);
-		*/
-
-        //Config.TF_ApexNew_Bold = Typeface.createFromAsset(getAssets(),
-        //	"fonts/apexnew_bold.otf");
-        //Config.TF_ApexNew_Medum = Typeface.createFromAsset(getAssets(),
-        //	"fonts/apexnew_medium.otf");
-
         prefs = this.getSharedPreferences("Settings",
                 Context.MODE_PRIVATE);
         Config.email = prefs.getString("email", "");
@@ -119,7 +60,6 @@ public class SplashActivity extends Activity {
             protected void onPostExecute(Void aVoid) {
                 super.onPostExecute(aVoid);
                 Intent intent = new Intent(SplashActivity.this, BaseFragmentActivity.class);
-//                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);//To clear up the Back stack
 
                 startActivity(intent);
                 if (Config.email.equals("")) {
@@ -140,41 +80,6 @@ public class SplashActivity extends Activity {
             }
         }.execute();
 
-        // finish();  //Activity no more required. It would be better to deallocate reference
-
-//        Thread splashTread = new Thread() {
-//            @Override
-//            public void run() {
-//                try {
-//                    int waited = 0;
-//                    while (_active && (waited < _splashTime)) {
-//                        sleep(10);
-//                        if (_active) {
-//                            waited += 10;
-//                        }
-//                    }
-//                } catch (InterruptedException e) {
-//                    // do nothing
-//                } finally {
-//
-//                    //if (Config.email.equals("")) {
-//                    startActivity(new Intent(SplashActivity.this,
-//                            LoginActivity.class));
-//                    overridePendingTransition(R.anim.right_in, R.anim.left_out);
-//                    //} else {
-//
-//                    //	Intent intent = new Intent(SplashActivity.this,
-//                    //		BaseFragmentActivity.class);
-//
-//                    //	startActivity(intent);
-//
-//                    //}
-//
-//                    finish();
-//                }
-//            }
-//        };
-//        splashTread.start();
 
     }
 
