@@ -15,7 +15,6 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.BaseExpandableListAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -36,9 +35,6 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
 
 public class Manage_Address extends Fragment {
 
@@ -357,6 +353,11 @@ public class Manage_Address extends Fragment {
         public View getView(final int position, View convertView, ViewGroup parent) {
             // TODO Auto-generated method stub
             final ViewHolder holder;
+
+//            TextView title= (TextView) convertView.findViewById(R.id.action_title_custom);
+//            title.setText("Edit Address");
+
+
             if (convertView == null || convertView.getTag() == null) {
                 convertView = mInflater.inflate(R.layout.new_add_address_items, null);
                 holder = new ViewHolder();
@@ -420,10 +421,8 @@ public class Manage_Address extends Fragment {
                     array_list.get(position).get("countryName") + "<br>" + whitespace + whitespace +
                     array_list.get(position).get("ContactNo") + "</font></b>";
 
-//            full_address = full_address.toUpperCase().replace("&NBSP;", "&nbsp;").replace("\\N","\n");
-//            holder.textView1.setText(full_address);
+            full_address = full_address.toUpperCase().replace("&NBSP;", "&nbsp;").replace("\\N", "\n");
             holder.textView1.setText(Html.fromHtml(full_address));
-            //holder.textView4.setText(Html.fromHtml("<u>Edit</u>"));
 
             holder.imageView1.setOnClickListener(new View.OnClickListener() {
 

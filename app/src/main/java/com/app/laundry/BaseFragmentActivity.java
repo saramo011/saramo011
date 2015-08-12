@@ -18,7 +18,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.internal.widget.ActionBarContextView;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.SearchView;
 import android.util.TypedValue;
@@ -32,6 +31,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.app.laundry.adapter.NavDrawerListAdapter;
 import com.app.laundry.model.NavDrawerItem;
@@ -284,14 +284,16 @@ public class BaseFragmentActivity extends ActionBarActivity {
     private void displayView(final int position) {
         // update the main content by replacing fragments
         FragmentManager fragmentManager = getSupportFragmentManager();
-        ActionBar baraction=getSupportActionBar();
+//        ActionBar baraction=getSupportActionBar();
+        TextView titlebar_title = (TextView) findViewById(R.id.action_title_custom);
         switch (position) {
             case 0:
                 fragment = new HomeFragment();
                 fragmentManager.beginTransaction().replace(R.id.frame_container, fragment, "home").commit();
                 //Remove all fragment back stacks
-                baraction.setTitle("Spot My Laundry");
+//                baraction.setTitle("Spot My Laundry");
 //                baraction.setLogo(R.drawable.icon);
+                titlebar_title.setText("Home");
                 fragmentManager
                         .popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
                 mDrawerLayout.closeDrawer(mDrawerList);
@@ -299,7 +301,8 @@ public class BaseFragmentActivity extends ActionBarActivity {
                 break;
             case 7: {
 
-                baraction.setTitle("About Us");
+                titlebar_title.setText("About Us");
+//                baraction.setTitle("About Us");
                 mDrawerLayout.closeDrawer(mDrawerList);
                 fragment = new AboutActivity();
                 fragmentManager
@@ -344,7 +347,8 @@ public class BaseFragmentActivity extends ActionBarActivity {
             break;
 
             case 2:
-                baraction.setTitle("My Address");
+                titlebar_title.setText("My Address");
+//                baraction.setTitle("My Address");
                 mDrawerLayout.closeDrawer(mDrawerList);
                 fragment = new Manage_Address();
                 fragmentManager
@@ -359,7 +363,8 @@ public class BaseFragmentActivity extends ActionBarActivity {
                 mDrawerLayout.closeDrawer(mDrawerList);
                 fragment = new Order_History();
 
-                baraction.setTitle("Order History");
+                titlebar_title.setText("Order History");
+//                baraction.setTitle("Order History");
                 fragmentManager.beginTransaction()
                         .setCustomAnimations(android.R.anim.fade_in,android.R.anim.fade_out)
                         .replace(R.id.frame_container, fragment, "order_history")
@@ -370,7 +375,8 @@ public class BaseFragmentActivity extends ActionBarActivity {
                 mDrawerLayout.closeDrawer(mDrawerList);
                 fragment = new Contact_Us();
 
-                baraction.setTitle("Contact Us");
+                titlebar_title.setText("Contact Us");
+//                baraction.setTitle("Contact Us");
                 fragmentManager
                         .beginTransaction()
                         .setCustomAnimations(android.R.anim.fade_in,android.R.anim.fade_out)
@@ -383,7 +389,8 @@ public class BaseFragmentActivity extends ActionBarActivity {
                 mDrawerLayout.closeDrawer(mDrawerList);
                 fragment = new User_Agreement();
 
-                baraction.setTitle("User Agreement");
+                titlebar_title.setText("User Agreement");
+//                baraction.setTitle("User Agreement");
                 fragmentManager
                         .beginTransaction()
                         .setCustomAnimations(android.R.anim.fade_in,android.R.anim.fade_out)
@@ -404,7 +411,8 @@ public class BaseFragmentActivity extends ActionBarActivity {
                 Config.latitude = "78.0";
                 Config.longitude = "28.0";
 
-                baraction.setTitle("Settings");
+                titlebar_title.setText("Settings");
+//                baraction.setTitle("Settings");
                 Intent intent = new Intent(BaseFragmentActivity.this, LoginActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -517,6 +525,10 @@ public class BaseFragmentActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    void setActionBarTitle(String title) {
+        getSupportActionBar().setTitle(title);
+    }
+
     /**
      * Slide menu item click listener
      */
@@ -528,9 +540,6 @@ public class BaseFragmentActivity extends ActionBarActivity {
             // display view for selected nav drawer item
             displayView(position);
         }
-    }
-    void setActionBarTitle(String title){
-        getSupportActionBar().setTitle(title);
     }
 
 }

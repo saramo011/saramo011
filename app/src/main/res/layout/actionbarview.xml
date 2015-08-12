@@ -15,7 +15,7 @@
         android:paddingTop="10dp"
         android:src="@drawable/ic_title_app" />
     <TextView
-        android:id="@android:id/title"
+        android:id="@+id/action_title_custom"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="4"

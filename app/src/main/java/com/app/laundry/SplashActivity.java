@@ -4,8 +4,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,7 +28,9 @@ public class SplashActivity extends Activity {
         // Use our own list adapter
         setContentView(R.layout.activity_splash);
 
-
+        TextView view = (TextView) findViewById(R.id.splash_text);
+//        view.setTypeface(Typeface.createFromAsset(getAssets(),"varela.ttf"));
+        view.setShadowLayer(40, 0, 0, Color.parseColor("#ff208da9"));
 //        MediaController controller = new MediaController(SplashActivity.this);
 //        controller.hide();
 //        controller.setVisibility(View.GONE);
@@ -53,7 +57,7 @@ public class SplashActivity extends Activity {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		try
 		{
 		    final String s = new String(encodeName.getBytes(), "UTF-8");
@@ -117,7 +121,7 @@ public class SplashActivity extends Activity {
                 Intent intent = new Intent(SplashActivity.this, BaseFragmentActivity.class);
 //                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);//To clear up the Back stack
 
-//                startActivity(intent);
+                startActivity(intent);
                 if (Config.email.equals("")) {
 
                     startActivity(new Intent(SplashActivity.this,
