@@ -101,7 +101,7 @@ public class DealsFragment extends Fragment implements OnItemClickListener {
 
         progressBar1 = (ProgressBar) view.findViewById(R.id.progressBar1);
 
-        listView1 = (ListView) view.findViewById(R.id.listView1);
+        listView1 = (ListView) view.findViewById(R.id.listView1_men);
         listView2 = (ListView) view.findViewById(R.id.listView2);
 
         ll = (LinearLayout) view.findViewById(R.id.ll);

@@ -6,14 +6,72 @@
     <!-- 
     <include layout="@layout/ratecart_row"/>
  -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button_men"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="1dp"
+            android:layout_weight="1"
+            android:background="@color/text_medium_blue"
+            android:onClick="men"
+            android:text="MEN"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/button_women"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0.5dp"
+            android:layout_marginRight="0.5dp"
+            android:layout_weight="1"
+            android:background="@color/btn_bgcolor"
+            android:onClick="women"
+            android:text="WOMEN"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/button_general"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
+            android:layout_weight="1"
+            android:background="@color/btn_bgcolor"
+            android:onClick="general"
+            android:text="GENERAL"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
     <ListView
-        android:id="@+id/listView1"
+        android:id="@+id/listView1_men"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="4dp"
         android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
         android:layout_marginTop="4dp"
-        android:dividerHeight="4dp"></ListView>
+        android:dividerHeight="4dp" />
+    <!--<ListView-->
+    <!--android:id="@+id/listView1_women"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_marginBottom="4dp"-->
+    <!--android:layout_marginLeft="4dp"-->
+    <!--android:layout_marginRight="4dp"-->
+    <!--android:layout_marginTop="4dp"-->
+    <!--android:dividerHeight="4dp"/>-->
+    <!--<ListView-->
+    <!--android:id="@+id/listView1_general"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_marginBottom="4dp"-->
+    <!--android:layout_marginLeft="4dp"-->
+    <!--android:layout_marginRight="4dp"-->
+    <!--android:layout_marginTop="4dp"-->
+    <!--android:dividerHeight="4dp"/>-->
 
 </LinearLayout>

@@ -1,7 +1,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/white_buttonstyle"
+    android:layout_margin="2dp"
+    android:background="@drawable/shape_listitem"
     android:paddingBottom="2dp">
 
     <TextView
@@ -11,9 +12,10 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:background="@color/bgcolor_heading"
+        android:background="@color/b_img_unpressed"
         android:padding="5dp"
         android:text="Item Name"
+        android:textAllCaps="true"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@color/white" />
 
@@ -26,6 +28,7 @@
         android:layout_toLeftOf="@+id/textView_amnt"
         android:paddingLeft="5dp"
         android:text="Medium Text"
+        android:textAllCaps="true"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <TextView

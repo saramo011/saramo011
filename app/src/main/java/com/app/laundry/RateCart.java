@@ -10,6 +10,8 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -29,18 +31,90 @@ import java.util.List;
 
 public class RateCart extends ActionBarActivity {
     String laundryId = "";
-    ListView lv;
-    ArrayList<HashMap<String, String>> all_list;
+    ListView listview_men;
+    ArrayList<HashMap<String, String>> arrayList_men, arrayList_women, arrayList_general;
+    Button button_men, button_women, button_general;
+
+
+    String dataMen = "DISHDASHA WOOL\n" +
+            "DISHDASHA COTTON\n" +
+            "GHATRA\n" +
+            "JACKET\n" +
+            "JOGGING SUIT-2 PCS\n" +
+            "KURTA  PJAMA\n" +
+            "LUNGI\n" +
+            "OVERCOAT\n" +
+            "NIGHT SUIT 2PC\n" +
+            "SAFARI SUIT\n" +
+            "PATHAN SUIT\n" +
+            "SHIRT\n" +
+            "SHORTS\n" +
+            "SOCKS\n" +
+            "SUIT 2 PIECE\n" +
+            "SWEATER/ PULLOVER\n" +
+            "T-SHIRT\n" +
+            "TROUSER\n" +
+            "UNDER SHIRT\n" +
+            "UNDER WEAR \n" +
+            "VEST COAT";
+    String dataWomen = "ABAYA \n" +
+            "BLOUSE \n" +
+            "BRA\n" +
+            "DESIGNER DRESS                            (DEPEND ON MATERIAL)/                       Call us for Details\n" +
+            "DRESS-NORMAL\n" +
+            "JACKET. W\n" +
+            "NIGHT GOWN\n" +
+            "LEGGINGS\n" +
+            "PETTY COAT\n" +
+            "SALWAR KAMEEJ 2PIECE\n" +
+            "SALWAR KAMEEJ 3PIECE\n" +
+            "SAREE\n" +
+            "SCARF\n" +
+            "SHAWL\n" +
+            "SKIRT\n" +
+            "SKIRT-LONG\n" +
+            "SKIRT SUIT 2 PIECE\n" +
+            "W-SUIT 2 PIECE\n" +
+            "W-TROUSER";
+    String dataGeneral = "BATH ROBE\n" +
+            "BATH TOWEL\n" +
+            "BED SHEET- SINGLE/DOUBLE\n" +
+            "BED SPREAD- DOUBBLE\n" +
+            "BED SPREAD- SINGLE\n" +
+            "BLANKET\n" +
+            "CURTAIN- SQ. MTR.          /Call us for Details\n" +
+            "CARPET - SQ. MTR.           /Call us for Details\n" +
+            "FACE TOWEL\n" +
+            "GLOVES\n" +
+            "HAND TOWEL\n" +
+            "NAPKIN\n" +
+            "PILLOW\n" +
+            "PILLOW CASE\n" +
+            "QUILT /DUVET";
+
+
 
     JSONObject json;
     Handler mHandler = new Handler();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         overridePendingTransition(R.anim.right_in, R.anim.left_out);
 
+        dataGeneral = dataGeneral.toUpperCase();
+        dataMen = dataMen.toUpperCase();
+        dataWomen = dataWomen.toUpperCase();
+
+
+
         setContentView(R.layout.ratecard);
+
+
+        button_general = (Button) findViewById(R.id.button_general);
+        button_men = (Button) findViewById(R.id.button_men);
+        button_women = (Button) findViewById(R.id.button_women);
 
         ActionBar bar = getSupportActionBar();
         bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor(getResources().getString(R.string.action_bar_color))));
@@ -49,10 +123,18 @@ public class RateCart extends ActionBarActivity {
         bar.setHomeButtonEnabled(true);
         bar.setTitle(getResources().getString(R.string.rate_card));
 
-        lv = (ListView) findViewById(R.id.listView1);
+        listview_men = (ListView) findViewById(R.id.listView1_men);
+//        listview_women = (ListView) findViewById(R.id.listView1_women);
+//        listview_general = (ListView) findViewById(R.id.listView1_general);
+
+
         Intent intent = getIntent();
         laundryId = intent.getExtras().getString("LaundryID");
-        all_list = new ArrayList<HashMap<String, String>>();
+
+
+        arrayList_men = new ArrayList<HashMap<String, String>>();
+        arrayList_women = new ArrayList<HashMap<String, String>>();
+        arrayList_general = new ArrayList<HashMap<String, String>>();
 
         new loginAccess().execute();
 
@@ -90,6 +172,48 @@ public class RateCart extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void men(View view) {
+        button_men.setBackgroundColor(Color.parseColor("#208da9"));
+        button_women.setBackgroundColor(Color.parseColor("#076D99"));
+        button_general.setBackgroundColor(Color.parseColor("#076D99"));
+
+        listview_men.setAdapter(new SimpleAdapter(
+                RateCart.this,
+                arrayList_men,
+                R.layout.ratecard_items,
+                new String[]{"textView_item", "textView_service", "textView_amnt"},
+                new int[]{R.id.textView_item, R.id.textView_service, R.id.textView_amnt}));
+
+
+    }
+
+    public void women(View view) {
+        button_women.setBackgroundColor(Color.parseColor("#208da9"));
+        button_men.setBackgroundColor(Color.parseColor("#076D99"));
+        button_general.setBackgroundColor(Color.parseColor("#076D99"));
+
+        listview_men.setAdapter(new SimpleAdapter(
+                RateCart.this,
+                arrayList_women,
+                R.layout.ratecard_items,
+                new String[]{"textView_item", "textView_service", "textView_amnt"},
+                new int[]{R.id.textView_item, R.id.textView_service, R.id.textView_amnt}));
+
+    }
+
+    public void general(View view) {
+        button_general.setBackgroundColor(Color.parseColor("#208da9"));
+        button_women.setBackgroundColor(Color.parseColor("#076D99"));
+        button_men.setBackgroundColor(Color.parseColor("#076D99"));
+
+        listview_men.setAdapter(new SimpleAdapter(
+                RateCart.this,
+                arrayList_general,
+                R.layout.ratecard_items,
+                new String[]{"textView_item", "textView_service", "textView_amnt"},
+                new int[]{R.id.textView_item, R.id.textView_service, R.id.textView_amnt}));
+
+    }
 
     class loginAccess extends AsyncTask<String, String, String> {
 
@@ -115,6 +239,7 @@ public class RateCart extends ActionBarActivity {
                     Config.Item_Array.clear();
                     Config.Service_Array.clear();
                     Config.Amount_Array.clear();
+
                     for (int i = 0; i < list_array.length(); i++) {
                         JSONObject jo = list_array.getJSONObject(i);
                         String item = jo.getString("LaundryItemName");
@@ -124,6 +249,7 @@ public class RateCart extends ActionBarActivity {
                         Config.Item_Array.add(i, item);
                         Config.Service_Array.add(i, service);
                         Config.Amount_Array.add(i, amount);
+
                     }
                 }
             } catch (JSONException e) {
@@ -140,9 +266,11 @@ public class RateCart extends ActionBarActivity {
             for (int i = 0; i < Config.Item_Array.size(); i++) {
                 item = Config.Item_Array.get(i);
 
+
                 if (i != (Config.Item_Array.size() - 1) && item.equals(Config.Item_Array.get(i + 1))) {
                     service += "\n" + Config.Service_Array.get(i);
                     rate += "\n" + Config.Amount_Array.get(i);
+
                 } else {
                     service += "\n" + Config.Service_Array.get(i) + "\n";
                     rate += "\n" + Config.Amount_Array.get(i) + "\n";
@@ -153,19 +281,34 @@ public class RateCart extends ActionBarActivity {
                     map.put("textView_service", service);
                     map.put("textView_amnt", rate);
 
-                    all_list.add(map);
 
-                    service = "";
-                    rate = "";
+                    if (dataMen.contains(item.toUpperCase())) {
+                        arrayList_men.add(map);
+                        service = "";
+                        rate = "";
+                    } else if (dataWomen.contains(item.toUpperCase())) {
+                        arrayList_women.add(map);
+                        service = "";
+                        rate = "";
+                    } else {
+                        arrayList_general.add(map);
+                        service = "";
+                        rate = "";
+                    }
+
                 }
 
             }
 
-            ListAdapter adapter = new SimpleAdapter(RateCart.this, all_list, R.layout.ratecard_items, new String[]{"textView_item", "textView_service", "textView_amnt"}, new int[]{R.id.textView_item, R.id.textView_service, R.id.textView_amnt});
-            lv.setAdapter(adapter);
+            ListAdapter adapter = new SimpleAdapter(RateCart.this, arrayList_men, R.layout.ratecard_items, new String[]{"textView_item", "textView_service", "textView_amnt"}, new int[]{R.id.textView_item, R.id.textView_service, R.id.textView_amnt});
+            listview_men.setAdapter(adapter);
+//            listview_women.setAdapter(new SimpleAdapter(RateCart.this, arrayList_women, R.layout.ratecard_items, new String[]{"textView_item", "textView_service", "textView_amnt"}, new int[]{R.id.textView_item, R.id.textView_service, R.id.textView_amnt}));
+//            listview_general.setAdapter(new SimpleAdapter(RateCart.this, arrayList_general, R.layout.ratecard_items, new String[]{"textView_item", "textView_service", "textView_amnt"}, new int[]{R.id.textView_item, R.id.textView_service, R.id.textView_amnt}));
+
             ProgressDialogClass.dismissProgressDialog();
         }
 
     }
+
 }
 

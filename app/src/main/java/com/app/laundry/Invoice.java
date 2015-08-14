@@ -13,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -73,7 +72,7 @@ public class Invoice extends Fragment {
         View view = inflater.inflate(R.layout.new_invoice, container, false);
 //        imageView_banner = (ImageView) view.findViewById(R.id.imageView_banner);
 
-        list = (ListView) view.findViewById(R.id.listView1);
+        list = (ListView) view.findViewById(R.id.listView1_men);
 
         Bundle bundle = getArguments();
         LaundryOrderID = bundle.getString("LaundryOrderID");

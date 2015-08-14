@@ -81,7 +81,7 @@ public class LaundryBookingActivity extends ActionBarActivity implements OnItemS
 
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         //imageView_banner = (ImageView) findViewById(R.id.imageView_banner);
-        listView_booking = (ListView) findViewById(R.id.listView1);
+        listView_booking = (ListView) findViewById(R.id.listView1_men);
         list_ed = new EfficientAdapter(LaundryBookingActivity.this);
         listView_booking.setAdapter(list_ed);
 

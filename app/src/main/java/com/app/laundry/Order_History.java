@@ -70,7 +70,7 @@ public class Order_History extends Fragment {
 //        imageView_banner.setVisibility(View.GONE);
         imageView_small_banner.setVisibility(View.GONE);
 
-        list = (ListView) view.findViewById(R.id.listView1);
+        list = (ListView) view.findViewById(R.id.listView1_men);
         if (mContext == null)
             mContext = getActivity();
 
