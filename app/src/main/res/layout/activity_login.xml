@@ -23,7 +23,7 @@
         android:layout_margin="10dp"
         android:gravity="center"
         android:text="SPOT MY LAUNDRY"
-        android:textColor="@color/white"
+        android:textColor="@color/btn_bgcolor"
         android:textSize="20sp"
         android:textStyle="bold"
         android:typeface="sans" />

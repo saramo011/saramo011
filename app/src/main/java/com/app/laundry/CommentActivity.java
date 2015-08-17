@@ -20,7 +20,6 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -52,7 +51,8 @@ public class CommentActivity extends ActionBarActivity {
     String laundryId, laundryArray, laundryName;
     boolean online_offline;
 
-    ImageView image_edit1, image_edit2;
+    Button image_edit1;
+    Button image_edit2;
 
     Spinner sp1, sp2;
 
@@ -218,7 +218,7 @@ public class CommentActivity extends ActionBarActivity {
 
         Button button_submit = (Button) findViewById(R.id.button1);
 
-        image_edit1 = (ImageView) findViewById(R.id.imageViewEdit1);
+        image_edit1 = (Button) findViewById(R.id.buttonedit_pickup);
         image_edit1.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -267,7 +267,7 @@ public class CommentActivity extends ActionBarActivity {
             }
         });
 
-        image_edit2 = (ImageView) findViewById(R.id.imageViewEdit2);
+        image_edit2 = (Button) findViewById(R.id.button_edit2);
         image_edit2.setOnClickListener(new OnClickListener() {
 
             @Override
