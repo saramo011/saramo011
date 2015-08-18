@@ -41,7 +41,7 @@ public class Manage_Address extends Fragment {
     Handler mHandler = new Handler();
     JSONObject json;
 
-//    ImageView imageView_banner;
+    //    ImageView imageView_banner;
     ImageLoader imageLoader;
     ListView listView_address;
     Button bt_add_address;
@@ -462,12 +462,12 @@ public class Manage_Address extends Fragment {
 
                     fragment.setArguments(data);
 
-                    ((BaseFragmentActivity)getActivity()).setActionBarTitle("Edit Address");
+                    ((BaseFragmentActivity) getActivity()).setActionBarTitle("Edit Address");
 
 
                     FragmentManager fragmentManager = getFragmentManager();
                     fragmentManager.beginTransaction()
-                            .setCustomAnimations(android.R.anim.fade_in,android.R.anim.fade_out)
+                            .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
                             .replace(R.id.frame_container, fragment, "edit_address")
                             .addToBackStack("manage_address").commit();
                 }

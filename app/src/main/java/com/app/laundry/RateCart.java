@@ -93,7 +93,6 @@ public class RateCart extends ActionBarActivity {
             "QUILT /DUVET";
 
 
-
     JSONObject json;
     Handler mHandler = new Handler();
 
@@ -106,7 +105,6 @@ public class RateCart extends ActionBarActivity {
         dataGeneral = dataGeneral.toUpperCase();
         dataMen = dataMen.toUpperCase();
         dataWomen = dataWomen.toUpperCase();
-
 
 
         setContentView(R.layout.ratecard);

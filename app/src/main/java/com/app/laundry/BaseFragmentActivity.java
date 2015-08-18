@@ -182,12 +182,8 @@ public class BaseFragmentActivity extends ActionBarActivity {
             // Ignore
         }
 
-//        ActionBar actionBar = getActionBar();
-//        mActionBarView = getLayoutInflater().inflate(R.layout.action_bar_custom, null);
-//        actionBar.setCustomView(mActionBarView);
-//        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
 
-        View view=getLayoutInflater().inflate(R.layout.actionbarview, null);
+        View view = getLayoutInflater().inflate(R.layout.actionbarview, null);
         bar.setCustomView(view);
         bar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
 
@@ -307,7 +303,7 @@ public class BaseFragmentActivity extends ActionBarActivity {
                 fragment = new AboutActivity();
                 fragmentManager
                         .beginTransaction()
-                        .setCustomAnimations(android.R.anim.fade_in,android.R.anim.fade_out)
+                        .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
                         .replace(R.id.frame_container, fragment, "About")
                         .addToBackStack("home")
                         .commit();
@@ -366,7 +362,7 @@ public class BaseFragmentActivity extends ActionBarActivity {
                 titlebar_title.setText("Order History");
 //                baraction.setTitle("Order History");
                 fragmentManager.beginTransaction()
-                        .setCustomAnimations(android.R.anim.fade_in,android.R.anim.fade_out)
+                        .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
                         .replace(R.id.frame_container, fragment, "order_history")
                         .addToBackStack("home")
                         .commit();
@@ -379,7 +375,7 @@ public class BaseFragmentActivity extends ActionBarActivity {
 //                baraction.setTitle("Contact Us");
                 fragmentManager
                         .beginTransaction()
-                        .setCustomAnimations(android.R.anim.fade_in,android.R.anim.fade_out)
+                        .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
                         .replace(R.id.frame_container, fragment, "contact_us")
                         .addToBackStack("home")
                         .commit();
@@ -393,7 +389,7 @@ public class BaseFragmentActivity extends ActionBarActivity {
 //                baraction.setTitle("User Agreement");
                 fragmentManager
                         .beginTransaction()
-                        .setCustomAnimations(android.R.anim.fade_in,android.R.anim.fade_out)
+                        .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
                         .replace(R.id.frame_container, fragment, "user_agreement")
                         .addToBackStack("home").commit();
 

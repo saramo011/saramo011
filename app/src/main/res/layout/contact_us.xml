@@ -59,6 +59,7 @@
             android1:text="ahmad.asjad@znsoftech.com"
             android1:textAppearance="?android:attr/textAppearanceMedium" />
     </LinearLayout>
+
     <LinearLayout
         android1:layout_width="match_parent"
         android1:layout_height="wrap_content"

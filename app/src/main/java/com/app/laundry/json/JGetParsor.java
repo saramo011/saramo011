@@ -23,6 +23,8 @@ import java.util.List;
 
 public class JGetParsor {
 
+    static String POST = "POST";
+    static String GET = "GET";
     static InputStream is = null;
     static JSONObject jObj = null;
     static String json = "";

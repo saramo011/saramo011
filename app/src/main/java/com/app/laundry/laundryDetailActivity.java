@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.text.Html;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
 import android.util.Log;
@@ -17,6 +18,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -57,7 +59,9 @@ public class laundryDetailActivity extends ActionBarActivity {
     TextView textView_laundry_vote;
     Button button_rate, bt1;
     ImageButton button_bookmark;
+    boolean visib = false;
     private GoogleMap mMap;
+    private String webaddress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -124,7 +128,7 @@ public class laundryDetailActivity extends ActionBarActivity {
             }
         });
 
-        textView_detail = (TextView) findViewById(R.id.textView_detail);
+        textView_detail = (TextView) findViewById(R.id.text_address_laundry_detail);
         textView_laundry_vote = (TextView) findViewById(R.id.textView_laundry_vote);
         button_rate = (Button) findViewById(R.id.button_rate);
 
@@ -272,7 +276,7 @@ public class laundryDetailActivity extends ActionBarActivity {
                                     JSONArray array = json.getJSONArray("data");
                                     JSONObject j_obj = array.getJSONObject(0);
 
-//									
+//
 
                                     if (j_obj.getString("bookmark").equalsIgnoreCase("1")) {
                                         button_bookmark.setBackgroundResource(R.drawable.bookmark_selected);
@@ -357,11 +361,11 @@ public class laundryDetailActivity extends ActionBarActivity {
                                     lat = Double.parseDouble(j_obj.getString("LaundryLat"));
                                     longt = Double.parseDouble(j_obj.getString("LaundryLong"));
 
-                                    String address = "Address " + "\n";
+                                    String address = "<b>Address:</b><br>";
                                     if (!j_obj.getString("LaundryAddress").equals(""))
                                         address = address + j_obj.getString("LaundryAddress");
                                     if (!address.equals("")) {
-                                        address = address + "\n";
+                                        address = address + "<br>";
                                     }
                                     if (!j_obj.getString("LaundryCity").equals(""))
                                         address = address + j_obj.getString("LaundryCity") + ", ";
@@ -370,7 +374,7 @@ public class laundryDetailActivity extends ActionBarActivity {
                                         address = address + "Zip code: ";
                                     }
                                     if (!j_obj.getString("LaundryZipCode").equals(""))
-                                        address = address + j_obj.getString("LaundryZipCode") + "\n";
+                                        address = address + j_obj.getString("LaundryZipCode") + "<br>";
 
                                     if (!address.equals("")) {
                                         //address=address+"\n";
@@ -384,10 +388,12 @@ public class laundryDetailActivity extends ActionBarActivity {
                                     }
 
                                     if (!j_obj.getString("LaundryWebsite").equals(""))
-                                        address = address + j_obj.getString("LaundryWebsite");
+                                        webaddress = j_obj.getString("LaundryWebsite");
+                                    address = address + "<br>" + webaddress;
 
 
-                                    textView_detail.setText(address);
+//                                    textView_detail.setText(address);
+                                    textView_detail.setText(Html.fromHtml(address));
                                     //
                                     /* double lat=Double.parseDouble(searchResult.getJSONObject(0).getString("LaundryLat"));
                                      double lon=Double.parseDouble(searchResult.getJSONObject(0).getString("LaundryLong"));
@@ -504,7 +510,6 @@ public class laundryDetailActivity extends ActionBarActivity {
 
     }
 
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -536,6 +541,26 @@ public class laundryDetailActivity extends ActionBarActivity {
         // TODO Auto-generated method stub
         super.onBackPressed();
         overridePendingTransition(R.anim.left_in, R.anim.right_out);
+    }
+
+    public void ratePopup(View view) {
+//        Toast.makeText(getApplicationContext(),"You can rate only after successfully placing an order with this laundry.",Toast.LENGTH_SHORT).show();
+
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse("http://" + webaddress));
+        startActivity(intent);
+
+    }
+
+    public void expand(View view) {
+
+        RelativeLayout layout = (RelativeLayout) findViewById(R.id.expandableLayout_rel_laundrydetail);
+        if (visib) {
+            layout.setVisibility(View.GONE);
+        } else {
+            layout.setVisibility(View.VISIBLE);
+        }
+        visib = !visib;
     }
 
 }

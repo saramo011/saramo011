@@ -43,7 +43,7 @@ public class Add_Address extends Fragment {
     Spinner sp1, sp2;
     EditText add_name, cont_no, add_lane1, add_lane2, add_lane3;
     Button bt_save;
-    ImageView  imageView_small_banner;
+    ImageView imageView_small_banner;
     ImageLoader imageLoader;
 
     @Override

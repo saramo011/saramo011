@@ -136,4 +136,7 @@
     <string name="add_address">Add Address</string>
     <string name="color_filledstar">#f1c40f</string>
     <string name="color_emptystar">#77000000</string>
+    <string name="placeorder">PLACE ORDER</string>
+    <string name="web">WEB</string>
+    <string name="favourite">FAVOURITE</string>
 </resources>

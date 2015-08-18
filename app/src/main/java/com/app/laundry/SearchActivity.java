@@ -32,6 +32,7 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.app.laundry.json.JGetParsor;
 import com.app.laundry.json.JsonReturn;
 import com.app.laundry.lazyloading.ImageLoader;
 import com.app.laundry.network.Network;
@@ -50,7 +51,7 @@ public class SearchActivity extends ActionBarActivity {
     Handler mHandler = new Handler();
     ListView listView_laundry;
     ProgressBar progressBar1;
-//    ImageView imageView_banner;
+    //    ImageView imageView_banner;
     ImageLoader imageLoader;
     SearchView mSearchView;
     ActionMode actionMode;
@@ -214,11 +215,7 @@ public class SearchActivity extends ActionBarActivity {
         if (Network.HaveNetworkConnection(SearchActivity.this)) {
             float ppi = getResources().getDisplayMetrics().density;
             int height = (int) (90 * ppi);
-//            imageView_banner.getLayoutParams().height = height;
-//            GetBanner();
-//            if (searchText.length() > 0) {
-//                getLaundry(searchText);
-//            }
+
         } else {
             final AlertUtil alert = new AlertUtil();
             alert.confirmationAlert(SearchActivity.this, getResources()
@@ -242,6 +239,7 @@ public class SearchActivity extends ActionBarActivity {
         progressBar1.setVisibility(View.VISIBLE);
 
 
+
         final Thread splashTread = new Thread() {
             @Override
             public void run() {
@@ -258,6 +256,8 @@ public class SearchActivity extends ActionBarActivity {
 
 
                 JsonReturn jsonReturn = new JsonReturn();
+                JGetParsor jsonParser = new JGetParsor();
+//                jsonParser.makeHttpRequest(url,"POST",nameValuePairs);
                 searchResult = jsonReturn.postLaundryData(url, nameValuePairs);
 
             }
@@ -423,8 +423,7 @@ public class SearchActivity extends ActionBarActivity {
         public int getCount() {
             if (searchResult != null) {
                 try {
-                    if (searchResult.getJSONObject(0).has(
-                            "status"))
+                    if (searchResult.getJSONObject(0).has("status"))
                         return 0;
                     else
                         return searchResult.length();

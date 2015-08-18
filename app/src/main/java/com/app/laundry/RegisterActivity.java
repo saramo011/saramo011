@@ -565,7 +565,7 @@ public class RegisterActivity extends ActionBarActivity {
             Log.d("Your Location", "latitude:" + gps.getLatitude()
                     + ", longitude: " + gps.getLongitude());
             /*
-			 * while (gps.getLatitude()!=0.0) {
+             * while (gps.getLatitude()!=0.0) {
 			 * 
 			 * gps.getLocation(); }
 			 */

@@ -36,7 +36,7 @@ import java.util.List;
 public class Invoice extends Fragment {
 
     JSONObject json;
-//    ImageView imageView_banner;
+    //    ImageView imageView_banner;
     ImageLoader imageLoader;
     Handler mHandler = new Handler();
     String LaundryOrderID;

@@ -214,12 +214,12 @@
                     android:layout_height="@dimen/btn_height"
                     android:layout_marginBottom="8dp"
                     android:layout_marginTop="15dp"
-                    android:background="#004765"
+                    android:background="@drawable/button_selector"
                     android:drawableLeft="@android:drawable/stat_sys_upload_done"
                     android:gravity="center"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
-                    android:text="Finish order"
+                    android:text="@string/placeorder"
                     android:textColor="@color/white" />
 
             </LinearLayout>

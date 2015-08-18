@@ -95,55 +95,7 @@ public class LoginActivity extends ActionBarActivity {
             }
         });
 
-//        txt_register.setOnTouchListener(new OnTouchListener() {
-//
-//            @Override
-//            public boolean onTouch(View view, MotionEvent event) {
-//                // TODO Auto-generated method stub
-//                switch (event.getAction()) {
-//                    case MotionEvent.ACTION_DOWN:
-//                        ((TextView) view).setTextColor(0xFF2489CE); //white
-//                        break;
-//                    case MotionEvent.ACTION_CANCEL:
-//                    case MotionEvent.ACTION_UP:
-//                        ((TextView) view).setTextColor(0xFFFFFFFF); //black
-//                        break;
-//                }
-//                return false;
-//            }
-//        });
 
-		/*TextView txt_forgot = (TextView) findViewById(R.id.textView_forgot);
-        txt_forgot.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				startActivity(new Intent(LoginActivity.this,
-						ForgotActivity.class));
-			}
-		});
-		*/
-
-		
-		/*txt_forgot.setOnTouchListener(new OnTouchListener() {
-
-			@Override
-			public boolean onTouch(View view, MotionEvent event) {
-				// TODO Auto-generated method stub
-				switch(event.getAction()){            
-	            case MotionEvent.ACTION_DOWN:
-	            ((TextView)view).setTextColor(0xFF2489CE); //white
-	                break;          
-	            case MotionEvent.ACTION_CANCEL:             
-	            case MotionEvent.ACTION_UP:
-	            ((TextView)view).setTextColor(0xFFFFFFFF); //black
-	                break;
-	    } 
-				return false;
-			}
-		});
-		*/
         Button but_submit = (Button) findViewById(R.id.but_submit);
         //but_submit.setTypeface(Config.TF_ApexNew_Bold);
         but_submit.setOnClickListener(new OnClickListener() {
@@ -226,17 +178,7 @@ public class LoginActivity extends ActionBarActivity {
             @Override
             public void run() {
 
-				
-				/*String encodePwd=password;
-				String encodeEmailId=emailId;
-				try {
-					encodePwd = URLEncoder.encode(password, "UTF-8");
-					encodeEmailId = URLEncoder.encode(emailId, "UTF-8");
-				} catch (UnsupportedEncodingException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				*/
+
                 ArrayList<BasicNameValuePair> nameValuePairs = new ArrayList<BasicNameValuePair>();
 
                 nameValuePairs.add(new BasicNameValuePair("iemail", emailId));
@@ -368,17 +310,12 @@ public class LoginActivity extends ActionBarActivity {
                             // ProgressDialogClass.dismissProgressDialog();
                             if (Config.cityArray != null) {
                                 if (Config.cityArray.size() > 0) {
-                                    //if(Config.cityArray.get(0).equals("200")){
-                                    //	getCityName();
-                                    //}
-                                    //else{
 
                                     startActivity(new Intent(LoginActivity.this, BaseFragmentActivity.class));
                                     overridePendingTransition(R.anim.right_in, R.anim.left_out);
                                     finish();
                                     ProgressDialogClass.dismissProgressDialog();
 
-                                    //}
 
                                 }
 

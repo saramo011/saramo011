@@ -10,14 +10,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
->
+        android:layout_alignParentTop="true">
 
         <RelativeLayout
             android:id="@+id/linearLayout1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            >
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:id="@+id/layout_star"
@@ -44,11 +42,12 @@
                 android:text="Uset Name"
                 android:textColor="#000000"
                 android:textSize="13sp" />
+
             <LinearLayout
-                android:layout_alignParentRight="true"
                 android:id="@+id/lin_layout_star"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
                 android:layout_centerVertical="true">
 
                 <ImageView
@@ -90,10 +89,10 @@
         </RelativeLayout>
 
         <TextView
-            android:layout_alignParentBottom="true"
             android:id="@+id/textView_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:text="10/10/12"
@@ -106,8 +105,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:paddingBottom="7dp"
         android:layout_below="@+id/relativeLayout1"
+        android:paddingBottom="7dp"
         android:text="review jhdfjhjdkh"
         android:textColor="#000000"
         android:textSize="12sp" />

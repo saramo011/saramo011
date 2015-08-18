@@ -2,9 +2,11 @@ package com.app.laundry.tabs;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -62,6 +64,7 @@ public class New_Hometab extends Fragment {
         super.onCreate(savedInstanceState);
         if (mContext == null)
             mContext = getActivity();
+
     }
 
     @Override
@@ -115,17 +118,19 @@ public class New_Hometab extends Fragment {
         return view;
     }
 
+
     void getAllAddresses() {
         progressBar1.setVisibility(View.VISIBLE);
         array_list.clear();
         array_list1.clear();
 
-        final Thread fetch_address = new Thread() {
-            @Override
-            public void run() {
-                List<NameValuePair> params = new ArrayList<NameValuePair>();
-                JGetParsor j = new JGetParsor();
 
+        new AsyncTask<Void, Void, Void>() {
+            List<NameValuePair> params = new ArrayList<NameValuePair>();
+            JGetParsor j = new JGetParsor();
+
+            @Override
+            protected Void doInBackground(Void... paramsd) {
                 json_latest_offer = null;
                 json_new_laundry = null;
 
@@ -164,7 +169,6 @@ public class New_Hometab extends Fragment {
                         // TODO Auto-generated catch block
                         getAllAddresses();
                         loading_flag = true;
-                        return;
                     }
                 }
 
@@ -182,6 +186,7 @@ public class New_Hometab extends Fragment {
                                 hashmap.put("LaundryAddress", j_obj.getString("LaundryAddress"));
                                 hashmap.put("LaundryImage", j_obj.getString("LaundryImage"));
 
+                                Log.e("Error Hometab:", String.valueOf(array_list1.size()));
                                 array_list1.add(hashmap);
 
                             }
@@ -191,24 +196,10 @@ public class New_Hometab extends Fragment {
                         // TODO Auto-generated catch block
                         getAllAddresses();
                         loading_flag = true;
-                        return;
 
                     }
                 }
-            }
-        };
-        fetch_address.start();
 
-        final Thread display = new Thread(new Runnable() {
-
-            @Override
-            public void run() {
-                // TODO Auto-generated method stub
-                try {
-                    fetch_address.join();
-                } catch (InterruptedException e) {
-                    // TODO Auto-generated catch block
-                }
                 if (mHandler != null) {
                     mHandler.post(new Runnable() {
 
@@ -235,9 +226,99 @@ public class New_Hometab extends Fragment {
                     });
                 }
 
+
+                return null;
             }
-        });
-        display.start();
+        }.execute();
+
+//        final Thread fetch_address = new Thread() {
+//            @Override
+//            public void run() {
+//                List<NameValuePair> params = new ArrayList<NameValuePair>();
+//                JGetParsor j = new JGetParsor();
+//                json_latest_offer = null;
+//                json_new_laundry = null;
+//
+//                if (Config.latest_offers_json == null)
+//                    json_latest_offer = j.makeHttpRequest(Config.latest_offers_home, "POST", params);
+//                else
+//                    json_latest_offer = Config.latest_offers_json;
+//
+//                JGetParsor j1 = new JGetParsor();
+//
+//                if (Config.latest_laundries_json == null)
+//                    json_new_laundry = j1.makeHttpRequest(Config.new_laundries_home, "POST", params);
+//                else
+//                    json_new_laundry = Config.latest_laundries_json;
+//
+//                if (json_latest_offer != null) {
+//                    try {
+//                        if (json_latest_offer.getInt("status") == 200) {
+//                            JSONArray json_array = json_latest_offer.getJSONArray("data");
+//                            for (int i = 0; i < json_array.length(); i++) {
+//
+//                                HashMap<String, String> hashmap = new HashMap<String, String>();
+//                                JSONObject j_obj = json_array.getJSONObject(i);
+//
+//                                hashmap.put("LaundryID", j_obj.getString("LaundryID"));
+//                                hashmap.put("DealTitle", j_obj.getString("DealTitle"));
+//                                hashmap.put("DealText", j_obj.getString("DealText"));
+//                                hashmap.put("DealImage", j_obj.getString("DealImage"));
+//
+//                                array_list.add(hashmap);
+//
+//                            }
+//
+//                        }
+//                    } catch (JSONException e) {
+//                        // TODO Auto-generated catch block
+//                        getAllAddresses();
+//                        loading_flag = true;
+//                        return;
+//                    }
+//                }
+//
+//                if (json_new_laundry != null) {
+//                    try {
+//                        if (json_new_laundry.getInt("status") == 200) {
+//                            JSONArray json_array = json_new_laundry.getJSONArray("data");
+//                            for (int i = 0; i < json_array.length(); i++) {
+//
+//                                HashMap<String, String> hashmap = new HashMap<String, String>();
+//                                JSONObject j_obj = json_array.getJSONObject(i);
+//
+//                                hashmap.put("LaundryID", j_obj.getString("LaundryID"));
+//                                hashmap.put("LaundryName", j_obj.getString("LaundryName"));
+//                                hashmap.put("LaundryAddress", j_obj.getString("LaundryAddress"));
+//                                hashmap.put("LaundryImage", j_obj.getString("LaundryImage"));
+//
+//                                array_list1.add(hashmap);
+//
+//                            }
+//
+//                        }
+//                    } catch (JSONException e) {
+//                        // TODO Auto-generated catch block
+//                        getAllAddresses();
+//                        loading_flag = true;
+//                        return;
+//
+//                    }
+//                }
+//
+//            }
+//        };
+//        fetch_address.start();
+//
+//        final Thread display = new Thread(new Runnable() {
+//
+//            @Override
+//            public void run() {
+//                // TODO Auto-generated method stub
+//
+//            }
+//        });
+//        display.start();
     }
 
     private void getBanner() {
