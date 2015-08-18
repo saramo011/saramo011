@@ -67,11 +67,9 @@ public class SearchActivity extends ActionBarActivity {
             MenuInflater inflater = mode.getMenuInflater();
             inflater.inflate(R.menu.main1, menu);
 
-
             MenuItem searchItem = menu.findItem(R.id.edt_mySearch);
             RelativeLayout m = (RelativeLayout) MenuItemCompat.getActionView(searchItem);
-            SearchView mSearchView = (SearchView) m
-                    .findViewById(R.id.edt_search);
+            SearchView mSearchView = (SearchView) m.findViewById(R.id.edt_search);
             mSearchView.setIconifiedByDefault(false);
             mSearchView.setFocusable(true);
             mSearchView.requestFocusFromTouch();
@@ -160,6 +158,8 @@ public class SearchActivity extends ActionBarActivity {
         Intent intent = getIntent();
         searchText = intent.getExtras().getString("SearchText");
 
+
+
         ActionBar actionBar = getSupportActionBar();
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#2196f3")));
         actionBar.startActionMode(mActionModeCallback);
@@ -232,6 +232,7 @@ public class SearchActivity extends ActionBarActivity {
         }
 
 
+        getLaundry(searchText);
     }
 
     void getLaundry(final String searchtext) {
@@ -368,7 +369,7 @@ public class SearchActivity extends ActionBarActivity {
 //        });
 //        displayThread.start();
 //
-//    }
+//
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -392,7 +393,9 @@ public class SearchActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
+
         getMenuInflater().inflate(R.menu.home_menu, menu);
+
         return true;
     }
 
