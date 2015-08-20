@@ -100,6 +100,7 @@ public class LaundryFragment extends Fragment {
 
                 intent.putExtra("LaundryID", array_list.get(position).get("LaundryID"));
                 intent.putExtra("LaundryName", array_list.get(position).get("LaundryName"));
+//                String la=array_list.get(position).get("LaundryWorking");
 
                 startActivity(intent);
                 getActivity().overridePendingTransition(R.anim.right_in, R.anim.left_out);

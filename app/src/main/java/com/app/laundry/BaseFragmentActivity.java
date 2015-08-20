@@ -10,6 +10,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.IBinder;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -32,9 +33,11 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.app.laundry.adapter.NavDrawerListAdapter;
 import com.app.laundry.model.NavDrawerItem;
+import com.app.laundry.tabs.New_Hometab;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -286,12 +289,9 @@ public class BaseFragmentActivity extends ActionBarActivity {
             case 0:
                 fragment = new HomeFragment();
                 fragmentManager.beginTransaction().replace(R.id.frame_container, fragment, "home").commit();
-                //Remove all fragment back stacks
-//                baraction.setTitle("Spot My Laundry");
-//                baraction.setLogo(R.drawable.icon);
-                titlebar_title.setText("Home");
-                fragmentManager
-                        .popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                titlebar_title.setText(" ");
+                fragmentManager.beginTransaction().add(new HomeFragment(),"HOME");
+
                 mDrawerLayout.closeDrawer(mDrawerList);
 
                 break;
@@ -391,7 +391,8 @@ public class BaseFragmentActivity extends ActionBarActivity {
                         .beginTransaction()
                         .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
                         .replace(R.id.frame_container, fragment, "user_agreement")
-                        .addToBackStack("home").commit();
+                        .addToBackStack("home")
+                        .commit();
 
                 break;
 
@@ -428,6 +429,8 @@ public class BaseFragmentActivity extends ActionBarActivity {
         mTitle = title;
     }
 
+
+//    boolean EXIT=false;
     @Override
     public void onBackPressed() {
         // TODO Auto-generated method stub
@@ -435,10 +438,13 @@ public class BaseFragmentActivity extends ActionBarActivity {
             mDrawerLayout.closeDrawer(mDrawerList);
             return;
         }
-
         if (actionMode != null)
             actionMode.finish();
 
+
+
+
+//
         super.onBackPressed();
     }
 
@@ -488,7 +494,28 @@ public class BaseFragmentActivity extends ActionBarActivity {
             InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
             return true;
-        } else if (id < city_array_size) {
+        } else if (id==R.id.direct_to_home){
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.frame_container, new HomeFragment(), "home")
+
+                    .commit();
+            /**
+             * Removing back stack
+             */
+
+            FragmentManager fm = getSupportFragmentManager();
+
+
+            for(int i = 0; i < fm.getBackStackEntryCount(); ++i) {
+                fm.popBackStack(null,FragmentManager.POP_BACK_STACK_INCLUSIVE);
+            }
+
+
+            TextView titlebar_title = (TextView) findViewById(R.id.action_title_custom);
+            titlebar_title.setText(" ");
+
+        } else if (id < city_array_size&& id!=R.id.direct_to_home) {
             String selected_item = item.getTitle().toString();
             for (int i = 0; i < Config.cityArray.size(); i++) {
                 if (selected_item.equals(Config.newCityArray.get(i))) {

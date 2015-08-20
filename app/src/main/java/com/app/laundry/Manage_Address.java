@@ -92,7 +92,8 @@ public class Manage_Address extends Fragment {
                 Fragment fragment = new Add_Address();
                 FragmentManager fragmentManager = getFragmentManager();
                 fragmentManager.beginTransaction()
-                        .replace(R.id.frame_container, fragment, "add_address").addToBackStack("manage_address").commit();
+
+                        .replace(R.id.frame_container, fragment, "add_address").commit();
 
             }
         });
@@ -469,7 +470,7 @@ public class Manage_Address extends Fragment {
                     fragmentManager.beginTransaction()
                             .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
                             .replace(R.id.frame_container, fragment, "edit_address")
-                            .addToBackStack("manage_address").commit();
+                            .commit();
                 }
             });
 

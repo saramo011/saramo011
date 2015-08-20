@@ -55,13 +55,15 @@ public class laundryDetailActivity extends ActionBarActivity {
     //String for_check="Hello";
     JSONObject json;
     String laundryId, laundryName;
-    TextView textView_detail;
+    TextView textView_detail,
+            textView_service_timings; //for expandable timing and services
     TextView textView_laundry_vote;
     Button button_rate, bt1;
     ImageButton button_bookmark;
     boolean visib = false;
     private GoogleMap mMap;
     private String webaddress;
+    private TextView textView_services_offered;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,6 +102,8 @@ public class laundryDetailActivity extends ActionBarActivity {
         });
 
         textView_laundry_name = (TextView) findViewById(R.id.textView_laundry_name);
+        textView_service_timings = (TextView) findViewById(R.id.text_timing_ldetail);
+        textView_services_offered= (TextView) findViewById(R.id.textView_service_ldetail);
         textView_laundry_review = (TextView) findViewById(R.id.textView_laundry_review);
         textView_laundry_review.setOnClickListener(new OnClickListener() {
 
@@ -357,6 +361,9 @@ public class laundryDetailActivity extends ActionBarActivity {
                                     Log.e("LaundryWebsite", j_obj.getString("LaundryWebsite"));
                                     Log.e("LaundryLat", j_obj.getString("LaundryLat"));
                                     Log.e("LaundryLong", j_obj.getString("LaundryLong"));
+                                    Log.e("LaundryWorking Timing", j_obj.getString("LaundryWorking"));
+                                    Log.e(("Services"), j_obj.getJSONArray("Services").getString(0));
+//                                    Log.e("LaundryWorking 1",j_obj.getJSONArray("LaundryWorking").getString(1));
 
                                     lat = Double.parseDouble(j_obj.getString("LaundryLat"));
                                     longt = Double.parseDouble(j_obj.getString("LaundryLong"));
@@ -386,6 +393,32 @@ public class laundryDetailActivity extends ActionBarActivity {
                                     if (!j_obj.getString("LaundryCallPrefernce").equals("") && !j_obj.getString("LaundryWebsite").equals("")) {
                                         address = address + "\n";
                                     }
+
+                                    String timings = "Time";
+
+                                    if (!(timings = j_obj.getString("LaundryWorking")).equals("")) {
+
+                                        textView_service_timings.setText(timings);
+                                    }
+
+                                    JSONArray services_offered = j_obj.getJSONArray("Services");
+                                    JSONObject object = services_offered.getJSONObject(0);
+                                    String services = object.getString("LaundryServiceName");
+//                                    services=services+object.get
+                                    String service_text = "";
+                                    String ser[] = services.split("\\+");
+                                    int leng;
+                                    if ((leng = ser.length) > 0) {
+                                        for (int l = 0; l < leng; l++) {
+                                            service_text = service_text  + ser[l]+ "\n";
+                                        }
+                                    }
+
+
+                                    textView_services_offered.setText(service_text);
+
+
+
 
                                     if (!j_obj.getString("LaundryWebsite").equals(""))
                                         webaddress = j_obj.getString("LaundryWebsite");

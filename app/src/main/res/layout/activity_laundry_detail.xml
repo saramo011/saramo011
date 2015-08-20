@@ -181,7 +181,7 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
-                    android:layout_alignParentRight="true"
+                    android:layout_alignParentLeft="true"
                     android:layout_margin="3dp"
                     android:background="@drawable/button_selector_expand"
                     android:drawableLeft="@android:drawable/ic_menu_info_details"
@@ -201,15 +201,34 @@
 
                 <TextView
                     android:id="@+id/text_timing_ldetail"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TIMING:\n             10:00AM - 10:00PM" />
+                    android:textStyle="bold"
+                    android:text="TIMING  :"  />
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/text_timing_ldetail_service"
+                    android:layout_below="@+id/text_timing_ldetail_data"
+                    android:layout_width="wrap_content"
+                    android:text="SERVICES: "
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_toRightOf="@id/text_timing_ldetail_service"
+                    android:id="@+id/text_timing_ldetail_data"
                     android:layout_below="@+id/text_timing_ldetail"
-                    android:text="SERVICES:\n             CLEANING\n             WASHING" />
+                    android:layout_width="match_parent"
+                    android:text=""
+                    android:layout_height="wrap_content" />
+
+
+                <TextView
+                    android:layout_toRightOf="@+id/text_timing_ldetail_service"
+                    android:id="@+id/textView_service_ldetail"
+                    android:layout_below="@+id/text_timing_ldetail_service"
+                    android:layout_width="wrap_content"
+                    android:text="STEAM PROCESSING\nSPOT &amp; STAIN REMOVAL\nCURTAIN CLEAN\nCARPET CLEAN\nPICKUP &amp;DELIVERY"
+                    android:layout_height="wrap_content" />
             </RelativeLayout>
 
             <TextView
@@ -230,7 +249,6 @@
 
         <fragment
             android:id="@+id/map"
-
             android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
             android:layout_height="140dp"

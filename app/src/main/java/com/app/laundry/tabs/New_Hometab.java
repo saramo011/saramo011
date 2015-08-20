@@ -92,7 +92,6 @@ public class New_Hometab extends Fragment {
 
         list_adapter = new Addadapter(mContext);
         listView_address.setAdapter(list_adapter);
-
         imageView_banner.setVisibility(View.GONE);
         imageView_small_banner.setVisibility(View.GONE);
         header_ll.setVisibility(View.INVISIBLE);

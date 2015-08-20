@@ -108,13 +108,18 @@
             <ListView
                 android:id="@+id/listView1_men"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"></ListView>
+                android:layout_height="wrap_content"
+                android:divider="@drawable/divider"
+                android:dividerHeight="2dp"
+                />
 
 
             <include layout="@layout/deals_divider1" />
 
             <ListView
                 android:id="@+id/listView2"
+                android:divider="@drawable/divider"
+                android:dividerHeight="2dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
