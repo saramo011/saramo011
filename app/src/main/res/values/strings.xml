@@ -139,4 +139,8 @@
     <string name="placeorder">PLACE ORDER</string>
     <string name="web">WEB</string>
     <string name="favourite">FAVOURITE</string>
+    <string name="title_activity_dialog_custom">Rate</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
 </resources>

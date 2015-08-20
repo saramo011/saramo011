@@ -171,6 +171,17 @@ public class BaseFragmentActivity extends ActionBarActivity {
         bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor(getResources().getString(R.string.action_bar_color))));
         bar.setDisplayShowHomeEnabled(true);
 
+        int order=getIntent().getIntExtra("rate",0);
+        String al=getIntent().getStringExtra("a");
+
+
+
+//        Intent intent=getIntent();
+//        int orders=Integer.valueOf("1");
+//        if (Integer.valueOf(intent.getStringExtra("rate")==1){
+//
+//        };
+
 
         try {
             ViewConfiguration config = ViewConfiguration.get(this);
@@ -184,6 +195,8 @@ public class BaseFragmentActivity extends ActionBarActivity {
         } catch (Exception ex) {
             // Ignore
         }
+
+
 
 
         View view = getLayoutInflater().inflate(R.layout.actionbarview, null);
@@ -267,14 +280,26 @@ public class BaseFragmentActivity extends ActionBarActivity {
         adapter = new NavDrawerListAdapter(getApplicationContext(), navDrawerItems);
         mDrawerList.setAdapter(adapter);
 
-        if (savedInstanceState == null) {
-            // on first time display view for first nav item
+        FragmentManager fragmentManager = getSupportFragmentManager();
+
+        if (al!=null&&al.equalsIgnoreCase("order")){
+            order=1;
+            displayView(order);
+
+//            fragment = new Order_History();
+//            fragmentManager.beginTransaction().replace(R.id.frame_container, fragment, "order_history").commit();
+
+        }
+        else {
             displayView(0);
+
+            fragment = new HomeFragment();
+            fragmentManager.beginTransaction().replace(R.id.frame_container, fragment, "home").commit();
+
         }
 
-        fragment = new HomeFragment();
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.frame_container, fragment, "home").commit();
+
+
     }
 
     /**
@@ -290,7 +315,10 @@ public class BaseFragmentActivity extends ActionBarActivity {
                 fragment = new HomeFragment();
                 fragmentManager.beginTransaction().replace(R.id.frame_container, fragment, "home").commit();
                 titlebar_title.setText(" ");
-                fragmentManager.beginTransaction().add(new HomeFragment(),"HOME");
+                fragmentManager
+                        .beginTransaction()
+                        .add(new HomeFragment(),"HOME")
+                        .commit();
 
                 mDrawerLayout.closeDrawer(mDrawerList);
 
@@ -566,4 +594,18 @@ public class BaseFragmentActivity extends ActionBarActivity {
         }
     }
 
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+////        super.onActivityResult(requestCode, resultCode, data);
+////        if(data.getIntExtra("rate",0)==1){
+////            displayView(1);
+////        }
+//
+//        getSupportFragmentManager()
+//                .beginTransaction()
+//                .replace(R.id.frame_container,fragment,"Rate")
+//                .commit();
+//
+//
+//    }
 }

@@ -1,5 +1,7 @@
 package com.app.laundry;
 
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -8,6 +10,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AlertDialog;
 import android.text.Html;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
@@ -579,9 +582,12 @@ public class laundryDetailActivity extends ActionBarActivity {
     public void ratePopup(View view) {
 //        Toast.makeText(getApplicationContext(),"You can rate only after successfully placing an order with this laundry.",Toast.LENGTH_SHORT).show();
 
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse("http://" + webaddress));
-        startActivity(intent);
+//        Intent intent = new Intent(this,DialogCustom.class);
+////        intent.setData(Uri.parse("http://" + webaddress));
+//        startActivity(intent);
+
+        new DialogCustom().init(laundryId).show(getSupportFragmentManager(),laundryId);
+
 
     }
 
