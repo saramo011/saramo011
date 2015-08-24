@@ -179,12 +179,13 @@
                     android:background="@color/dark_grey" />
 
                 <Button
+
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
                     android:layout_alignParentLeft="true"
                     android:layout_margin="3dp"
                     android:background="@drawable/button_selector_expand"
-                    android:drawableLeft="@drawable/services"
+                    android:drawableLeft="@drawable/services_iron"
                     android:onClick="expand"
                     android:paddingRight="10dp"
                     android:drawablePadding="5dp"
@@ -195,6 +196,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+
                 android:id="@+id/expandableLayout_rel_laundrydetail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

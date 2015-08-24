@@ -8,6 +8,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AlertDialog;
@@ -559,8 +560,16 @@ public class laundryDetailActivity extends ActionBarActivity {
 
         } else if (id == R.id.direct_to_home) {
             startActivity(new Intent(laundryDetailActivity.this,
-                    BaseFragmentActivity.class));
+                    BaseFragmentActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP));
             overridePendingTransition(R.anim.right_in, R.anim.left_out);
+
+//            FragmentManager fm = getSupportFragmentManager();
+//            for(int i = 0; i < fm.getBackStackEntryCount(); ++i) {
+//                fm.popBackStack(null,FragmentManager.POP_BACK_STACK_INCLUSIVE);
+//            }
+//
+//            TextView titlebar_title = (TextView) findViewById(R.id.action_title_custom);
+//            titlebar_title.setText(" ");
         }
         return super.onOptionsItemSelected(item);
     }

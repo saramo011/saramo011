@@ -2,6 +2,7 @@ package com.app.laundry;
 
 import android.content.ActivityNotFoundException;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -12,6 +13,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.MenuItemCompat;
@@ -19,6 +21,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.SearchView;
 import android.util.TypedValue;
@@ -173,14 +176,6 @@ public class BaseFragmentActivity extends ActionBarActivity {
 
         int order=getIntent().getIntExtra("rate",0);
         String al=getIntent().getStringExtra("a");
-
-
-
-//        Intent intent=getIntent();
-//        int orders=Integer.valueOf("1");
-//        if (Integer.valueOf(intent.getStringExtra("rate")==1){
-//
-//        };
 
 
         try {
@@ -496,14 +491,19 @@ public class BaseFragmentActivity extends ActionBarActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
 
+
+
+
         Config.newCityArray.clear();
         city_array_size = Config.cityArray.size();
         for (int i = 0; i < city_array_size; i++) {
+
             try {
                 String citystr = Config.cityArray.get(i);
                 JSONObject jobj = new JSONObject(citystr);
                 menu.add(0, i, i, jobj.getString("CityName"));
                 Config.newCityArray.add(jobj.getString("CityName"));
+
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -521,12 +521,14 @@ public class BaseFragmentActivity extends ActionBarActivity {
             bar.startActionMode(mActionModeCallback);
             InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
+//            DialogCities dialogCities=new DialogCities();
+//            dialogCities.show(getSupportFragmentManager(),"Dialog");
             return true;
+
         } else if (id==R.id.direct_to_home){
             getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.frame_container, new HomeFragment(), "home")
-
                     .commit();
             /**
              * Removing back stack
@@ -539,15 +541,18 @@ public class BaseFragmentActivity extends ActionBarActivity {
                 fm.popBackStack(null,FragmentManager.POP_BACK_STACK_INCLUSIVE);
             }
 
-
             TextView titlebar_title = (TextView) findViewById(R.id.action_title_custom);
             titlebar_title.setText(" ");
 
-        } else if (id < city_array_size&& id!=R.id.direct_to_home) {
+        } else if
+
+                (id < city_array_size&& id!=R.id.direct_to_home) {
             String selected_item = item.getTitle().toString();
             for (int i = 0; i < Config.cityArray.size(); i++) {
+
                 if (selected_item.equals(Config.newCityArray.get(i))) {
                     Config.city = Config.newCityArray.get(i);
+
                     if (HomeFragment.pager != null) {
                         int index = HomeFragment.pager.getCurrentItem();
                         Fragment new_fragment = new HomeFragment();
@@ -565,8 +570,13 @@ public class BaseFragmentActivity extends ActionBarActivity {
                         }
                         //Toast.makeText(getApplicationContext(), index+" If condition.", Toast.LENGTH_SHORT).show();
                     }
+
+
+
                     return true;
                 }
+
+
             }
         } else {
             if (mDrawerLayout.isDrawerOpen(Gravity.LEFT)) {
@@ -579,6 +589,7 @@ public class BaseFragmentActivity extends ActionBarActivity {
 
     void setActionBarTitle(String title) {
         getSupportActionBar().setTitle(title);
+//        getSupportActionBar().ba
     }
 
     /**
@@ -594,18 +605,5 @@ public class BaseFragmentActivity extends ActionBarActivity {
         }
     }
 
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-////        super.onActivityResult(requestCode, resultCode, data);
-////        if(data.getIntExtra("rate",0)==1){
-////            displayView(1);
-////        }
-//
-//        getSupportFragmentManager()
-//                .beginTransaction()
-//                .replace(R.id.frame_container,fragment,"Rate")
-//                .commit();
-//
-//
-//    }
+
 }

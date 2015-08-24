@@ -17,6 +17,13 @@
         android:title="Home"
         android:visible="true"
         app:showAsAction="always" />
+    <!--<item-->
+        <!--android:id="@+id/cities"-->
+        <!--android:title="Select City"-->
+        <!--android:visible="true"-->
+        <!--android:icon="@android:drawable/ic_menu_myplaces"-->
+        <!--app:showAsAction="always"-->
+        <!--/>-->
 
 
 

@@ -8,10 +8,15 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -27,12 +32,16 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 public class RateCart extends ActionBarActivity {
     String laundryId = "";
+    AutoCompleteTextView autoCompleteTextView;
     ListView listview_men;
     ArrayList<HashMap<String, String>> arrayList_men, arrayList_women, arrayList_general;
+    private ArrayList<HashMap<String, String>> arrayList_autotext;
+
     Button button_men, button_women, button_general;
 
 
@@ -110,6 +119,8 @@ public class RateCart extends ActionBarActivity {
         setContentView(R.layout.ratecard);
 
 
+//        autoCompleteTextView.setAdapter();
+
         button_general = (Button) findViewById(R.id.button_general);
         button_men = (Button) findViewById(R.id.button_men);
         button_women = (Button) findViewById(R.id.button_women);
@@ -133,8 +144,17 @@ public class RateCart extends ActionBarActivity {
         arrayList_men = new ArrayList<HashMap<String, String>>();
         arrayList_women = new ArrayList<HashMap<String, String>>();
         arrayList_general = new ArrayList<HashMap<String, String>>();
+        arrayList_autotext = new ArrayList<HashMap<String, String>>();
 
         new loginAccess().execute();
+
+
+
+
+
+
+        autoCompleteTextView= (AutoCompleteTextView) findViewById(R.id.search_autocomplete);
+
 
     }
 
@@ -241,6 +261,7 @@ public class RateCart extends ActionBarActivity {
                     for (int i = 0; i < list_array.length(); i++) {
                         JSONObject jo = list_array.getJSONObject(i);
                         String item = jo.getString("LaundryItemName");
+
                         String service = jo.getString("LaundryServiceName");
                         String amount = jo.getString("Amount");
 
@@ -280,6 +301,10 @@ public class RateCart extends ActionBarActivity {
                     map.put("textView_amnt", rate);
 
 
+
+                    arrayList_autotext.add(map);
+
+
                     if (dataMen.contains(item.toUpperCase())) {
                         arrayList_men.add(map);
                         service = "";
@@ -300,13 +325,54 @@ public class RateCart extends ActionBarActivity {
 
             ListAdapter adapter = new SimpleAdapter(RateCart.this, arrayList_men, R.layout.ratecard_items, new String[]{"textView_item", "textView_service", "textView_amnt"}, new int[]{R.id.textView_item, R.id.textView_service, R.id.textView_amnt});
             listview_men.setAdapter(adapter);
-//            listview_women.setAdapter(new SimpleAdapter(RateCart.this, arrayList_women, R.layout.ratecard_items, new String[]{"textView_item", "textView_service", "textView_amnt"}, new int[]{R.id.textView_item, R.id.textView_service, R.id.textView_amnt}));
-//            listview_general.setAdapter(new SimpleAdapter(RateCart.this, arrayList_general, R.layout.ratecard_items, new String[]{"textView_item", "textView_service", "textView_amnt"}, new int[]{R.id.textView_item, R.id.textView_service, R.id.textView_amnt}));
+
+            autoCompleteTextView= (AutoCompleteTextView) findViewById(R.id.search_autocomplete);
+
+
+            ArrayAdapter<String> adapter_arra=new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_dropdown_item_1line,Config.Item_Array);
+
+            autoCompleteTextView.setAdapter(adapter_arra);
+
 
             ProgressDialogClass.dismissProgressDialog();
+
         }
 
     }
+
+    String search_string_auto="";
+
+    public void search_item(View view){
+        search_string_auto=autoCompleteTextView.getText().toString();
+        ArrayList<HashMap<String,String>> have=new ArrayList<>();
+
+        String service,item,amount;
+
+        for (int j=0;j<Config.Item_Array.size();j++)
+        {
+            if((Config.Item_Array.get(j).toUpperCase()).contains(search_string_auto.toUpperCase())){
+                item=search_string_auto;
+                service=Config.Service_Array.get(j);
+                amount=Config.Amount_Array.get(j);
+                HashMap<String, String> map = new HashMap<String, String>();
+
+                map.put("textView_item", item);
+                map.put("textView_service", service);
+                map.put("textView_amnt", amount);
+
+                have.add(map);
+
+
+            }
+        }
+        ListAdapter adapter = new SimpleAdapter(RateCart.this, have, R.layout.ratecard_items, new String[]{"textView_item", "textView_service", "textView_amnt"}, new int[]{R.id.textView_item, R.id.textView_service, R.id.textView_amnt});
+        listview_men.setAdapter(adapter);
+        LinearLayout layout= (LinearLayout) findViewById(R.id.lin_gender_buttons);
+        layout.setVisibility(View.GONE);
+
+
+    }
+
 
 }
 
