@@ -12,6 +12,7 @@
         android:layout_below="@+id/imageView_banner"
         android:layout_marginTop="2dp" />
 
+
     <RelativeLayout
         android:id="@+id/rel_bot_button"
         android:layout_width="fill_parent"
