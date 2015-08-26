@@ -199,6 +199,12 @@ public class New_Hometab extends Fragment {
                     }
                 }
 
+
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
                 if (mHandler != null) {
                     mHandler.post(new Runnable() {
 
@@ -224,9 +230,6 @@ public class New_Hometab extends Fragment {
                         }
                     });
                 }
-
-
-                return null;
             }
         }.execute();
 

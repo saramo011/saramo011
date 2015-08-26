@@ -91,9 +91,12 @@ public class Manage_Address extends Fragment {
 
                 Fragment fragment = new Add_Address();
                 FragmentManager fragmentManager = getFragmentManager();
-                fragmentManager.beginTransaction()
 
-                        .replace(R.id.frame_container, fragment, "add_address").commit();
+                fragmentManager
+                        .beginTransaction()
+                        .replace(R.id.frame_container, fragment, "add_address")
+                        .addToBackStack("Manage Address")
+                        .commit();
 
             }
         });
@@ -299,10 +302,10 @@ public class Manage_Address extends Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
 
-        int city_array_size = Config.cityArray.size();
-        if (city_array_size > 0)
-            for (int i = 0; i < city_array_size; i++)
-                menu.findItem(i).setVisible(false);
+//        int city_array_size = Config.cityArray.size();
+//        if (city_array_size > 0)
+//            for (int i = 0; i < city_array_size; i++)
+//                menu.findItem(i).setVisible(false);
     }
 
     static class ViewHolder {

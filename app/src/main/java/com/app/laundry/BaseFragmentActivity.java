@@ -2,7 +2,6 @@ package com.app.laundry;
 
 import android.content.ActivityNotFoundException;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -11,9 +10,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.IBinder;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.MenuItemCompat;
@@ -21,7 +18,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.SearchView;
 import android.util.TypedValue;
@@ -33,6 +29,7 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -40,7 +37,6 @@ import android.widget.Toast;
 
 import com.app.laundry.adapter.NavDrawerListAdapter;
 import com.app.laundry.model.NavDrawerItem;
-import com.app.laundry.tabs.New_Hometab;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -69,6 +65,7 @@ public class BaseFragmentActivity extends ActionBarActivity {
     private NavDrawerListAdapter adapter;
 
     private ActionMode.Callback mActionModeCallback = new ActionMode.Callback() {
+
 
         @Override
         public boolean onCreateActionMode(final ActionMode mode, Menu menu) {
@@ -164,6 +161,7 @@ public class BaseFragmentActivity extends ActionBarActivity {
             return false;
         }
     };
+    private ListView mDrawerList_right;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -214,6 +212,8 @@ public class BaseFragmentActivity extends ActionBarActivity {
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.list_slidermenu);
+        mDrawerList_right = (ListView) findViewById(R.id.list_slidermenu_right);
+
 
         mDrawerToggle = new ActionBarDrawerToggle(
                 BaseFragmentActivity.this,                             /* host Activity */
@@ -224,12 +224,14 @@ public class BaseFragmentActivity extends ActionBarActivity {
             @Override
             public void onDrawerClosed(View drawerView) {
                 invalidateOptionsMenu(); // calls onPrepareOptionsMenu()
-
             }
 
             @Override
             public void onDrawerOpened(View drawerView) {
                 invalidateOptionsMenu(); // calls onPrepareOptionsMenu()
+                if (mDrawerLayout.isDrawerOpen(mDrawerList)) {
+                    mDrawerLayout.closeDrawer(mDrawerList_right);
+                }
             }
         };
 
@@ -267,6 +269,7 @@ public class BaseFragmentActivity extends ActionBarActivity {
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[8], navMenuIcons.getResourceId(8, -1)));
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[9], navMenuIcons.getResourceId(9, -1)));
 
+
         // Recycle the typed array
         navMenuIcons.recycle();
         mDrawerList.setOnItemClickListener(new SlideMenuClickListener());
@@ -274,6 +277,37 @@ public class BaseFragmentActivity extends ActionBarActivity {
         // setting the nav drawer list adapter
         adapter = new NavDrawerListAdapter(getApplicationContext(), navDrawerItems);
         mDrawerList.setAdapter(adapter);
+
+//        String[] cities=Config.cityArray.toArray(new String[Config.newCityArray.size()]);
+        mDrawerList_right.setAdapter(new ArrayAdapter<>(this, R.layout.simple_list_item_1, android.R.id.text1, cityarray()));
+        mDrawerList_right.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Config.city = Config.newCityArray.get(position);
+                if (HomeFragment.pager != null) {
+                    int index = HomeFragment.pager.getCurrentItem();
+                    Fragment new_fragment = new HomeFragment();
+                    Bundle data = new Bundle();
+                    String[] str = new String[]{"all", "nearby", "suggest", "favorite"};
+
+                    if (index < 4) {
+                        data.putString("Tab", str[index]);
+
+                        new_fragment.setArguments(data);
+                        fragment = new_fragment;
+
+                        FragmentManager fragmentManager = getSupportFragmentManager();
+                        fragmentManager.beginTransaction().replace(R.id.frame_container, fragment).commit();
+                    }
+
+                }
+                Toast.makeText(getApplicationContext(), Config.city, Toast.LENGTH_LONG).show();
+                mDrawerLayout.closeDrawer(mDrawerList_right);
+            }
+        });
+
+
 
         FragmentManager fragmentManager = getSupportFragmentManager();
 
@@ -486,6 +520,28 @@ public class BaseFragmentActivity extends ActionBarActivity {
         super.onConfigurationChanged(newConfig);
     }
 
+    String[] cityarray() {
+
+//        Config.newCityArray.clear();
+        city_array_size = Config.cityArray.size();
+        String[] cityArray = new String[city_array_size];
+        for (int i = 0; i < city_array_size; i++) {
+
+            try {
+                String citystr = Config.cityArray.get(i);
+                JSONObject jobj = new JSONObject(citystr);
+//                menu.add(0, i, i, jobj.getString("CityName"));
+                cityArray[i] = jobj.getString("CityName");
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+        return cityArray;
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -501,7 +557,7 @@ public class BaseFragmentActivity extends ActionBarActivity {
             try {
                 String citystr = Config.cityArray.get(i);
                 JSONObject jobj = new JSONObject(citystr);
-                menu.add(0, i, i, jobj.getString("CityName"));
+//                menu.add(0, i, i, jobj.getString("CityName"));
                 Config.newCityArray.add(jobj.getString("CityName"));
 
             } catch (JSONException e) {
@@ -518,6 +574,7 @@ public class BaseFragmentActivity extends ActionBarActivity {
 
         int id = item.getItemId();
         if (id == R.id.action_search) {
+
             bar.startActionMode(mActionModeCallback);
             InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
@@ -544,41 +601,55 @@ public class BaseFragmentActivity extends ActionBarActivity {
             TextView titlebar_title = (TextView) findViewById(R.id.action_title_custom);
             titlebar_title.setText(" ");
 
-        } else if
+        } else if (id == R.id.cities) {
 
-                (id < city_array_size&& id!=R.id.direct_to_home) {
-            String selected_item = item.getTitle().toString();
-            for (int i = 0; i < Config.cityArray.size(); i++) {
-
-                if (selected_item.equals(Config.newCityArray.get(i))) {
-                    Config.city = Config.newCityArray.get(i);
-
-                    if (HomeFragment.pager != null) {
-                        int index = HomeFragment.pager.getCurrentItem();
-                        Fragment new_fragment = new HomeFragment();
-                        Bundle data = new Bundle();
-                        String[] str = new String[]{"all", "nearby", "suggest", "favorite"};
-
-                        if (index < 4) {
-                            data.putString("Tab", str[index]);
-
-                            new_fragment.setArguments(data);
-                            fragment = new_fragment;
-
-                            FragmentManager fragmentManager = getSupportFragmentManager();
-                            fragmentManager.beginTransaction().replace(R.id.frame_container, fragment).commit();
-                        }
-                        //Toast.makeText(getApplicationContext(), index+" If condition.", Toast.LENGTH_SHORT).show();
-                    }
-
-
-
-                    return true;
+            if (mDrawerLayout.isDrawerOpen(mDrawerList_right)) {
+                mDrawerLayout.closeDrawer(mDrawerList_right);
+            } else {
+                if (mDrawerLayout.isDrawerOpen(mDrawerList)) {
+                    mDrawerLayout.closeDrawer(mDrawerList);
                 }
-
+                mDrawerLayout.openDrawer(mDrawerList_right);
 
             }
-        } else {
+
+        }
+//        else if
+//
+//                (id < city_array_size&& id!=R.id.direct_to_home) {
+//            String selected_item = item.getTitle().toString();
+//            for (int i = 0; i < Config.cityArray.size(); i++) {
+//
+//                if (selected_item.equals(Config.newCityArray.get(i))) {
+//                    Config.city = Config.newCityArray.get(i);
+//
+//                    if (HomeFragment.pager != null) {
+//                        int index = HomeFragment.pager.getCurrentItem();
+//                        Fragment new_fragment = new HomeFragment();
+//                        Bundle data = new Bundle();
+//                        String[] str = new String[]{"all", "nearby", "suggest", "favorite"};
+//
+//                        if (index < 4) {
+//                            data.putString("Tab", str[index]);
+//
+//                            new_fragment.setArguments(data);
+//                            fragment = new_fragment;
+//
+//                            FragmentManager fragmentManager = getSupportFragmentManager();
+//                            fragmentManager.beginTransaction().replace(R.id.frame_container, fragment).commit();
+//                        }
+//                        //Toast.makeText(getApplicationContext(), index+" If condition.", Toast.LENGTH_SHORT).show();
+//                    }
+//
+//
+//
+//                    return true;
+//                }
+//
+//
+//            }
+//        }
+        else {
             if (mDrawerLayout.isDrawerOpen(Gravity.LEFT)) {
                 mDrawerLayout.closeDrawer(mDrawerList);
             } else

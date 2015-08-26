@@ -28,6 +28,18 @@
             android:divider="@color/list_divider"
             android:dividerHeight="1dp"
             android:listSelector="@drawable/list_selector" />
+
+        <ListView
+            android:id="@+id/list_slidermenu_right"
+            android:layout_width="180dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:background="#18536d"
+            android:choiceMode="singleChoice"
+            android:divider="@color/list_divider"
+            android:dividerHeight="1dp"
+            android:listSelector="@drawable/list_selector" />
+
     </android.support.v4.widget.DrawerLayout>
 
     <RelativeLayout

@@ -5,6 +5,7 @@
         <item name="vpiTabPageIndicatorStyleMyMusic">@style/CustomTabPageIndicatorMyMusic</item>
         <item name="actionBarStyle">@style/MyActionBar</item>
         <item name="actionModeBackground">@color/topbar_back</item>
+        <item name="actionOverflowButtonStyle">@style/overflow</item>
 
         <!-- Support library compatibility -->
     </style>
@@ -86,6 +87,10 @@
     <style name="StarRatingBar" parent="Widget.AppCompat.RatingBar">
         <item name="android:progressDrawable">@drawable/progressdrawableratingstar</item>
 
+    </style>
+
+    <style name="overflow" parent="@style/Widget.AppCompat.Light.ActionButton.Overflow">
+        <item name="android:src">@android:drawable/ic_menu_myplaces</item>
     </style>
 
 </resources>

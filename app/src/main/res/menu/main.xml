@@ -25,10 +25,10 @@
         app:showAsAction="always" />
     <item
     android:id="@+id/cities"
-    android:title="Select City"
-    android:visible="false"
     android:icon="@android:drawable/ic_menu_myplaces"
-    app:showAsAction="never"
+        android:title="Select City"
+        android:visible="true"
+        app:showAsAction="always"
     />
 
 

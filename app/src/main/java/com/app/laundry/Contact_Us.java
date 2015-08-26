@@ -35,9 +35,9 @@ public class Contact_Us extends Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
 
-        int city_array_size = Config.cityArray.size();
-        if (city_array_size > 0)
-            for (int i = 0; i < city_array_size; i++)
-                menu.findItem(i).setVisible(false);
+//        int city_array_size = Config.cityArray.size();
+//        if (city_array_size > 0)
+//            for (int i = 0; i < city_array_size; i++)
+//                menu.findItem(i).setVisible(false);
     }
 }
