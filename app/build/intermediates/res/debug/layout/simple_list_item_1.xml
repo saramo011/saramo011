@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/text1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textColor="@color/white"
+    android:padding="10dp"
+    android:textAppearance="?android:attr/textAppearanceSmall"
+    android:gravity="center_vertical"
+    />
+<!-- From: file:/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/src/main/res/layout/simple_list_item_1.xml -->
