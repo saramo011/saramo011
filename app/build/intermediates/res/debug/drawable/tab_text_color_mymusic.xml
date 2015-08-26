@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:color="#80FFFFFF" android:state_selected="false" />
-    <item android:color="#FFFFFF" android:state_selected="true" />
-</selector>
-<!-- From: file:/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/src/main/res/drawable/tab_text_color_mymusic.xml -->
