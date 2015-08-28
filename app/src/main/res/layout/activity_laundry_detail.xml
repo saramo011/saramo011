@@ -264,6 +264,7 @@
             android:id="@+id/button_pick_up_request"
             android:layout_width="140dp"
             android:layout_height="@dimen/btn_height"
+            android:drawableLeft="@drawable/pickup"
             android:layout_alignParentRight="true"
             android:layout_below="@+id/map"
             android:layout_marginRight="5dp"
@@ -275,6 +276,7 @@
             android:textSize="15sp" />
 
         <Button
+            android:drawableLeft="@drawable/dollar"
             android:id="@+id/button1"
             android:layout_width="140dp"
             android:layout_height="@dimen/btn_height"

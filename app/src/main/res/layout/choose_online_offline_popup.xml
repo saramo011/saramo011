@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_marginLeft="10dp"
-                android:text="With Order Detail"
+                android:text="With Item Detail"
                 android:textColor="@color/darkest_grey"
                 android:textSize="18sp" />
 
@@ -71,7 +71,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_marginLeft="10dp"
-                android:text="Without Order Detail"
+                android:text="Without Item Detail"
                 android:textColor="@color/darkest_grey"
                 android:textSize="18sp" />
 
@@ -84,7 +84,7 @@
             android:layout_below="@+id/linearLayout_offline"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
-            android:background="@color/btn_bgcolor"
+            android:background="@drawable/button_selector"
             android:text="Ok"
             android:textColor="@color/white" />
 

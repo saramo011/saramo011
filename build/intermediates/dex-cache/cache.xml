@@ -1,323 +1,376 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2">
+<items version="2" >
 
     <item
-        jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appinvite/7.5.0/jars/classes.jar"
-        jumboMode="false" revision="22.0.1" sha1="63ec6e9f4fe5482a7447d0f3091b8e543a02554c">
-        <dex
-            dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-115e0e5906e5179a126ac8c0796f161f30ec5ba8.jar" />
-    </item>
-    <item
-        jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/7.5.0/jars/classes.jar"
-        jumboMode="false" revision="22.0.1" sha1="d405025c600055237c171a0bbabaa49d69696573">
-        <dex
-            dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-5f3dbed0bac951199a487cededb5245cf412a0d7.jar" />
-    </item>
-    <item
-        jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/7.5.0/jars/classes.jar"
-        jumboMode="false" revision="22.0.1" sha1="8e3a972f28b8bae817e382257ba177a31bcadbbc">
-        <dex
-            dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-90bbc67a712a70bbf1005cdc0d398617da713286.jar" />
-    </item>
-    <item
-        jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/7.5.0/jars/classes.jar"
-        jumboMode="false" revision="22.0.1" sha1="e7b35244f50663b3f8d150714bca9ecd7a290da1">
-        <dex
-            dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-c1c0558810cd83b2a23de70dc6f3f770a630ae48.jar" />
-    </item>
-    <item
-        jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-panorama/7.5.0/jars/classes.jar"
-        jumboMode="false" revision="22.0.1" sha1="ba207be21987c11b37d9f8faa08ed6e722569f30">
-        <dex
-            dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-21fa00ce1a2565b491d79d674001588c34498b80.jar" />
-    </item>
-    <item
-        jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/7.5.0/jars/classes.jar"
-        jumboMode="false" revision="22.0.1" sha1="69dd177337ead693c408c8dddc9546bb6f1244fa">
-        <dex
-            dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-9dfef35d0fcfde367424040ef72f08690bb4184c.jar" />
-    </item>
-    <item
-        jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/jars/libs/internal_impl-22.2.1.jar"
-        jumboMode="false" revision="22.0.1" sha1="c471eaaba13ff64f6e0383d1c30a9cdc9a97efeb">
-        <dex
-            dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.1-e91c2c56074ad6fba3daa0232c8d0c8989194ad9.jar" />
-    </item>
-    <item
-        jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/7.5.0/jars/classes.jar"
-        jumboMode="false" revision="22.0.1" sha1="d405025c600055237c171a0bbabaa49d69696573">
-        <dex
-            dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-b2818f2a918b170ac9f7672ad0e9319faded5d6e.jar" />
-    </item>
-    <item
-        jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appstate/7.5.0/jars/classes.jar"
-        jumboMode="false" revision="22.0.1" sha1="68c140702c7242d914655bcb3164d9e8c45b84cb">
-        <dex
-            dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-b24aaae63e72af03395c6d71e5f49b0f489cd479.jar" />
-    </item>
-    <item
-        jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/22.0.0/jars/classes.jar"
-        jumboMode="false" revision="22.0.1" sha1="a1372c17fccacca753d3951d3ad820571cbce075">
-        <dex
-            dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-91ade743c0d1c242ab3a7f68a5cfd70fafd2bbf4.jar" />
-    </item>
-    <item
-        jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/7.5.0/jars/classes.jar"
-        jumboMode="false" revision="22.0.1" sha1="f02127a85abd52a2cd526d4c2409f21969f80ee8">
-        <dex
-            dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-7ecdb4e1154b0edbd3eff8845e37c6e5699adbe3.jar" />
-    </item>
-    <item
-        jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-games/7.5.0/jars/classes.jar"
-        jumboMode="false" revision="22.0.1" sha1="02bac2dc792d78241077861566f2c82da955e7fa">
-        <dex
-            dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-5c3b7ff3cff7eee272d6ae91a7924ca9fa48de82.jar" />
-    </item>
-    <item
-        jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-safetynet/7.5.0/jars/classes.jar"
-        jumboMode="false" revision="22.0.1" sha1="1a6411087ab88ce5542f593e63a2752b6b0d6f1a">
-        <dex
-            dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-89852f6c6a337ec49a35ad6b8482fc0288363e1e.jar" />
-    </item>
-    <item
-        jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-games/7.5.0/jars/classes.jar"
-        jumboMode="false" revision="22.0.1" sha1="02bac2dc792d78241077861566f2c82da955e7fa">
-        <dex
-            dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-2ad8038118b897a43cdbc62535d148cc850d45c4.jar" />
-    </item>
-    <item
-        jar="/Users/sandeeprana/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.1/support-annotations-22.2.1.jar"
-        jumboMode="false" revision="22.0.1" sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
-        <dex
-            dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/support-annotations-22.2.1-fa1c23155617a185624a006b6bbbd2cefc7338a4.jar" />
-    </item>
-    <item
-        jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-drive/7.5.0/jars/classes.jar"
-        jumboMode="false" revision="22.0.1" sha1="f44d03c138cb6488fdbaa65e3a7e5878861a56d8">
-        <dex
-            dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-3ff58d5165df9420512ef4c9c6e78a3743d968ce.jar" />
-    </item>
-    <item
-        jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/22.0.0/jars/classes.jar"
-        jumboMode="false" revision="22.0.1" sha1="a1372c17fccacca753d3951d3ad820571cbce075">
-        <dex
-            dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-994242964bb7143cf8cf94c272d56575e838cae9.jar" />
-    </item>
-    <item
-        jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/7.5.0/jars/classes.jar"
-        jumboMode="false" revision="22.0.1" sha1="29ebc7e04d877062317c8cc0e68b20f0c1fcda66">
-        <dex
-            dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-6b5dda3edd767a5143ffacf5afad7ddc3e4fa66d.jar" />
-    </item>
-    <item
-        jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/jars/classes.jar"
-        jumboMode="false" revision="22.0.1" sha1="4486e953d1f35f8ccab098b1dd67146366d5f731">
-        <dex
-            dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-024ba8d843f328e4e81393fd08997a5ae96b87ff.jar" />
-    </item>
-    <item
-        jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.5.0/jars/classes.jar"
-        jumboMode="false" revision="22.0.1" sha1="a78183f30e769a98ab4820794f597763088d3065">
-        <dex
-            dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-b24dc9b7e15f4d0c5c6b19be4022bdd21075aa05.jar" />
-    </item>
-    <item
-        jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/7.5.0/jars/classes.jar"
-        jumboMode="false" revision="22.0.1" sha1="06a42becc33232ec0ee125161da68c1829c9f8fd">
-        <dex
-            dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-a0177093665ed995f782c5ddc4e26b0ed1d6f9b9.jar" />
-    </item>
-    <item
-        jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.5.0/jars/classes.jar"
-        jumboMode="false" revision="22.0.1" sha1="a78183f30e769a98ab4820794f597763088d3065">
-        <dex
-            dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-df02b2d71d4d3c613416ec2d361313cf95354063.jar" />
-    </item>
-    <item
-        jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/jars/classes.jar"
-        jumboMode="false" revision="22.0.1" sha1="f8efd0096475e0daf054267b61544e10dc776503">
-        <dex
-            dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-e794612fe5cf3a16570899372b2a743a2d3cfa7d.jar" />
-    </item>
-    <item
-        jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-drive/7.5.0/jars/classes.jar"
-        jumboMode="false" revision="22.0.1" sha1="f44d03c138cb6488fdbaa65e3a7e5878861a56d8">
-        <dex
-            dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-68f36d503626727dba30f0f0b82d4e97c27c6f9f.jar" />
-    </item>
-    <item
-        jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/7.5.0/jars/classes.jar"
-        jumboMode="false" revision="22.0.1" sha1="e7b35244f50663b3f8d150714bca9ecd7a290da1">
-        <dex
-            dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-bfcdff2f9d1b3b6680bbcb4e24aa73a902276013.jar" />
-    </item>
-    <item
-        jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/jars/classes.jar"
-        jumboMode="false" revision="22.0.1" sha1="f8efd0096475e0daf054267b61544e10dc776503">
-        <dex
-            dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-a68867d2c04da21701f6a3c5c44a9ab6a5644956.jar" />
-    </item>
-    <item
-        jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-fitness/7.5.0/jars/classes.jar"
-        jumboMode="false" revision="22.0.1" sha1="a172852a35ff919e85b9b7f14bbc15c5bee25520">
-        <dex
-            dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-339be7a422a7c25c9a078749a099fa1d9e194358.jar" />
-    </item>
-    <item
-        jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/7.5.0/jars/classes.jar"
-        jumboMode="false" revision="22.0.1" sha1="272bc5d7063f24bc3a33ea1d318cde8f31f5ec4c">
-        <dex
-            dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-e8ca2484fe8c2b765b6b455b7a541f5971e641d8.jar" />
-    </item>
-    <item
-        jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/7.5.0/jars/classes.jar"
-        jumboMode="false" revision="22.0.1" sha1="1e98ef3f124bb7a11f8575f9ff5dfea330b61b6f">
-        <dex
-            dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-94e855bc88048538e5cd85812652c14be4cef769.jar" />
-    </item>
-    <item
-        jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/22.0.0/jars/libs/internal_impl-22.0.0.jar"
-        jumboMode="false" revision="22.0.1" sha1="ba3df4eb0a630d7de294f0e48d3f9267d279b784">
-        <dex
-            dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/internal_impl-22.0.0-af4be07d48326660d88a463321b499a57c4f1c88.jar" />
-    </item>
-    <item
-        jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/7.5.0/jars/classes.jar"
-        jumboMode="false" revision="22.0.1" sha1="8d736fefa22d896e84a268354b3ed48a42663150">
-        <dex
-            dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-c2d07e21a5366e7130f96cec47db361bd9507632.jar" />
-    </item>
-    <item
-        jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-safetynet/7.5.0/jars/classes.jar"
-        jumboMode="false" revision="22.0.1" sha1="1a6411087ab88ce5542f593e63a2752b6b0d6f1a">
-        <dex
-            dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-dfe8e5b1f12a1432b1df9b26ac89d2e6ab9d670d.jar" />
-    </item>
-    <item
-        jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/7.5.0/jars/classes.jar"
-        jumboMode="false" revision="22.0.1" sha1="06a42becc33232ec0ee125161da68c1829c9f8fd">
-        <dex
-            dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-d0d63a4603adfb86222ab60f92cd98a55fc53867.jar" />
-    </item>
-    <item
-        jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/jars/classes.jar"
-        jumboMode="false" revision="22.0.1" sha1="4486e953d1f35f8ccab098b1dd67146366d5f731">
-        <dex
-            dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-62508146db4c7b50bd4862ded4c0d4d9f0ebe75d.jar" />
-    </item>
-    <item
-        jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-fitness/7.5.0/jars/classes.jar"
-        jumboMode="false" revision="22.0.1" sha1="a172852a35ff919e85b9b7f14bbc15c5bee25520">
-        <dex
-            dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-19d067aded3cbab4efa65f7b00f80dba6a35c65a.jar" />
-    </item>
-    <item
-        jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/7.5.0/jars/classes.jar"
-        jumboMode="false" revision="22.0.1" sha1="f02127a85abd52a2cd526d4c2409f21969f80ee8">
-        <dex
-            dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-577de7fffd73f6b2ea99fce6a8b625e97e039ef0.jar" />
-    </item>
-    <item
-        jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/7.5.0/jars/classes.jar"
-        jumboMode="false" revision="22.0.1" sha1="6836d188602ec5382d1967c58b00960eb8ff8773">
-        <dex
-            dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-dfd7070eacc97fbfdf98f77518a45290208b4152.jar" />
-    </item>
-    <item
-        jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/7.5.0/jars/classes.jar"
-        jumboMode="false" revision="22.0.1" sha1="6836d188602ec5382d1967c58b00960eb8ff8773">
-        <dex
-            dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-18dffbc89dc5e7a4d2064adcd96279ee43e6a506.jar" />
-    </item>
-    <item
         jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.github.bluejamesbond/textjustify-android/2.1.0/jars/classes.jar"
-        jumboMode="false" revision="22.0.1" sha1="9e3ac75a5e3f8ef059c7766dc9640e0487e32749">
-        <dex
-            dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-41e54b492d64facb062bd13065e261a155065d67.jar" />
-    </item>
-    <item
-        jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/jars/libs/internal_impl-22.2.1.jar"
-        jumboMode="false" revision="22.0.1" sha1="c471eaaba13ff64f6e0383d1c30a9cdc9a97efeb">
-        <dex
-            dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.1-734cddb42afa97257d326682b78356ae363f8683.jar" />
-    </item>
-    <item
-        jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/7.5.0/jars/classes.jar"
-        jumboMode="false" revision="22.0.1" sha1="272bc5d7063f24bc3a33ea1d318cde8f31f5ec4c">
-        <dex
-            dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-4db3efd758a8cc37a264e45842c1c518434742a9.jar" />
-    </item>
-    <item
-        jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appinvite/7.5.0/jars/classes.jar"
-        jumboMode="false" revision="22.0.1" sha1="63ec6e9f4fe5482a7447d0f3091b8e543a02554c">
-        <dex
-            dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-d714e0bbce3a5b69c7145f69461f30188e5b00c7.jar" />
-    </item>
-    <item
-        jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-panorama/7.5.0/jars/classes.jar"
-        jumboMode="false" revision="22.0.1" sha1="ba207be21987c11b37d9f8faa08ed6e722569f30">
-        <dex
-            dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-4f1b2f445c5d1c4793d2fbb6f2941d6e55fcd3a6.jar" />
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="9e3ac75a5e3f8ef059c7766dc9640e0487e32749">
+        <dex dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-41e54b492d64facb062bd13065e261a155065d67.jar" />
     </item>
     <item
         jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/7.5.0/jars/classes.jar"
-        jumboMode="false" revision="22.0.1" sha1="8d736fefa22d896e84a268354b3ed48a42663150">
-        <dex
-            dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-b75047e61b9f561f9f7541e70049b539e709500b.jar" />
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="8d736fefa22d896e84a268354b3ed48a42663150">
+        <dex dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-b75047e61b9f561f9f7541e70049b539e709500b.jar" />
     </item>
     <item
-        jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-nearby/7.5.0/jars/classes.jar"
-        jumboMode="false" revision="22.0.1" sha1="6440e5e5cfe368f9bff3c537fb8988048069cb33">
-        <dex
-            dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-b85b441c2967eba2c2929fe53f3c95451fb0fabe.jar" />
+        jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/jars/libs/internal_impl-22.2.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c471eaaba13ff64f6e0383d1c30a9cdc9a97efeb">
+        <dex dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.1-734cddb42afa97257d326682b78356ae363f8683.jar" />
     </item>
     <item
-        jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appstate/7.5.0/jars/classes.jar"
-        jumboMode="false" revision="22.0.1" sha1="68c140702c7242d914655bcb3164d9e8c45b84cb">
-        <dex
-            dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-3ba2403b69c94f2a6ca348ac727a55060fea659f.jar" />
+        jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-games/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="02bac2dc792d78241077861566f2c82da955e7fa">
+        <dex dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-2ad8038118b897a43cdbc62535d148cc850d45c4.jar" />
     </item>
     <item
-        jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/7.5.0/jars/classes.jar"
-        jumboMode="false" revision="22.0.1" sha1="69dd177337ead693c408c8dddc9546bb6f1244fa">
-        <dex
-            dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-42df58a595b9202802c0a814225d829239ae4cae.jar" />
+        jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="e7b35244f50663b3f8d150714bca9ecd7a290da1">
+        <dex dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-bfcdff2f9d1b3b6680bbcb4e24aa73a902276013.jar" />
     </item>
     <item
-        jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/7.5.0/jars/classes.jar"
-        jumboMode="false" revision="22.0.1" sha1="1e98ef3f124bb7a11f8575f9ff5dfea330b61b6f">
-        <dex
-            dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-01d2e23adfe2caed20d00846464df54a25d3e147.jar" />
+        jar="/Users/sandeeprana/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.1/support-annotations-22.2.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
+        <dex dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/support-annotations-22.2.1-fa1c23155617a185624a006b6bbbd2cefc7338a4.jar" />
     </item>
     <item
-        jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-nearby/7.5.0/jars/classes.jar"
-        jumboMode="false" revision="22.0.1" sha1="6440e5e5cfe368f9bff3c537fb8988048069cb33">
-        <dex
-            dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-defa336d09ec60185ba2a2fb40ced73688e616d9.jar" />
-    </item>
-    <item
-        jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/7.5.0/jars/classes.jar"
-        jumboMode="false" revision="22.0.1" sha1="29ebc7e04d877062317c8cc0e68b20f0c1fcda66">
-        <dex
-            dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-280d943cc3ee815de8db1d20cc49c144ed558601.jar" />
+        jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="6836d188602ec5382d1967c58b00960eb8ff8773">
+        <dex dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-18dffbc89dc5e7a4d2064adcd96279ee43e6a506.jar" />
     </item>
     <item
         jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.github.bluejamesbond/textjustify-android/2.1.0/jars/classes.jar"
-        jumboMode="false" revision="22.0.1" sha1="9e3ac75a5e3f8ef059c7766dc9640e0487e32749">
-        <dex
-            dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-c49d7b171528ade023d06b3b522490d40ca09e19.jar" />
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="9e3ac75a5e3f8ef059c7766dc9640e0487e32749">
+        <dex dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-c49d7b171528ade023d06b3b522490d40ca09e19.jar" />
     </item>
     <item
-        jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/7.5.0/jars/classes.jar"
-        jumboMode="false" revision="22.0.1" sha1="8e3a972f28b8bae817e382257ba177a31bcadbbc">
-        <dex
-            dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-86c7269a12593b7cb20bb0d178bb324f9fe2317c.jar" />
+        jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="06a42becc33232ec0ee125161da68c1829c9f8fd">
+        <dex dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-d0d63a4603adfb86222ab60f92cd98a55fc53867.jar" />
+    </item>
+    <item
+        jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="f8efd0096475e0daf054267b61544e10dc776503">
+        <dex dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-e794612fe5cf3a16570899372b2a743a2d3cfa7d.jar" />
+    </item>
+    <item
+        jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/jars/libs/internal_impl-22.2.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c471eaaba13ff64f6e0383d1c30a9cdc9a97efeb">
+        <dex dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.1-e91c2c56074ad6fba3daa0232c8d0c8989194ad9.jar" />
+    </item>
+    <item
+        jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appstate/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="68c140702c7242d914655bcb3164d9e8c45b84cb">
+        <dex dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-b24aaae63e72af03395c6d71e5f49b0f489cd479.jar" />
+    </item>
+    <item
+        jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="4486e953d1f35f8ccab098b1dd67146366d5f731">
+        <dex dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-024ba8d843f328e4e81393fd08997a5ae96b87ff.jar" />
+    </item>
+    <item
+        jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="d405025c600055237c171a0bbabaa49d69696573">
+        <dex dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-b2818f2a918b170ac9f7672ad0e9319faded5d6e.jar" />
+    </item>
+    <item
+        jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1e98ef3f124bb7a11f8575f9ff5dfea330b61b6f">
+        <dex dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-01d2e23adfe2caed20d00846464df54a25d3e147.jar" />
+    </item>
+    <item
+        jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1e98ef3f124bb7a11f8575f9ff5dfea330b61b6f">
+        <dex dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-94e855bc88048538e5cd85812652c14be4cef769.jar" />
+    </item>
+    <item
+        jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appinvite/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="63ec6e9f4fe5482a7447d0f3091b8e543a02554c">
+        <dex dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-115e0e5906e5179a126ac8c0796f161f30ec5ba8.jar" />
+    </item>
+    <item
+        jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="29ebc7e04d877062317c8cc0e68b20f0c1fcda66">
+        <dex dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-280d943cc3ee815de8db1d20cc49c144ed558601.jar" />
     </item>
     <item
         jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/22.0.0/jars/libs/internal_impl-22.0.0.jar"
-        jumboMode="false" revision="22.0.1" sha1="ba3df4eb0a630d7de294f0e48d3f9267d279b784">
-        <dex
-            dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/internal_impl-22.0.0-d83a5c797af5fef6578207a7989e997d45b2c5f1.jar" />
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ba3df4eb0a630d7de294f0e48d3f9267d279b784">
+        <dex dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/internal_impl-22.0.0-d83a5c797af5fef6578207a7989e997d45b2c5f1.jar" />
+    </item>
+    <item
+        jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-nearby/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="6440e5e5cfe368f9bff3c537fb8988048069cb33">
+        <dex dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-defa336d09ec60185ba2a2fb40ced73688e616d9.jar" />
+    </item>
+    <item
+        jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="8e3a972f28b8bae817e382257ba177a31bcadbbc">
+        <dex dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-86c7269a12593b7cb20bb0d178bb324f9fe2317c.jar" />
+    </item>
+    <item
+        jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appstate/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="68c140702c7242d914655bcb3164d9e8c45b84cb">
+        <dex dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-3ba2403b69c94f2a6ca348ac727a55060fea659f.jar" />
+    </item>
+    <item
+        jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="f02127a85abd52a2cd526d4c2409f21969f80ee8">
+        <dex dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-7ecdb4e1154b0edbd3eff8845e37c6e5699adbe3.jar" />
+    </item>
+    <item
+        jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-panorama/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ba207be21987c11b37d9f8faa08ed6e722569f30">
+        <dex dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-4f1b2f445c5d1c4793d2fbb6f2941d6e55fcd3a6.jar" />
+    </item>
+    <item
+        jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="4486e953d1f35f8ccab098b1dd67146366d5f731">
+        <dex dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-62508146db4c7b50bd4862ded4c0d4d9f0ebe75d.jar" />
+    </item>
+    <item
+        jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appinvite/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="63ec6e9f4fe5482a7447d0f3091b8e543a02554c">
+        <dex dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-d714e0bbce3a5b69c7145f69461f30188e5b00c7.jar" />
+    </item>
+    <item
+        jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="8d736fefa22d896e84a268354b3ed48a42663150">
+        <dex dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-c2d07e21a5366e7130f96cec47db361bd9507632.jar" />
+    </item>
+    <item
+        jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/22.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a1372c17fccacca753d3951d3ad820571cbce075">
+        <dex dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-994242964bb7143cf8cf94c272d56575e838cae9.jar" />
+    </item>
+    <item
+        jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="272bc5d7063f24bc3a33ea1d318cde8f31f5ec4c">
+        <dex dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-4db3efd758a8cc37a264e45842c1c518434742a9.jar" />
+    </item>
+    <item
+        jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a78183f30e769a98ab4820794f597763088d3065">
+        <dex dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-b24dc9b7e15f4d0c5c6b19be4022bdd21075aa05.jar" />
+    </item>
+    <item
+        jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="f02127a85abd52a2cd526d4c2409f21969f80ee8">
+        <dex dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-577de7fffd73f6b2ea99fce6a8b625e97e039ef0.jar" />
+    </item>
+    <item
+        jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-fitness/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a172852a35ff919e85b9b7f14bbc15c5bee25520">
+        <dex dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-19d067aded3cbab4efa65f7b00f80dba6a35c65a.jar" />
+    </item>
+    <item
+        jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/22.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a1372c17fccacca753d3951d3ad820571cbce075">
+        <dex dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-91ade743c0d1c242ab3a7f68a5cfd70fafd2bbf4.jar" />
+    </item>
+    <item
+        jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/22.0.0/jars/libs/internal_impl-22.0.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ba3df4eb0a630d7de294f0e48d3f9267d279b784">
+        <dex dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/internal_impl-22.0.0-af4be07d48326660d88a463321b499a57c4f1c88.jar" />
+    </item>
+    <item
+        jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-safetynet/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1a6411087ab88ce5542f593e63a2752b6b0d6f1a">
+        <dex dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-89852f6c6a337ec49a35ad6b8482fc0288363e1e.jar" />
+    </item>
+    <item
+        jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="69dd177337ead693c408c8dddc9546bb6f1244fa">
+        <dex dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-42df58a595b9202802c0a814225d829239ae4cae.jar" />
+    </item>
+    <item
+        jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-nearby/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="6440e5e5cfe368f9bff3c537fb8988048069cb33">
+        <dex dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-b85b441c2967eba2c2929fe53f3c95451fb0fabe.jar" />
+    </item>
+    <item
+        jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-safetynet/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1a6411087ab88ce5542f593e63a2752b6b0d6f1a">
+        <dex dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-dfe8e5b1f12a1432b1df9b26ac89d2e6ab9d670d.jar" />
+    </item>
+    <item
+        jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-fitness/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a172852a35ff919e85b9b7f14bbc15c5bee25520">
+        <dex dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-339be7a422a7c25c9a078749a099fa1d9e194358.jar" />
+    </item>
+    <item
+        jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-panorama/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ba207be21987c11b37d9f8faa08ed6e722569f30">
+        <dex dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-21fa00ce1a2565b491d79d674001588c34498b80.jar" />
+    </item>
+    <item
+        jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="d405025c600055237c171a0bbabaa49d69696573">
+        <dex dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-5f3dbed0bac951199a487cededb5245cf412a0d7.jar" />
+    </item>
+    <item
+        jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="8e3a972f28b8bae817e382257ba177a31bcadbbc">
+        <dex dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-90bbc67a712a70bbf1005cdc0d398617da713286.jar" />
+    </item>
+    <item
+        jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="f8efd0096475e0daf054267b61544e10dc776503">
+        <dex dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-a68867d2c04da21701f6a3c5c44a9ab6a5644956.jar" />
+    </item>
+    <item
+        jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="69dd177337ead693c408c8dddc9546bb6f1244fa">
+        <dex dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-9dfef35d0fcfde367424040ef72f08690bb4184c.jar" />
+    </item>
+    <item
+        jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="e7b35244f50663b3f8d150714bca9ecd7a290da1">
+        <dex dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-c1c0558810cd83b2a23de70dc6f3f770a630ae48.jar" />
+    </item>
+    <item
+        jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="272bc5d7063f24bc3a33ea1d318cde8f31f5ec4c">
+        <dex dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-e8ca2484fe8c2b765b6b455b7a541f5971e641d8.jar" />
+    </item>
+    <item
+        jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-drive/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="f44d03c138cb6488fdbaa65e3a7e5878861a56d8">
+        <dex dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-3ff58d5165df9420512ef4c9c6e78a3743d968ce.jar" />
+    </item>
+    <item
+        jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="6836d188602ec5382d1967c58b00960eb8ff8773">
+        <dex dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-dfd7070eacc97fbfdf98f77518a45290208b4152.jar" />
+    </item>
+    <item
+        jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-games/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="02bac2dc792d78241077861566f2c82da955e7fa">
+        <dex dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-5c3b7ff3cff7eee272d6ae91a7924ca9fa48de82.jar" />
+    </item>
+    <item
+        jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-drive/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="f44d03c138cb6488fdbaa65e3a7e5878861a56d8">
+        <dex dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-68f36d503626727dba30f0f0b82d4e97c27c6f9f.jar" />
+    </item>
+    <item
+        jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a78183f30e769a98ab4820794f597763088d3065">
+        <dex dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-df02b2d71d4d3c613416ec2d361313cf95354063.jar" />
+    </item>
+    <item
+        jar="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="29ebc7e04d877062317c8cc0e68b20f0c1fcda66">
+        <dex dex="/Users/sandeeprana/StudioProjects/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-6b5dda3edd767a5143ffacf5afad7ddc3e4fa66d.jar" />
+    </item>
+    <item
+        jar="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="06a42becc33232ec0ee125161da68c1829c9f8fd">
+        <dex dex="/Users/sandeeprana/Documents/Laundry/workspace/workspace/SpotMyLaundry2/app/build/intermediates/pre-dexed/debug/classes-a0177093665ed995f782c5ddc4e26b0ed1d6f9b9.jar" />
     </item>
 
 </items>

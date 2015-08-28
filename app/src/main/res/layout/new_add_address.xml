@@ -2,7 +2,7 @@
     android:id="@+id/main_rel"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bgcolor">
+    android:background="@color/white">
 
     <ListView
         android:id="@+id/listView_laundry1"
@@ -18,13 +18,15 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="#d3d3d3"
+        android:background="@color/white"
         android:paddingBottom="10dp"
         android:paddingTop="10dp">
 
         <Button
+            android:drawableLeft="@android:drawable/ic_input_add"
             android:id="@+id/button1"
-            android:layout_width="fill_parent"
+            android:paddingRight="10dp"
+            android:layout_width="wrap_content"
             android:layout_height="33dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
