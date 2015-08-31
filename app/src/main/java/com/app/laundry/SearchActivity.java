@@ -210,7 +210,7 @@ public class SearchActivity extends ActionBarActivity {
         listView_laundry.setAdapter(list_ed);
 
         listView_laundry.setDivider(getResources().getDrawable(R.drawable.divider));
-        listView_laundry.setDividerHeight(3);
+        listView_laundry.setDividerHeight(1);
 
 
         imageLoader = new ImageLoader(SearchActivity.this

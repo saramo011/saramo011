@@ -80,6 +80,7 @@ public class laundryDetailActivity extends ActionBarActivity {
         bar.setDisplayHomeAsUpEnabled(true);
         bar.setHomeButtonEnabled(true);
 
+
         Intent intent = getIntent();
         laundryId = intent.getExtras().getString("LaundryID");
         //new loginAccess().execute();

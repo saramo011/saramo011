@@ -89,7 +89,6 @@ public class BaseFragmentActivity extends ActionBarActivity {
                         mode.finish();
                     }
 
-
                 }
             });
             mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {

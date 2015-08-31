@@ -24,6 +24,7 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import com.app.laundry.Config;
+import com.app.laundry.DealsIntermediateActivity;
 import com.app.laundry.R;
 import com.app.laundry.json.JGetParsor;
 import com.app.laundry.laundryDetailActivity;
@@ -146,10 +147,25 @@ public class DealsFragment extends Fragment implements OnItemClickListener {
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(laundry_id));
             startActivity(intent);
         } else {
-            Intent intent = new Intent(getActivity(), laundryDetailActivity.class);
+            HashMap<String, String> hashmap = new HashMap<String, String>();
+            hashmap=all_list1.get(position);
+
+            Intent intent = new Intent(getActivity(), DealsIntermediateActivity.class);
             intent.putExtra("LaundryID", laundry_id);
             intent.putExtra("LaundryName", laundry_name);
+            intent.putExtra("deal_id",hashmap.get("deal_id"));
+            intent.putExtra("deal_title",hashmap.get("deal_title"));
+            intent.putExtra("deal_text",hashmap.get("laundry_offer"));
+            intent.putExtra("deal_image_url",hashmap.get("deal_image_url"));
+            intent.putExtra("deal_address",hashmap.get("deal_address"));
+            intent.putExtra("lat",hashmap.get("lat"));
+            intent.putExtra("log",hashmap.get("log"));
+
+
+
+
             startActivity(intent);
+
             getActivity().overridePendingTransition(R.anim.right_in, R.anim.left_out);
         }
     }
@@ -248,13 +264,49 @@ public class DealsFragment extends Fragment implements OnItemClickListener {
                         JSONObject jo = list_array.getJSONObject(i);
                         String laundry_name = jo.getString("LaundryName");
                         String laundry_address = jo.getString("LaundryAddress");
-                        String laundry_offer = jo.getString("DealText");
                         String laundry_id = jo.getString("LaundryID");
+
+                        String dealId=jo.getString("DealID");
+                        String dealTitle=jo.getString("DealTitle");
+                        String laundry_offer_dealText = jo.getString("DealText");
+                        String dealImageURl=jo.getString("DealImage");
+                        String lat=jo.getString("LaundryLat");
+                        String log=jo.getString("LaundryLong");
+
+
+
+                        String address = "<b>Address:</b><br>";
+                        if (!jo.getString("LaundryAddress").equals(""))
+                            address = address + jo.getString("LaundryAddress");
+                        if (!address.equals("")) {
+                            address = address + "<br>";
+                        }
+
+                        if (!jo.getString("LaundryCity").equals(""))
+                            address = address + jo.getString("LaundryCity") + ", ";
+
+                        if (!address.equals("") && !jo.getString("LaundryZipCode").equals("")) {
+                            address = address + "Zip code: ";
+                        }
+                        if (!jo.getString("LaundryZipCode").equals(""))
+                            address = address + jo.getString("LaundryZipCode") + "<br>";
+
+
+
 
                         map1.put("laundry_name", laundry_name);
                         map1.put("laundry_address", laundry_address);
-                        map1.put("laundry_offer", laundry_offer);
+                        map1.put("laundry_offer", laundry_offer_dealText);
                         map1.put("laundry_id", laundry_id);
+
+                        map1.put("deal_title",dealTitle);
+                        map1.put("deal_id",dealId);
+                        map1.put("deal_image_url",dealImageURl);
+                        map1.put("deal_address",address);
+                        map1.put("lat",lat);
+                        map1.put("log",log);
+
+
 
                         all_list1.add(map1);
                     }
@@ -265,7 +317,7 @@ public class DealsFragment extends Fragment implements OnItemClickListener {
                 Config.deals_json = null;
             }
 
-            ////////////////////////////////////////////
+
 
             JSONObject json1 = null;
             if (Config.other_deals_json == null)

@@ -62,4 +62,53 @@ public class Config {
     public static String country = "";
     public static String usertype = "";
     static Boolean isBookingService = false;
+
+    /**
+     * This class will be used asa a temporary class.
+     * while going from deals list to Deals page
+     * 'l' is nothing but the prefix to get immediate reference just by typing char l
+     * author "Sandeep Rana"
+     */
+
+    static class LaundryDeals{
+        public static String lID;
+        public static String lName;
+        public static String lAddress;
+        public static String lCity;
+        public static String lStateID;
+        public static String lState;
+        public static String lCountryID;
+        public static String lCountry;
+        public static String lZipcode;
+        public static String lOwner;
+        public static String lEmail;
+        public static String lPhone1;
+        public static String lPhone2;
+        public static String lMobile1;
+        public static String lMobile2;
+        public static String lCallPreference;
+        public static String lWebsite;
+        public static String lImageUrl;
+        public static String lLat;
+        public static String lLong;
+        public static String lCreatedBy;
+        public static String lCreatedOn;
+        public static String lModifiedON;
+        public static String lWorking;
+        public static String lDealID;
+        public static String lDealTitle;
+        public static String lDealType;
+        public static String lDealText;
+        public static String lDealImage;
+        public static String lRedirectURl;
+        public static String lDisplayOnHome;
+        public static String lHomeStartTime;
+        public static String lHomeEndTime;
+        public static String lDisplayOnDeal;
+        public static String lDealStartTime;
+        public static String lDealEndTime;
+        public static String lLive;
+
+
+    }
 }

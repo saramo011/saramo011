@@ -17,6 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.app.laundry.Config;
 import com.app.laundry.R;
@@ -169,6 +170,9 @@ public class New_Hometab extends Fragment {
                         getAllAddresses();
                         loading_flag = true;
                     }
+                }
+                else {
+//                    Toast.makeText(getActivity().getApplicationContext(),"No offer in bucket",Toast.LENGTH_SHORT).show();
                 }
 
                 if (json_new_laundry != null) {

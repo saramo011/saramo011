@@ -116,9 +116,17 @@
             android:alwaysRetainTaskState="true"
             android:screenOrientation="portrait" />
         <activity
-            android:theme="@style/AlertDialog.AppCompat"
             android:name=".DialogCustom"
-            android:label="@string/title_activity_dialog_custom" >
+            android:label="@string/title_activity_dialog_custom"
+            android:theme="@style/AlertDialog.AppCompat" >
+        </activity>
+        <activity
+            android:name=".DetailedDeal"
+            android:label="@string/title_activity_detailed_deal" >
+        </activity>
+        <activity
+            android:name=".DealsIntermediateActivity"
+            android:label="@string/title_activity_deals_intermediate" >
         </activity>
     </application>
 

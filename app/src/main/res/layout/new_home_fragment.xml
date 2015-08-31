@@ -123,7 +123,7 @@
         android:layout_below="@+id/offerType"
         android:layout_marginTop="2dp"
         android:divider="#00000000"
-        android:dividerHeight="2dp">
+        android:dividerHeight="1dp">
 
     </ListView>
 

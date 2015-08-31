@@ -66,4 +66,6 @@
 
     <color name="text_color_grey">#777777</color>
     <color name="text_color_grey_dark">#878787</color>
+    <color name="bg_deal_title">#77000000</color>
+    <color name="alfa_white">#aaffffff</color>
 </resources>
