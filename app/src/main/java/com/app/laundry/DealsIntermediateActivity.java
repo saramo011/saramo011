@@ -46,11 +46,9 @@ public class DealsIntermediateActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detailed_deal);
-
+        getSupportActionBar().setTitle("Claim Deal");
         Toast.makeText(getApplicationContext(), "Claim Order", Toast.LENGTH_SHORT).show();
-
         Intent intent=getIntent();
-
         lID=intent.getStringExtra("LaundryID");
         lName=intent.getStringExtra("LaundryName");
         dId=intent.getStringExtra("deal_id");

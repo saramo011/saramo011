@@ -161,16 +161,15 @@ public class DealsFragment extends Fragment implements OnItemClickListener {
             intent.putExtra("lat",hashmap.get("lat"));
             intent.putExtra("log",hashmap.get("log"));
 
-
-
-
             startActivity(intent);
 
             getActivity().overridePendingTransition(R.anim.right_in, R.anim.left_out);
         }
     }
 
-    private void getBanner() {
+    private void getBanner()
+    {
+
         imageLoader = new ImageLoader(mContext);
         json = null;
         final Thread image_url = new Thread() {
@@ -255,6 +254,7 @@ public class DealsFragment extends Fragment implements OnItemClickListener {
 
             try {
                 int success = json.getInt("status");
+
                 if (success == 200) {
                     check = "Success";
                     JSONArray list_array = json.getJSONArray("data");
@@ -339,6 +339,7 @@ public class DealsFragment extends Fragment implements OnItemClickListener {
                         String laundry_offer = jo.getString("Deal_description");
                         String laundry_id = jo.getString("Deal_link");
 
+
                         map2.put("laundry_name", laundry_name);
                         map2.put("laundry_address", laundry_address);
                         map2.put("laundry_offer", laundry_offer);
@@ -359,8 +360,10 @@ public class DealsFragment extends Fragment implements OnItemClickListener {
         protected void onPostExecute(String file_url) {
             if (all_list1.size() > 0)
                 ll.setVisibility(View.VISIBLE);
+
             if (mContext == null)
                 mContext = getActivity();
+
             ListAdapter adapter1 = new SimpleAdapter(mContext, all_list1, R.layout.deal_list_row, new String[]{"laundry_name", "laundry_address", "laundry_offer", "laundry_id"}, new int[]{R.id.laundry_name, R.id.laundry_address, R.id.laundry_offer, R.id.laundry_id});
             listView1.setAdapter(adapter1);
             setListViewHeightBasedOnChildren(listView1);
