@@ -365,22 +365,6 @@ public class Manage_Address extends Fragment {
             if (convertView == null || convertView.getTag() == null) {
                 convertView = mInflater.inflate(R.layout.new_add_address_items, null);
                 holder = new ViewHolder();
-
-//                holder.AddressID = (TextView) convertView.findViewById(R.id.AddressID);
-//                holder.UserID = (TextView) convertView.findViewById(R.id.UserID);
-//                holder.AddressName = (TextView) convertView.findViewById(R.id.AddressName);
-//                holder.CityID = (TextView) convertView.findViewById(R.id.CityID);
-//                holder.CountryID = (TextView) convertView.findViewById(R.id.CountryID);
-
-//                holder.ContactNo = (TextView) convertView.findViewById(R.id.ContactNo);
-//                holder.AddressLine1 = (TextView) convertView.findViewById(R.id.AddressLine1);
-//                holder.AddressLine2 = (TextView) convertView.findViewById(R.id.AddressLine2);
-//                holder.AddressLine3 = (TextView) convertView.findViewById(R.id.AddressLine3);
-//                holder.countryName = (TextView) convertView.findViewById(R.id.countryName);
-//                holder.CityName = (TextView) convertView.findViewById(R.id.CityName);
-
-//                holder.DefaultAddress = (TextView) convertView.findViewById(R.id.DefaultAddress);
-
                 holder.textView1 = (TextView) convertView.findViewById(R.id.textView1);
             /*	holder.textView4 = (TextView)convertView.findViewById(R.id.textView4);
                 holder.textView2 = (TextView)convertView.findViewById(R.id.textView2);
@@ -393,21 +377,6 @@ public class Manage_Address extends Fragment {
             } else {
                 holder = (ViewHolder) convertView.getTag();
             }
-
-//            holder.AddressID.setText(array_list.get(position).get("AddressID"));
-//            holder.UserID.setText(array_list.get(position).get("UserID"));
-//            holder.AddressName.setText(array_list.get(position).get("AddressName"));
-//            holder.CityID.setText(array_list.get(position).get("CityID"));
-//            holder.CountryID.setText(array_list.get(position).get("CountryID"));
-
-//            holder.ContactNo.setText(array_list.get(position).get("ContactNo"));
-//            holder.AddressLine1.setText(array_list.get(position).get("AddressLine1"));
-//            holder.AddressLine2.setText(array_list.get(position).get("AddressLine2"));
-//            holder.AddressLine3.setText(array_list.get(position).get("AddressLine3"));
-//            holder.countryName.setText(array_list.get(position).get("countryName"));
-//            holder.CityName.setText(array_list.get(position).get("CityName"));
-//            holder.DefaultAddress.setText(array_list.get(position).get("DefaultAddress"));
-
             if (array_list.get(position).get("DefaultAddress").equals("0")) {
                 holder.imageView1.setImageResource(R.drawable.off);
             } else {
@@ -416,8 +385,8 @@ public class Manage_Address extends Fragment {
 //            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             String whitespace = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 
-            String full_address = "<br>Address :<br><b><font color=\"#208da9\"><i>" + whitespace + whitespace +                  //Address Name :
-                    array_list.get(position).get("AddressName") + "</i><br>" + whitespace + whitespace +
+            String full_address = "<br>"+array_list.get(position).get("AddressName")+" :<br><b><font color=\"#208da9\">"+//Address Name :
+                    whitespace + whitespace +
                     array_list.get(position).get("AddressLine1") + " <br>" + whitespace + whitespace +
                     array_list.get(position).get("AddressLine2") + " <br>" + whitespace + whitespace +
                     array_list.get(position).get("AddressLine3") + "<br>" + whitespace + whitespace +

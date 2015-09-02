@@ -19,7 +19,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.app.laundry.ChooseOnlineOfflineActivity;
 import com.app.laundry.Config;
+import com.app.laundry.DealsIntermediateActivity;
 import com.app.laundry.R;
 import com.app.laundry.json.JGetParsor;
 import com.app.laundry.laundryDetailActivity;
@@ -135,7 +137,7 @@ public class New_Hometab extends Fragment {
                 json_new_laundry = null;
 
                 if (Config.latest_offers_json == null)
-                    json_latest_offer = j.makeHttpRequest(Config.latest_offers_home, "POST", params);
+                    json_latest_offer = j.makeHttpRequest(Config.Deals_Url, "POST", params);
                 else
                     json_latest_offer = Config.latest_offers_json;
 
@@ -159,6 +161,34 @@ public class New_Hometab extends Fragment {
                                 hashmap.put("DealTitle", j_obj.getString("DealTitle"));
                                 hashmap.put("DealText", j_obj.getString("DealText"));
                                 hashmap.put("DealImage", j_obj.getString("DealImage"));
+
+                                String address = "<b>Address:</b><br>";
+                                if (!j_obj.getString("LaundryAddress").equals(""))
+                                    address = address + j_obj.getString("LaundryAddress");
+                                if (!address.equals("")) {
+                                    address = address + "<br>";
+                                }
+
+                                if (!j_obj.getString("LaundryCity").equals(""))
+                                    address = address + j_obj.getString("LaundryCity") + ", ";
+
+                                if (!address.equals("") && !j_obj.getString("LaundryZipCode").equals("")) {
+                                    address = address + "Zip code: ";
+                                }
+                                if (!j_obj.getString("LaundryZipCode").equals(""))
+                                    address = address + j_obj.getString("LaundryZipCode") + "<br>";
+
+
+
+                                hashmap.put("DealTitle",j_obj.getString("DealTitle"));
+                                hashmap.put("DealID",j_obj.getString("DealID"));
+                                hashmap.put("DealImage",j_obj.getString("DealImage"));
+                                hashmap.put("DealAddress",address);
+                                hashmap.put("LaundryLat",j_obj.getString("LaundryLat"));
+                                hashmap.put("LaundryLong",j_obj.getString("LaundryLong"));
+
+
+
 
                                 array_list.add(hashmap);
 
@@ -483,10 +513,29 @@ public class New_Hometab extends Fragment {
 
                 @Override
                 public void onClick(View v) {
-                    // TODO Auto-generated method stub
-                    Intent intent = new Intent(getActivity(), laundryDetailActivity.class);
+
+                    Intent intent = new Intent(getActivity(), DealsIntermediateActivity.class);
+
                     intent.putExtra("LaundryID", array_list.get(position).get("LaundryID"));
                     intent.putExtra("LaundryName", array_list.get(position).get("DealTitle"));
+                    intent.putExtra("deal_id",array_list.get(position).get("DealID"));
+                    intent.putExtra("deal_title",array_list.get(position).get("DealTitle"));
+                    intent.putExtra("deal_text",array_list.get(position).get("DealText"));
+                    intent.putExtra("deal_image_url",array_list.get(position).get("DealImage"));
+
+
+
+
+
+
+
+                    intent.putExtra("deal_address",array_list.get(position).get("DealAddress"));
+
+                    intent.putExtra("lat", array_list.get(position).get("LaundryLat"));
+                    intent.putExtra("log", array_list.get(position).get("LaundryLong"));
+
+
+
                     startActivity(intent);
                     getActivity().overridePendingTransition(R.anim.right_in, R.anim.left_out);
                 }
@@ -499,7 +548,7 @@ public class New_Hometab extends Fragment {
 
                 @Override
                 public void onClick(View v) {
-                    // TODO Auto-generated method stub
+
                     Intent intent = new Intent(getActivity(), laundryDetailActivity.class);
                     intent.putExtra("LaundryID", array_list1.get(position).get("LaundryID"));
                     intent.putExtra("LaundryName", array_list1.get(position).get("LaundryName"));

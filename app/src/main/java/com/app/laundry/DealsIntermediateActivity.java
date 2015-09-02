@@ -1,10 +1,13 @@
 package com.app.laundry;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.PersistableBundle;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
@@ -49,6 +52,7 @@ public class DealsIntermediateActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Claim Deal");
         Toast.makeText(getApplicationContext(), "Claim Order", Toast.LENGTH_SHORT).show();
         Intent intent=getIntent();
+
         lID=intent.getStringExtra("LaundryID");
         lName=intent.getStringExtra("LaundryName");
         dId=intent.getStringExtra("deal_id");
@@ -58,6 +62,13 @@ public class DealsIntermediateActivity extends AppCompatActivity {
         dAddress=intent.getStringExtra("deal_address");
         lLat=intent.getStringExtra("lat");
         lLog=intent.getStringExtra("log");
+
+        ActionBar bar = getSupportActionBar();
+        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#004765")));
+        bar.setDisplayShowHomeEnabled(true);
+        bar.setDisplayHomeAsUpEnabled(true);
+        bar.setHomeButtonEnabled(true);
+
 
 
         tdTitle= (TextView) findViewById(R.id.deal_text_heading);
@@ -88,18 +99,35 @@ public class DealsIntermediateActivity extends AppCompatActivity {
                 return null;
             }
 
+
+            boolean cancel=false;
+            @Override
+            protected void onCancelled() {
+                super.onCancelled();
+                cancel=true;
+            }
+
             @Override
             protected void onPostExecute(Void aVoid) {
-                if (dImage!=null){
+
+                if (dImage!=null&&!cancel){
                     dImage.setImageDrawable(image);
                     FragmentManager fragmentManager = getSupportFragmentManager();
-                    GoogleMap mMap = ((SupportMapFragment) fragmentManager.findFragmentById(R.id.deal_map)).getMap();
+
+                    SupportMapFragment mMapSupport = ((SupportMapFragment) fragmentManager.findFragmentById(R.id.deal_map));
+
+                    GoogleMap mMap=null;
+                    if (mMapSupport!=null){
+                    mMap=mMapSupport.getMap();
 //                    final LatLng LAUNDARY = new LatLng(Double.parseDouble(lLat), Double.parseDouble(lLog));
-                    final LatLng LAUNDARY = new LatLng(Double.parseDouble(lLat), Double.parseDouble(lLog));
-                    Marker laundary = mMap.addMarker(new MarkerOptions()
-                            .position(LAUNDARY)
-                            .title(lName));
-                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(LAUNDARY, 14));
+                        final LatLng LAUNDARY = new LatLng(Double.parseDouble(lLat), Double.parseDouble(lLog));
+
+                        Marker laundary = mMap.addMarker(new MarkerOptions()
+                                .position(LAUNDARY)
+                                .title(lName));
+                        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(LAUNDARY, 14));
+
+                    }
 
                 }
             }
@@ -120,10 +148,14 @@ public class DealsIntermediateActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
+//        noinspection SimplifiableIfStatement
+        if (id == R.id.direct_to_home) {
+            Intent intent=new Intent(this,BaseFragmentActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+            overridePendingTransition(R.anim.right_in, R.anim.left_out);
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }

@@ -71,7 +71,7 @@
             android:paddingLeft="10dp"
             android:drawableLeft="@drawable/general"
             android:gravity="left|center"
-            android:drawablePadding="10dp"
+            android:drawablePadding="5dp"
             android:id="@+id/button_general"
             android:layout_width="0dp"
             android:layout_height="match_parent"
