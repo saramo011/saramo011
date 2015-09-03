@@ -377,8 +377,7 @@ public class RegisterActivity extends ActionBarActivity {
                                         Config.country = country;
                                         Config.usertype = usertype;
 
-                                        prefs.edit()
-                                                .putString("name", Config.name)
+                                        prefs.edit().putString("name", Config.name)
                                                 .commit();
                                         prefs.edit()
                                                 .putString("userid",

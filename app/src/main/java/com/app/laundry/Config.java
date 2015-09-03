@@ -35,18 +35,20 @@ public class Config {
     public static ArrayList<String> Service_Array = new ArrayList<String>();
     public static ArrayList<String> Amount_Array = new ArrayList<String>();
     public static String Ratecard_Url = website + "webservice/get/ratecard";//Rate list
-    public static String Others_Deals_Url = "http://laundry.znsoftech.com/others_deals.php";
+//    public static String Others_Deals_Url = "http://laundry.znsoftech.com/others_deals.php";
     //public static ArrayList<String,String,String> priceArray=new ArrayList<String,String,String>();
     public static String Login_Url = website + "site/validate_user";
-    public static String Register_Url = "http://laundry.znsoftech.com/register_user.php";
+//    public static String Register_Url = "http://laundry.znsoftech.com/register_user.php";
+    public static String Register_Url =website + "site/register_user";
     public static String Get_All_Laundry = website + "webservice/get/laundries/tab/%s";
     public static String Get_Laundry_Detail_Url = website + "webservice/get/laundry/";
     public static String Bookmark_Url = website + "webservice/set/bookmark";
     public static String Feedback_Url = website + "webservice/set/feedback";
     public static String Review_Url = website + "webservice/get/feedback/laundryid/";
     public static String Deals_Url = website + "webservice/get/deals";
-    public static String Order_Offline_Url = "http://laundry.znsoftech.com/order_offline.php";
-    public static String Order_Online_Url = "http://laundry.znsoftech.com/yii/webservice/set/order";
+    public static String Order_Offline_Url = website+"/webservice/set/order";
+//    public static String Order_Offline_Url = "http://laundry.znsoftech.com/order_offline.php";
+    public static String Order_Online_Url = website+"/webservice/set/order";
 
     public static String City_Url = website + "webservice/get/cities";
     public static String latitude = "";
@@ -68,47 +70,48 @@ public class Config {
      * while going from deals list to Deals page
      * 'l' is nothing but the prefix to get immediate reference just by typing char l
      * author "Sandeep Rana"
+     *
      */
 
-    static class LaundryDeals{
-        public static String lID;
-        public static String lName;
-        public static String lAddress;
-        public static String lCity;
-        public static String lStateID;
-        public static String lState;
-        public static String lCountryID;
-        public static String lCountry;
-        public static String lZipcode;
-        public static String lOwner;
-        public static String lEmail;
-        public static String lPhone1;
-        public static String lPhone2;
-        public static String lMobile1;
-        public static String lMobile2;
-        public static String lCallPreference;
-        public static String lWebsite;
-        public static String lImageUrl;
-        public static String lLat;
-        public static String lLong;
-        public static String lCreatedBy;
-        public static String lCreatedOn;
-        public static String lModifiedON;
-        public static String lWorking;
-        public static String lDealID;
-        public static String lDealTitle;
-        public static String lDealType;
-        public static String lDealText;
-        public static String lDealImage;
-        public static String lRedirectURl;
-        public static String lDisplayOnHome;
-        public static String lHomeStartTime;
-        public static String lHomeEndTime;
-        public static String lDisplayOnDeal;
-        public static String lDealStartTime;
-        public static String lDealEndTime;
-        public static String lLive;
-
-
-    }
+//    static class LaundryDeals{
+//        public static String lID;
+//        public static String lName;
+//        public static String lAddress;
+//        public static String lCity;
+//        public static String lStateID;
+//        public static String lState;
+//        public static String lCountryID;
+//        public static String lCountry;
+//        public static String lZipcode;
+//        public static String lOwner;
+//        public static String lEmail;
+//        public static String lPhone1;
+//        public static String lPhone2;
+//        public static String lMobile1;
+//        public static String lMobile2;
+//        public static String lCallPreference;
+//        public static String lWebsite;
+//        public static String lImageUrl;
+//        public static String lLat;
+//        public static String lLong;
+//        public static String lCreatedBy;
+//        public static String lCreatedOn;
+//        public static String lModifiedON;
+//        public static String lWorking;
+//        public static String lDealID;
+//        public static String lDealTitle;
+//        public static String lDealType;
+//        public static String lDealText;
+//        public static String lDealImage;
+//        public static String lRedirectURl;
+//        public static String lDisplayOnHome;
+//        public static String lHomeStartTime;
+//        public static String lHomeEndTime;
+//        public static String lDisplayOnDeal;
+//        public static String lDealStartTime;
+//        public static String lDealEndTime;
+//        public static String lLive;
+//
+//
+//    }
 }
