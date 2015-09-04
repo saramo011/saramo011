@@ -395,39 +395,39 @@ public class DealsFragment extends Fragment implements OnItemClickListener {
              * so have a look
              */
 
-//            if (Config.other_deals_json == null)
-//                json1 = j.makeHttpRequest(Config.Others_Deals_Url, "POST", params);
-//            else
-//                json1 = Config.other_deals_json;
-//
-//            try {
-//                int success = json1.getInt("status");
-//                if (success == 200) {
-//                    check = "Success";
-//                    JSONArray list_array = json1.getJSONArray("data");
-//
-//                    for (int i = 0; i < list_array.length(); i++) {
-//                        HashMap<String, String> map2 = new HashMap<String, String>();
-//                        JSONObject jo = list_array.getJSONObject(i);
-//                        String laundry_name = jo.getString("Deal_title");
-//                        String laundry_address = "";
-//                        String laundry_offer = jo.getString("Deal_description");
-//                        String laundry_id = jo.getString("Deal_link");
-//
-//
-//                        map2.put("laundry_name", laundry_name);
-//                        map2.put("laundry_address", laundry_address);
-//                        map2.put("laundry_offer", laundry_offer);
-//                        map2.put("laundry_id", laundry_id);
-//
-//                        all_list2.add(map2);
-//                    }
-//                    Config.other_deals_json = json1;
-//                }
-//            } catch (JSONException e) {
-//                //e.printStackTrace();
-//                Config.other_deals_json = null;
-//            }
+            if (Config.other_deals_json == null)
+                json1 = j.makeHttpRequest(Config.Others_Deals_Url, "POST", params);
+            else
+                json1 = Config.other_deals_json;
+
+            try {
+                int success = json1.getInt("status");
+                if (success == 200) {
+                    check = "Success";
+                    JSONArray list_array = json1.getJSONArray("data");
+
+                    for (int i = 0; i < list_array.length(); i++) {
+                        HashMap<String, String> map2 = new HashMap<String, String>();
+                        JSONObject jo = list_array.getJSONObject(i);
+                        String laundry_name = jo.getString("Deal_title");
+                        String laundry_address = "";
+                        String laundry_offer = jo.getString("Deal_description");
+                        String laundry_id = jo.getString("Deal_link");
+
+
+                        map2.put("laundry_name", laundry_name);
+                        map2.put("laundry_address", laundry_address);
+                        map2.put("laundry_offer", laundry_offer);
+                        map2.put("laundry_id", laundry_id);
+
+                        all_list2.add(map2);
+                    }
+                    Config.other_deals_json = json1;
+                }
+            } catch (JSONException e) {
+                //e.printStackTrace();
+                Config.other_deals_json = null;
+            }
 
             return check;
         }

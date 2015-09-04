@@ -23,6 +23,7 @@ import com.app.laundry.ChooseOnlineOfflineActivity;
 import com.app.laundry.Config;
 import com.app.laundry.DealsIntermediateActivity;
 import com.app.laundry.R;
+import com.app.laundry.json.DownloadJsonContent;
 import com.app.laundry.json.JGetParsor;
 import com.app.laundry.laundryDetailActivity;
 import com.app.laundry.lazyloading.ImageLoader;
@@ -34,6 +35,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -129,24 +131,62 @@ public class New_Hometab extends Fragment {
 
         new AsyncTask<Void, Void, Void>() {
             List<NameValuePair> params = new ArrayList<NameValuePair>();
-            JGetParsor j = new JGetParsor();
+//            JGetParsor j = new JGetParsor();
 
             @Override
-            protected Void doInBackground(Void... paramsd) {
+            protected Void doInBackground(Void... paramsd)  {
                 json_latest_offer = null;
                 json_new_laundry = null;
 
-                if (Config.latest_offers_json == null)
-                    json_latest_offer = j.makeHttpRequest(Config.Deals_Url, "POST", params);
-                else
+                /**
+                 * @author sandeeprana
+                 * Flush data to remove junk data
+                 */
+//                Config.latest_offers_json=null;
+//                Config.latest_laundries_json=null;
+
+
+                if (Config.latest_offers_json == null){
+
+                    try {
+                        /**
+                         * @author sandeeprana
+                         * @link Deals_Url Requires no parameter so we can download data as it is using DownloadJsonContent.downloadContent
+                         */
+                        json_latest_offer=new JSONObject(DownloadJsonContent.downloadContent(Config.Deals_Url));
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+                else {
                     json_latest_offer = Config.latest_offers_json;
+                }
+//                    json_latest_offer = j.makeHttpRequest(Config.Deals_Url, "POST", params);
+//                else
+//                {
+//                }
 
-                JGetParsor j1 = new JGetParsor();
 
-                if (Config.latest_laundries_json == null)
-                    json_new_laundry = j1.makeHttpRequest(Config.new_laundries_home, "POST", params);
-                else
-                    json_new_laundry = Config.latest_laundries_json;
+
+//                JGetParsor j1 = new JGetParsor();
+
+                if (Config.latest_laundries_json == null){
+                    try {
+                        json_new_laundry=new JSONObject(DownloadJsonContent.downloadContent(Config.new_laundries_home));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }else {
+                    json_new_laundry=Config.latest_laundries_json;
+                }
+//                json_new_laundry = j1.makeHttpRequest(Config.new_laundries_home, "POST", params);
+//                else
+//                    json_new_laundry = Config.latest_laundries_json;
 
                 if (json_latest_offer != null) {
                     try {

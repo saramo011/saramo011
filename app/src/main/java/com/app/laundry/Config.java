@@ -35,7 +35,7 @@ public class Config {
     public static ArrayList<String> Service_Array = new ArrayList<String>();
     public static ArrayList<String> Amount_Array = new ArrayList<String>();
     public static String Ratecard_Url = website + "webservice/get/ratecard";//Rate list
-//    public static String Others_Deals_Url = "http://laundry.znsoftech.com/others_deals.php";
+    public static String Others_Deals_Url = "http://laundry.znsoftech.com/others_deals.php";
     //public static ArrayList<String,String,String> priceArray=new ArrayList<String,String,String>();
     public static String Login_Url = website + "site/validate_user";
 //    public static String Register_Url = "http://laundry.znsoftech.com/register_user.php";
@@ -69,7 +69,7 @@ public class Config {
      * This class will be used asa a temporary class.
      * while going from deals list to Deals page
      * 'l' is nothing but the prefix to get immediate reference just by typing char l
-     * author "Sandeep Rana"
+     * @author sandeeprana
      *
      */
 

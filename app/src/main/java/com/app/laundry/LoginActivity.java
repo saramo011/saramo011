@@ -45,6 +45,10 @@ public class LoginActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        Config.latest_laundries_json=null;
+        Config.latest_offers_json=null;
+
+
         ActionBar bar = getSupportActionBar();
         bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#2196f3")));
         bar.setDisplayShowHomeEnabled(false);
