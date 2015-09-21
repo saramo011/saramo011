@@ -82,7 +82,10 @@
         android:textSize="14sp" />
 
     <TextView
+        android:onClick="forget_password"
         android:padding="5dp"
+        android:clickable="true"
+        android:enabled="true"
         android:text="Forgot password?"
         android:textColor="#0000ff"
         android:layout_alignParentRight="true"

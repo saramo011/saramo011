@@ -337,4 +337,7 @@ public class LoginActivity extends ActionBarActivity {
     }
 
 
+    public void forget_password(View view) {
+        setContentView(R.layout.forget_password);
+    }
 }
